@@ -1,0 +1,40 @@
+body {
+    background: #a2a2a2;
+    -moz-background-size: 100%; /* Firefox 3.6+ */
+    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 100%; /* Opera 9.6+ */
+    background-size: 100%; /* Современные браузеры */
+}
+
+.wrapper {
+
+}
+
+.wrapper .login-form {
+    width: 350px;
+    margin: 10% auto
+}
+
+form {
+    margin: 0;
+}
+
+form .form-actions {
+    padding-bottom: 0;
+    margin-bottom: 10px;
+}
+
+form .help-block {
+    display: none;
+}
+
+body.admin-panel #footer-guard {
+    height: 40px;
+}
+
+body.admin-panel > footer {
+    position: fixed;
+    height: 43px;
+    bottom: 0;
+    width: 100%;
+}
