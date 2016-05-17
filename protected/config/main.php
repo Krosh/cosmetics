@@ -73,12 +73,21 @@ return [
             'class' => 'yupe\components\urlManager\LanguageBehavior'
         ]
     ],
+    'controllerMap' => [
+        'min' => [
+            'class' => 'ext.minScript.controllers.ExtMinScriptController',
+        ]
+
+    ],
     'params' => require __DIR__. '/params.php',
     /**
      * Configuration base components
      * @link http://www.yiiframework.ru/doc/guide/ru/basics.component
      */
     'components' => [
+        'clientScript' => [
+            'class' => 'ext.minScript.components.ExtMinScript',
+        ],
         'viewRenderer' => [
             'class' => 'vendor.yiiext.twig-renderer.ETwigViewRenderer',
             'twigPathAlias' => 'vendor.twig.twig.lib.Twig',
@@ -132,6 +141,7 @@ return [
             'cacheID' => 'cache',
             'useStrictParsing' => true,
             'rules' => [ // Main rules
+                '/min/<action:\\w+>' => '/min/<action>',
                 '/' => '/site/index',
                 // For correct work of installer
                 '/install/default/<action:\w+>' => '/install/default/<action>',
