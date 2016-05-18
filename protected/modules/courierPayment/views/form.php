@@ -6,15 +6,9 @@
  * @var array $settings
  */
 
-$login = $settings['login'];
-$password = $settings['password1'];
-
-$description = Yii::t('RobokassaModule.robokassa', 'Payment order #{id} on "{site}" website', [
-    '{id}' => $id,
-    '{site}' => Yii::app()->getModule('yupe')->siteName
-]);
+$idModule = $settings['moduleId'];
 ?>
 
-<?= CHtml::form("http://www.myyupe.ru/payment/process/3") ?>
+<?= CHtml::form("/payment/process/".$idModule) ?>
 <?= CHtml::hiddenField('idOrder', $id) ?>
 <?= CHtml::endForm() ?>

@@ -101,7 +101,7 @@ $this->breadcrumbs = [
                     </div>
                 <?php endforeach; ?>
             </div>
-            <div class="order-box__bottom">
+            <div class="order-box__bottom order-box__bottom_left">
                 <div class="cart-box__subtotal">
                     Итого: &nbsp;<span id="cart-total-product-count"><?= Yii::app()->cart->getCount(); ?></span>&nbsp;
                     товар(а)

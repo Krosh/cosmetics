@@ -13,7 +13,7 @@ $this->breadcrumbs = [
     Yii::t('ArambaModule.aramba', 'Index'),
 ];
 
-$this->pageTitle = Yii::t('ArambaModule.aramba', 'aramba - index');
+$this->pageTitle = Yii::t('ArambaModule.aramba', 'aramba');
 
 $this->menu = $this->getModule()->getNavigation();;
 ?>

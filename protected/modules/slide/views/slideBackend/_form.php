@@ -54,7 +54,7 @@ $form = $this->beginWidget(
             <div class="col-sm-12">
                 <?php
                 $pages = Page::model()->published()->findAll();
-                $arr = ["maininfo" => 'Главная страница'];
+                $arr = ["mainpage" => 'Главная страница'];
                 foreach ($pages as $item)
                 {
                     $arr[$item->slug] = $item->title;

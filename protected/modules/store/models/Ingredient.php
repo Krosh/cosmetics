@@ -79,7 +79,10 @@ class Ingredient extends yupe\models\YModel
     public function attributeLabels()
     {
         return [
-
+            'name' => 'Название',
+            'image'=> 'Изображение',
+            'short_description' => 'Описание',
+            'slug' => 'Служебное название'
         ];
     }
 

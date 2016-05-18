@@ -134,7 +134,7 @@ return [
     'in stock' => 'в наличии',
     'Increase in %' => 'Увеличить на %',
     'Increase in the amount of' => 'Увеличить на сумму',
-    'Into cart' => 'В корзину',
+    'Into cart' => 'Купить',
     'Items per page' => 'Товаров на странице',
     'kg' => 'кг',
     'Language was not found!' => 'Язык не найден!',

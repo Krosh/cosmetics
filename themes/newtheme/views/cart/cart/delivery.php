@@ -113,42 +113,6 @@ $this->breadcrumbs = [
                     </div>
                 <?php endforeach; ?>
             </div>
-            <?php if (false && Yii::app()->hasModule('coupon')): ?>
-                <div class="order-box__coupon">
-                    <div class="coupon-box">
-                        <span class="coupon-box__label">
-                            <?= Yii::t("CartModule.cart", "Coupons"); ?>
-                        </span>
-                        <input id="coupon-code" class="input coupon-box__input">
-                        <button class="btn btn_primary coupon-box__button" type="button"
-                                id="add-coupon-code"><?= Yii::t("CartModule.cart", "Add coupon"); ?></button>
-                        <div class="row fast-order__inputs">
-                            <?php foreach ($coupons as $coupon): ?>
-                                <div class="coupon">
-                                    <span class="label" title="<?= $coupon->name; ?>">
-                                        <?= $coupon->name; ?>
-                                        <button type="button" class="btn btn_primary close"
-                                                data-dismiss="alert">&times;</button>
-                                        <?= CHtml::hiddenField(
-                                            "Order[couponCodes][{$coupon->code}]",
-                                            $coupon->code,
-                                            [
-                                                'class' => 'coupon-input',
-                                                'data-code' => $coupon->code,
-                                                'data-name' => $coupon->name,
-                                                'data-value' => $coupon->value,
-                                                'data-type' => $coupon->type,
-                                                'data-min-order-price' => $coupon->min_order_price,
-                                                'data-free-shipping' => $coupon->free_shipping,
-                                            ]
-                                        ); ?>
-                                    </span>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-                    </div>
-                </div>
-            <?php endif; ?>
             <?php if (!empty($deliveryTypes)): ?>
                 <div class="order-box">
                     <div class="order-box-delivery__address">
@@ -325,11 +289,16 @@ $this->breadcrumbs = [
                                                 <div class="rich-radio-body__content">
                                                     <div class="rich-radio-body__heading">
                                                         <span class="rich-radio-body__title">
+                                                            <?php if ($delivery->id != 2): ?>
                                                             <?= $delivery->name; ?>
                                                             - <?= $delivery->price; ?> <?= Yii::t(
                                                                 "CartModule.cart",
                                                                 "RUB"
                                                             ); ?>
+                                                            <?php else: ?>
+                                                            <?= $delivery->name; ?>
+                                                            - согласно тарифам <a style="color: blue; text-decoration: underline" href = "http://www.pochta.ru">www.pochta.ru</a>
+                                                            <?php endif; ?>
                                                         </span>
                                                     </div>
                                                     <div
@@ -343,13 +312,53 @@ $this->breadcrumbs = [
                         </div>
                     </div>
                 </div>
+                <div class="order-box__free-cost-message">
+                    При заказе от 5000 доставка бесплатно
+                </div>
+                <?php if (Yii::app()->hasModule('coupon')): ?>
+                    <div class="order-box__coupon">
+                        <div class="coupon-box">
+                        <span class="coupon-box__label">
+                            <?= Yii::t("CartModule.cart", "Coupons"); ?>
+                        </span>
+                            <input id="coupon-code" class="input coupon-box__input">
+                            <button class="btn btn_primary coupon-box__button" type="button"
+                                    id="add-coupon-code"><?= Yii::t("CartModule.cart", "Add coupon"); ?></button>
+                            <div class="row fast-order__inputs">
+                                <?php foreach ($coupons as $coupon): ?>
+                                    <div class="coupon">
+                                    <span class="label" title="<?= $coupon->name; ?>">
+                                        <?= $coupon->name; ?>
+                                        <button type="button" class="btn btn_primary close"
+                                                data-dismiss="alert">&times;</button>
+                                        <?= CHtml::hiddenField(
+                                            "Order[couponCodes][{$coupon->code}]",
+                                            $coupon->code,
+                                            [
+                                                'class' => 'coupon-input',
+                                                'data-code' => $coupon->code,
+                                                'data-name' => $coupon->name,
+                                                'data-value' => $coupon->value,
+                                                'data-type' => $coupon->type,
+                                                'data-min-order-price' => $coupon->min_order_price,
+                                                'data-free-shipping' => $coupon->free_shipping,
+                                            ]
+                                        ); ?>
+                                    </span>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
+
             <?php else: ?>
                 <div class="alert alert-danger">
                     <?= Yii::t("CartModule.cart", "Delivery method aren't selected! The ordering is impossible!") ?>
                 </div>
             <?php endif; ?>
 
-            <div class="order-box__bottom">
+            <div class="order-box__bottom order-box__bottom_left">
                 <div class="cart-box__subtotal">
                     Итого: &nbsp;<span id="cart-total-product-count"><?= Yii::app()->cart->getCount(); ?></span>&nbsp;
                     товар(а)

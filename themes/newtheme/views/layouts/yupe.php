@@ -67,9 +67,8 @@
             </a>
 
             <div class="header__item header-logo">
-                <div class="header__text">Органическая косметика ручной работы</div>
                 <a href="<?= Yii::app()->createUrl(Yii::app()->hasModule('homepage') ? '/homepage/hp/index' : '/site/index') ?>" class="header__logo-link">
-                    <img src="<?= $this->mainAssets ?>/images/logo_final.png" class="header-logo-image">
+                    <img src="<?= $this->mainAssets ?>/images/logo_final_small.png" class="header-logo-image">
                 </a>
             </div>
             <?php if (Yii::app()->hasModule('cart')): ?>
@@ -122,13 +121,13 @@
             <span class="header__right-item"style = "margin-top: 10px" >
                  <i class="fa fa-envelope fa-fw" style="font-size: 1.2em"></i><a href= "mailto:zakaz@ayaorganic.ru">zakaz@ayaorganic.ru</a>
             </span>
-            <span class="header__right-item"style = "margin-top: 75px" >
+            <span class="header__right-item"style = "margin-top: 10px" >
                 <?php $this->widget('application.modules.store.widgets.SearchProductWidget'); ?>
             </span>
 
         </div>
     </div>
-    <div class="main__navbar" style="margin-top: 20px">
+    <div class="main__navbar" style="margin-top: 5px">
         <div class="navbar">
             <div class="navbar__wrapper grid">
                 <div class="navbar__menu">

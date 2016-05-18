@@ -76,42 +76,48 @@ $this->breadcrumbs = array_merge(
                         </div>
                     </div>
                 <?php endif; ?>
-                <div class="entry__title">
+                <div class="product__title">
                     <h2 class="h2"><?= CHtml::encode($product->name); ?></h2>
                 </div>
                 <?php $slogan = $product->attribute( Attribute::model()->findByAttributes(['name' => "slogan"]) ); ?>
                 <?php if ($slogan != null):?>
-                    <div class="entry__attribute entry__slogan">
-                        <?= CHtml::encode($slogan);?>
+                    <div class="wysiwyg entry__slogan">
+                        <?= $slogan;?>
                     </div>
                 <?php endif; ?>
                 <?php $tip_kozhi = $product->attribute( Attribute::model()->findByAttributes(['name' => "tip-kozhi"]) ); ?>
                 <?php if ($tip_kozhi != null):?>
                     <div class="entry__attribute">
-                        ТИП КОЖИ: <?= CHtml::encode($tip_kozhi);?>
+                        <div class="wysiwyg">
+                            ТИП КОЖИ: <?= $tip_kozhi;?>
+                        </div>
                     </div>
                 <?php endif; ?>
                 <?php $tekstura = $product->attribute( Attribute::model()->findByAttributes(['name' => "tekstura"]) ); ?>
                 <?php if ($tekstura != null):?>
                     <div class="entry__attribute">
-                        ТЕКСТУРА: <?= CHtml::encode($tekstura);?>
+                        <div class="wysiwyg">
+                            ТЕКСТУРА: <?= $tekstura;?>
+                        </div>
                     </div>
                 <?php endif; ?>
                 <?php $deystvie = $product->attribute( Attribute::model()->findByAttributes(['name' => "deystvie"]) ); ?>
                 <?php if ($deystvie != null):?>
                     <div class="entry__attribute">
-                        ДЕЙСТВИЕ: <?= CHtml::encode($deystvie);?>
+                        <div class="wysiwyg">
+                            ДЕЙСТВИЕ: <?= $deystvie;?>
+                        </div>
                     </div>
                 <?php endif; ?>
                 <?php $primenenie = $product->attribute( Attribute::model()->findByAttributes(['name' => "primenenie"]) ); ?>
                 <?php if ($primenenie != null):?>
                     <div class="entry__attribute">
                         <div class="wysiwyg">
-                        ПРИМЕНЕНИЕ: <?=$primenenie;?>
+                            ПРИМЕНЕНИЕ: <?=$primenenie;?>
                         </div>
                     </div>
                 <?php endif; ?>
-               <!-- <div class="entry__wysiwyg">
+                <!-- <div class="entry__wysiwyg">
                     <div class="wysiwyg">
                         <?/*= $product->description; */?>
                     </div>
@@ -133,9 +139,9 @@ $this->breadcrumbs = array_merge(
                 </div>
                 <?php $obem = $product->attribute( Attribute::model()->findByAttributes(['name' => "obem"]) ); ?>
                 <?php if ($obem != null):?>
-                <div class="entry__attribute" style="margin-top: 0px">
-                    Объем: <?= CHtml::encode($obem);?> мл
-                </div>
+                    <div class="entry__attribute" style="margin-top: 0px">
+                        Объем: <?= CHtml::encode($obem);?> мл
+                    </div>
                 <?php endif; ?>
 
                 <?php if ($product->getVariantsGroup()): ?>
@@ -192,7 +198,8 @@ $this->breadcrumbs = array_merge(
                 <?php if (Yii::app()->hasModule('order')): ?>
                     <div class="entry__cart-button">
                         <button class="btn btn_cart" id="add-product-to-cart"
-                                data-loading-text="<?= Yii::t("StoreModule.store", "Adding"); ?>">В корзину
+                                data-loading-text="<?= Yii::t("StoreModule.store", "Adding"); ?>">
+                               <?= Yii::t('StoreModule.store', 'Into cart') ?>
                         </button>
                     </div>
                 <?php endif; ?>

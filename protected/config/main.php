@@ -86,7 +86,7 @@ return [
      */
     'components' => [
         'clientScript' => [
-            'class' => 'ext.minScript.components.ExtMinScript',
+//            'class' => 'ext.minScript.components.ExtMinScript',
         ],
         'viewRenderer' => [
             'class' => 'vendor.yiiext.twig-renderer.ETwigViewRenderer',

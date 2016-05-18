@@ -40,7 +40,7 @@ Yii::import('application.modules.install.InstallModule');
                 ]); ?>
                 <div class="grid-module-5 float-grid-element">
                     <div class="callback__left-column">
-                        <img src="<?= $this->mainAssets ?>/images/logo_final.png" class="callback__top_logo">
+                        <img src="<?= $this->mainAssets ?>/images/feedback.jpg" class="callback__top_logo">
                         <div class="callback__slogan">
                             Слоган
                         </div>
@@ -89,12 +89,6 @@ Yii::import('application.modules.install.InstallModule');
 
 
 
-                    </div>
-                </div>
-                <div class="grid-module-3 float-grid-element">
-                    <div style="width: 100%; text-align: center">
-                        <img src="<?= $this->mainAssets ?>/images/logo_final.png" class="callback__front-image">
-                        <img src="<?= $this->mainAssets ?>/images/logo_final.png" class="callback__front-image">
                     </div>
                 </div>
                 <div class="grid-module-8 float-grid-element">

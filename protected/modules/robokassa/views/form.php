@@ -15,12 +15,23 @@ $description = Yii::t('RobokassaModule.robokassa', 'Payment order #{id} on "{sit
 ]);
 ?>
 
-<?= CHtml::form($settings['testmode'] ? "http://test.robokassa.ru/Index.aspx" : "https://merchant.roboxchange.com/Index.aspx") ?>
-<?= CHtml::hiddenField('MrchLogin', $login) ?>
+<?/*= CHtml::form($settings['testmode'] ? "http://test.robokassa.ru/Index.aspx" : "https://merchant.roboxchange.com/Index.aspx") */?><!--
+<?/*= CHtml::hiddenField('MrchLogin', $login) */?>
+<?/*= CHtml::hiddenField('OutSum', $price) */?>
+<?/*= CHtml::hiddenField('InvId', $id) */?>
+<?/*= CHtml::hiddenField('Desc', $description) */?>
+<?/*= CHtml::hiddenField('SignatureValue', md5("$login:$price:$id:$password")) */?>
+<?/*= CHtml::hiddenField('Culture', $settings['language']) */?>
+<?/*= CHtml::submitButton(Yii::t('RobokassaModule.robokassa','Pay')) */?>
+--><?= CHtml::endForm() ?>
+
+<?= CHtml::form($settings['testmode'] ? "http://auth.robokassa.ru/Merchant/Index.aspx" : "https://merchant.roboxchange.com/Index.aspx") ?>
+<?= CHtml::hiddenField('MerchantLogin', $login) ?>
 <?= CHtml::hiddenField('OutSum', $price) ?>
-<?= CHtml::hiddenField('InvId', $id) ?>
-<?= CHtml::hiddenField('Desc', $description) ?>
+<?= CHtml::hiddenField('InvoiceID', $id) ?>
+<?= CHtml::hiddenField('Description', $description) ?>
 <?= CHtml::hiddenField('SignatureValue', md5("$login:$price:$id:$password")) ?>
 <?= CHtml::hiddenField('Culture', $settings['language']) ?>
+<?= CHtml::hiddenField('IsTest', $settings['testmode']) ?>
 <?= CHtml::submitButton(Yii::t('RobokassaModule.robokassa','Pay')) ?>
 <?= CHtml::endForm() ?>

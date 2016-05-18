@@ -41,6 +41,13 @@ $this->widget(
         'type' => 'condensed',
         'dataProvider' => $model->search(),
         'filter' => $model,
+        'actionsButtons' => [
+            'export' => CHtml::link('Экспорт в Excel',
+                ['/backend/order/order/export'],
+                ['class' => 'btn btn-sm btn-success pull-right']
+            ),
+
+        ],
         'datePickers'=> ['Order_date'],
         'afterAjaxUpdate' => 'reinstallDatePicker',
         'columns' => [

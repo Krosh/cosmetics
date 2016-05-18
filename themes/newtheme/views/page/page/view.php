@@ -40,7 +40,9 @@ $this->keywords = $model->keywords ?: Yii::app()->getModule('yupe')->siteKeyWord
             $this->widget('application.modules.slide.widgets.SlideWidget',
             ["slideshow_identifier" => $model->slug]);
             ?>
+            <div class="page__content">
             <?= $model->body; ?>
+            </div>
         </div>
     </div>
 </div>

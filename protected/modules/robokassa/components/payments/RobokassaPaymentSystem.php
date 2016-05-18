@@ -61,6 +61,8 @@ class RobokassaPaymentSystem extends PaymentSystem
                 self::LOG_CATEGORY
             );
 
+            Yii::app()->getController()->redirect(['/order/order/view', 'url' => $order->url]);
+
             return false;
         }
 

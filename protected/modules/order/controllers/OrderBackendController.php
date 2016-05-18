@@ -185,6 +185,17 @@ class OrderBackendController extends yupe\components\controllers\BackController
         $this->render('index', ['model' => $model]);
     }
 
+    public function actionExport()
+    {
+        $model = new Order('search');
+        $model->unsetAttributes(); // clear any default values
+        if (Yii::app()->getRequest()->getQuery('Order')) {
+            $model->setAttributes(Yii::app()->getRequest()->getQuery('Order'));
+        }
+        $this->renderPartial('export', ['model' => $model]);
+    }
+
+
     /**
      * @param $id
      * @return Order

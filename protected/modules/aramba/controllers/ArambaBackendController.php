@@ -20,6 +20,7 @@ class ArambaBackendController extends \yupe\components\controllers\BackControlle
 	public function actionIndex()
 	{
         Yii::import('application.modules.aramba.components.arambaApi');
+        require_once(Yii::getPathOfAlias('application.modules.aramba.components.arambaApi').".php");
         $module = Yii::app()->getModule('aramba');
 
         $api = new ArambaApi($module->apiId);

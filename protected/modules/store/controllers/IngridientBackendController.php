@@ -11,6 +11,27 @@ class IngridientBackendController extends yupe\components\controllers\BackContro
         ];
     }
 
+    public function actionDelete($id)
+    {
+        if (Yii::app()->getRequest()->getIsPostRequest()) {
+            // поддерживаем удаление только из POST-запроса
+            $this->loadModel($id)->delete();
+
+            Yii::app()->getUser()->setFlash(
+                yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
+                Yii::t('StoreModule.store', 'Record was removed!')
+            );
+
+            // если это AJAX запрос ( кликнули удаление в админском grid view), мы не должны никуда редиректить
+            if (!isset($_GET['ajax'])) {
+                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : ['index']);
+            }
+        } else {
+            throw new CHttpException(400, Yii::t('StoreModule.store', 'Unknown request. Don\'t repeat it please!'));
+        }
+    }
+
+
     public function actions()
     {
         return [

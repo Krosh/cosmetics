@@ -36,10 +36,6 @@ class ExtMinScriptController extends CExtController {
 		require(dirname(dirname(__FILE__)) . '/vendors/minify/min/index.php');
 	}
 
-    public function actionA()
-    {
-        echo "dsadsa";
-    }
 
 	/**
 	 * Ensure that everything is prepared before we execute the serve action.

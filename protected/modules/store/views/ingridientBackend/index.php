@@ -30,7 +30,7 @@ $this->pageTitle = 'Ингредиенты - управление';
         'actionsButtons' => [
             'add' => CHtml::link(
                 Yii::t('StoreModule.store', 'Add'),
-                ['/store/productBackend/create'],
+                ['/store/ingridientBackend/create'],
                 ['class' => 'btn btn-sm btn-success pull-right']
             ),
 

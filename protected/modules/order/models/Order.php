@@ -233,7 +233,7 @@ class Order extends yupe\models\YModel
         $criteria->with = ['delivery', 'payment', 'client', 'status'];
 
         $criteria->compare('id', $this->id);
-        $criteria->compare('name', $this->name, true);
+//        $criteria->compare('name', $this->name, true);
         $criteria->compare('delivery_id', $this->delivery_id);
         $criteria->compare('delivery_price', $this->delivery_price);
         $criteria->compare('payment_method_id', $this->payment_method_id);
@@ -241,7 +241,7 @@ class Order extends yupe\models\YModel
         $criteria->compare('payment_time', $this->payment_time);
         $criteria->compare('payment_details', $this->payment_details, true);
         $criteria->compare('total_price', $this->total_price);
-        $criteria->compare('name', $this->name, true);
+//        $criteria->compare('name', $this->name, true);
         $criteria->compare('total_price', $this->total_price);
         $criteria->compare('discount', $this->discount);
         $criteria->compare('coupon_discount', $this->coupon_discount);

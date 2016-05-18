@@ -25,12 +25,12 @@ $this->widget('application.modules.slide.widgets.SlideWidget',
                     <div class="main__logo">
                         <img src="<?= StoreImage::product($item, 150, 150, false) ?>" />
                     </div>
-                    <div class="main__logo_item-title">
+                    <div class="main__logo_item-title main__pack-title">
                         <?=$item->title; ?>
                     </div>
                     <div class="product-price"><?= $item->getResultPrice() ?><span class="ruble"> <?= Yii::t("StoreModule.store", Yii::app()->getModule('store')->currency); ?></span></div>
                     <div class="btn btn_cart quick-add-product-to-cart" data-product-id="<?= $item->id; ?>" data-cart-add-url="<?= Yii::app()->createUrl('/cart/cart/add');?>">
-                        <?="В корзину" ?>
+                        <?= Yii::t('StoreModule.store', 'Into cart') ?>
                     </div>
                 </div>
             </a>

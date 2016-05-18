@@ -1032,8 +1032,6 @@ a {
 }
 
 .coupon-box {
-    padding: 60px;
-    background-color: #eeec51;
     text-align: center
 }
 
@@ -1644,7 +1642,7 @@ a {
 
 .header-logo {
     text-align: center;
-    margin-left: 335px;
+    margin-left: 365px;
 }
 
 .header-logo-image {
@@ -2119,6 +2117,7 @@ a {
 }
 .main__hit-slider .h2, .bottom_social .h2
 {
+    font-size: 22px !important;
     text-align: center;
 }
 .main__hit-slider .h2
@@ -2169,10 +2168,13 @@ a {
     text-align: center;
     width: 100%;
 }
+.main__pack-title
+{
+    height: 35px;
+}
 .main__recently-viewed-slider {
     padding: 10px 0 20px;
     background: #fff;
-    height: 400px;
     overflow: hidden;
 }
 
@@ -2260,7 +2262,8 @@ a {
 
 .navbar {
     height: 50px;
-    line-height: 50px
+    line-height: 50px;
+    margin-bottom: 5px;
 }
 
 .navbar__wrapper {
@@ -2380,7 +2383,7 @@ a {
 .order-box-delivery__type {
     clear: none;
     text-align: inherit;
-    width: 25%;
+    width: 60%;
     margin: auto;
 }
 
@@ -2391,6 +2394,16 @@ a {
 
 .order-box-delivery__type:after {
     clear: both
+}
+
+.order-box__free-cost-message
+{
+    text-align: right;
+    clear: none;
+    width: 60%;
+    margin: auto;
+    padding-bottom: 10px;
+    font-size: 16px;
 }
 
 
@@ -2657,7 +2670,6 @@ a {
 
 .entry__obem
 {
-    margin-top: 38px;
 }
 .entry__count {
     display: table
@@ -2684,6 +2696,15 @@ a {
     display: table;
     width: 100%;
     background: #efefef
+}
+
+.product__title
+{
+}
+
+.product__title h2
+{
+    line-height: 30px !important;
 }
 
 .product-features__block {
@@ -3318,7 +3339,7 @@ a {
 }
 
 .product-vertical__content {
-    min-height: 110px;
+    min-height: 135px;
     background-color: white;
 }
 
@@ -4481,6 +4502,10 @@ label.error, .errorMessage, .text-error {
 {
     color: #87cc03;
 }
+.ingridients__title
+{
+    margin-bottom: 20px;
+}
 .ingridient__item
 {
     float: left;
@@ -4489,6 +4514,10 @@ label.error, .errorMessage, .text-error {
 .ingridient__item:nth-child(2n)
 {
     margin-left: 10%;
+}
+.ingridient__item:nth-child(2n+1)
+{
+    clear: both;
 }
 
 .ingridient__img
@@ -4500,7 +4529,6 @@ label.error, .errorMessage, .text-error {
 {
     width: 300px;
     font-size: 20px;
-    margin-top: 20px;
     margin-bottom: 20px;
     float: right;
     text-align: center;
@@ -4508,7 +4536,9 @@ label.error, .errorMessage, .text-error {
 .ingridient__description
 {
     clear: right;
-
+    width: 300px;
+    float: right;
+    height: 200px;
 }
 
 .blog__slider
@@ -4647,4 +4677,23 @@ label.error, .errorMessage, .text-error {
 .corporateColor
 {
     color: #90c921 !important;
+}
+
+.page__content ul
+{
+    list-style: inherit;
+    padding-left: 20px;
+}
+.page__content em, .page__content i
+{
+    font-style: italic;
+}
+.page__content strong, .page__content b
+{
+    font-weight: bold;
+}
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
 }
