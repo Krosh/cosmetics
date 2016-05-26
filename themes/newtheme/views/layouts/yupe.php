@@ -47,6 +47,28 @@
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/libs/select2/select2.min.js', CClientScript::POS_END);
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/store.js', CClientScript::POS_END);
     ?>
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon/favicon-194x194.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/favicon/manifest.json">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="/favicon/mstile-144x144.png">
+    <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
     <script type="text/javascript">
         var yupeTokenName = '<?= Yii::app()->getRequest()->csrfTokenName;?>';
         var yupeToken = '<?= Yii::app()->getRequest()->getCsrfToken();?>';
@@ -62,22 +84,27 @@
 <div class="main">
     <div class="main__header">
         <div class="header grid">
-            <a href="<?= Yii::app()->createUrl('/store') ?>" class="header_catalog-link">
-                Каталог<i class="fa fa-book fa-lg fa-fw"></i>
-            </a>
-
-            <div class="header__item header-logo">
+            <div class="header__left-column">
+                <a href="<?= Yii::app()->createUrl('/store') ?>" class="header__catalog-link">
+                    Каталог<i class="fa fa-book fa-lg fa-fw"></i>
+                </a>
+                <div class="header__search-widget">
+                    <?php $this->widget('application.modules.store.widgets.SearchProductWidget'); ?>
+                </div>
+            </div>
+            <div class="header__center-column">
                 <a href="<?= Yii::app()->createUrl(Yii::app()->hasModule('homepage') ? '/homepage/hp/index' : '/site/index') ?>" class="header__logo-link">
-                    <img src="<?= $this->mainAssets ?>/images/logo_final_small.png" class="header-logo-image">
+                    <img src="<?= $this->mainAssets ?>/images/new_logo_header.jpg" class="header-logo-image">
                 </a>
             </div>
-            <?php if (Yii::app()->hasModule('cart')): ?>
-                <div id="shopping-cart-widget">
-                    <?php $this->widget('application.modules.cart.widgets.ShoppingCartWidget'); ?>
-                </div>
-            <?php endif; ?>
+            <div class="header__right-column">
+                <?php if (Yii::app()->hasModule('cart')): ?>
+                    <div id="shopping-cart-widget">
+                        <?php $this->widget('application.modules.cart.widgets.ShoppingCartWidget'); ?>
+                    </div>
+                <?php endif; ?>
 
-            <span class="span-clientmenu">
+                <span class="span-clientmenu">
                 <?php if (Yii::app()->getUser()->isGuest): ?>
                     <a href="<?= Yii::app()->createUrl('/user/account/login') ?>" class="btn_login-button">
                         <i class="fa fa-lock fa-lg fa-fw"></i><?= Yii::t('UserModule.user', 'Login'); ?>
@@ -91,11 +118,11 @@
 
                         <div class="dropdown-menu">
                             <div class="dropdown-menu__header"><?= Yii::app()->getUser()->getProfile()->getFullName() ?></div>
-<!--                            <div class="dropdown-menu__item">-->
-<!--                                <div class="dropdown-menu__link">-->
-<!--                                    <a href="--><?//= Yii::app()->createUrl('/order/user/index') ?><!--">Мои заказы</a>-->
-<!--                                </div>-->
-<!--                            </div>-->
+                            <!--                            <div class="dropdown-menu__item">-->
+                            <!--                                <div class="dropdown-menu__link">-->
+                            <!--                                    <a href="--><?//= Yii::app()->createUrl('/order/user/index') ?><!--">Мои заказы</a>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
                             <div class="dropdown-menu__item">
                                 <div class="dropdown-menu__link">
                                     <a href="<?= Yii::app()->createUrl('/user/profile/profile') ?>">
@@ -116,14 +143,13 @@
                 <?php endif; ?>
              </span>
             <span class="header__right-item" style = "margin-top: 15px">
-                 <i class="fa fa-phone fa-lg fa-fw"></i>8-963-523-33-36
+                 <i class="fa fa-phone fa-lg fa-fw"></i><?php $module = Yii::app()->getModule("store"); echo $module->phone;?>
             </span>
             <span class="header__right-item"style = "margin-top: 10px" >
                  <i class="fa fa-envelope fa-fw" style="font-size: 1.2em"></i><a href= "mailto:zakaz@ayaorganic.ru">zakaz@ayaorganic.ru</a>
             </span>
-            <span class="header__right-item"style = "margin-top: 10px" >
-                <?php $this->widget('application.modules.store.widgets.SearchProductWidget'); ?>
-            </span>
+            </div>
+
 
         </div>
     </div>

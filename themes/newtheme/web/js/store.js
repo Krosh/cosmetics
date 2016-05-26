@@ -19,6 +19,8 @@ $(document).ready(function () {
     var shippingCostElement = $('#cart-shipping-cost');
     var cartFullCostElement = $('#cart-full-cost');
     var cartFullCostWithShippingElement = $('#cart-full-cost-with-shipping');
+    var discountElement = $("#cart-discount");
+    var discountContainerElement = $("#cart-discount-container");
 
     miniCartListeners();
     refreshDeliveryTypes();
@@ -32,6 +34,14 @@ $(document).ready(function () {
     $('.js-tabs').tabs();
 
     $(".js-select2").select2();
+
+    $("input[name=payment_method_id]").change(function()
+    {
+        if ($(this).val() == 3 || $(this).val() == 4)
+            $("#start-payment").html("Завершить оформлание");
+        else
+            $("#start-payment").html("Оплатить");
+    }).change();
 
     $('#start-payment').on('click', function () {
         $('.payment-method-radio:checked').parents('.payment-method').find('form').submit();
@@ -209,6 +219,8 @@ $(document).ready(function () {
                     if ($('.cart-list .cart-item').length == 0) {
                         $('#order-form').remove();
                         $('.main__title h1').text('Корзина пуста');
+                        $(".cart__empty").show();
+                        $(".cart__non-empty").hide();
                     }
                     $('#cart-total-product-count').text($('.cart-list .cart-item').length);
                     updateCartTotalCost();
@@ -284,8 +296,31 @@ $(document).ready(function () {
         return delta > cost ? 0 : cost - delta;
     }
 
+    function getTotalDiscount() {
+        var cost = 0;
+        $.each($('.position-sum-price'), function (index, elem) {
+            cost += parseFloat($(elem).text());
+        });
+        var delta = 0;
+        var coupons = getCoupons();
+        $.each(coupons, function (index, el) {
+            if (cost >= el.min_order_price) {
+                switch (el.type) {
+                    case 0: // руб
+                        delta += parseFloat(el.value);
+                        break;
+                    case 1: // %
+                        delta += (parseFloat(el.value) / 100) * cost;
+                        break;
+                }
+            }
+        });
+        return delta;
+    }
+
     function updateCartTotalCost() {
         cartFullCostElement.html(getCartTotalCost());
+        updateDiscount();
         refreshDeliveryTypes();
         updateShippingCost();
         updateFullCostWithShipping();
@@ -337,6 +372,18 @@ $(document).ready(function () {
     function updateShippingCost() {
         shippingCostElement.html(getShippingCost());
         updateFullCostWithShipping();
+    }
+
+    function updateDiscount() {
+        var discount = getTotalDiscount();
+        if (discount > 0)
+        {
+            discountContainerElement.show();
+            discountElement.html(getTotalDiscount());
+        } else
+        {
+            discountContainerElement.hide();
+        }
     }
 
     function updateFullCostWithShipping() {

@@ -42,7 +42,7 @@ Yii::import('application.modules.install.InstallModule');
                     <div class="callback__left-column">
                         <img src="<?= $this->mainAssets ?>/images/feedback.jpg" class="callback__top_logo">
                         <div class="callback__slogan">
-                            Слоган
+                            Доверь свою красоты природе!
                         </div>
                         <div class="callback__text">
                             Хотите поделиться информацией?<br>

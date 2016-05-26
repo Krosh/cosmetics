@@ -813,20 +813,28 @@ a {
 
 .cart-mini {
     position: absolute;
+    /* width: 400px; */
     right: 0;
     top: 100%;
     z-index: 200;
-    padding: 0 25px;
+    padding: 20px 25px;
     display: none;
-    min-width: 300px;
-    max-width: 300px;
+    min-width: 400px;
+    max-width: 400px;
     background: #fff;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, .2);
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 400;
     text-align: left;
     min-height: 80px;
 }
+
+.cart-mini .link
+{
+    color: #87cc03;
+    font-weight: 700;
+}
+
 
 .cart-mini.active, .cart-mini.toggle-active, .cart-mini_active {
     display: block
@@ -1054,7 +1062,7 @@ a {
 }
 
 .detail-view {
-    margin-bottom: 40px
+    margin-bottom: 10px
 }
 
 .detail-view:last-child, .detail-view__item {
@@ -1647,7 +1655,7 @@ a {
 
 .header-logo-image {
     vertical-align: middle;
-    height: 200px;
+    height: 169px;
 }
 
 .header-description {
@@ -2267,7 +2275,7 @@ a {
 }
 
 .navbar__wrapper {
-    border-bottom: 2px solid #87cc03;
+    border-bottom: 2px solid #90c921;
     height: 100%
 }
 
@@ -2339,8 +2347,9 @@ a {
 }
 
 .order-box__body {
-    padding: 30px;
+    padding: 0px 30px 30px 30px;
     font-size: 16px;
+    width: 800px;
 }
 
 .order-box__subtotal {
@@ -2359,6 +2368,10 @@ a {
     border-top: 1px solid #ebebeb
 }
 
+#start-payment
+{
+    min-width: 200px;
+}
 .order-box__bottom_left {
     text-align: left
 }
@@ -2383,7 +2396,6 @@ a {
 .order-box-delivery__type {
     clear: none;
     text-align: inherit;
-    width: 60%;
     margin: auto;
 }
 
@@ -4697,3 +4709,50 @@ label.error, .errorMessage, .text-error {
     display: table;
     clear: both;
 }
+.is-required:after
+{
+    content: " *";
+    color: red;
+}
+.orded-box__mini-text
+{
+    margin-top: 15px;
+}
+.orded-box__mini-text a
+{
+    font-weight: bold;
+    color: #90c921 !important;
+}
+.header
+{
+    font-size: 18px;
+}
+.header__left-column
+{
+    width: 33%;
+    float: left;
+}
+.header__center-column
+{
+    width: 33%;
+    float: left;
+    text-align: center;
+}
+.header__right-column
+{
+    width: 33%;
+    float: right;
+    text-align: right;
+}
+.header__catalog-link
+{
+    display: block;
+    margin-top: 15px;
+}
+.header__search-widget
+{
+    margin-top: 15px;
+    width: 260px;
+}
+
+

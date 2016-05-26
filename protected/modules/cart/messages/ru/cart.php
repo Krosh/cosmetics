@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'Add coupon' => 'Добавить купон',
+    'Add coupon' => 'Добавить промокод',
     'Address' => 'Адрес получателя',
     'Amount' => 'Количество',
     'available from' => 'доступно от',
@@ -10,7 +10,7 @@ return [
     'Cart is empty' => 'Корзина пуста',
     'Cart' => 'Корзина',
     'Catalog' => 'Каталог',
-    'Coupons' => 'Купоны',
+    'Coupons' => 'Промокоды',
     'Create order and proceed to payment' => 'Создать заказ и перейти к оплате',
     'Delivery method aren\'t selected! The ordering is impossible!' => 'Не задано ни одного способа доставки! Оформление заказа невозможно!',
     'Delivery method' => 'Способ доставки',
@@ -33,7 +33,7 @@ return [
     'Store' => 'Магазин',
     'Subtotal' => 'Промежуточный итог',
     'Sum' => 'Сумма',
-    'There are no products in cart' => 'В корзине нет товаров',
+    'There are no products in cart' => 'Для выбора товара перейдите, пожалуйста, в <a href = "/store">каталог<i class="corporateColor fa fa-book fa-lg fa-fw"></i></a>',
     'Total' => 'Всего',
     '{n} product|{n} products|{n} products|{n} products' => '{n} товар|{n} товара|{n} товаров|{n} товара',
 ];

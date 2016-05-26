@@ -116,7 +116,7 @@ class Order extends yupe\models\YModel
         // will receive user inputs.
         return [
             ['status_id, delivery_id', 'required'],
-            ['name, email', 'required', 'on' => self::SCENARIO_USER],
+            ['name, email, phone', 'required', 'on' => self::SCENARIO_USER],
             ['name, email, phone, zipcode, country, city, street, house, apartment', 'filter', 'filter' => 'trim'],
             ['email', 'email'],
             ['delivery_id, separate_delivery, payment_method_id, paid, user_id', 'numerical', 'integerOnly' => true],

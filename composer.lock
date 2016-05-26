@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9143e7a82e84e993167da992a69c842b",
-    "content-hash": "e0f6f76eb4c65ffc7d6153632a031e47",
+    "hash": "9f1f1edbb02f30aff225ed781d8575b9",
+    "content-hash": "af7992ea0e85ea57f8019a11ae736e9a",
     "packages": [
         {
             "name": "2amigos/transliterator-helper",
@@ -427,6 +427,51 @@
             "time": "2013-08-20 17:25:55"
         },
         {
+            "name": "mesilov/bitrix24-php-sdk",
+            "version": "v0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mesilov/bitrix24-php-sdk.git",
+                "reference": "f86e01939300eaeb99b58bec96fc32dfa04179d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mesilov/bitrix24-php-sdk/zipball/f86e01939300eaeb99b58bec96fc32dfa04179d7",
+                "reference": "f86e01939300eaeb99b58bec96fc32dfa04179d7",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxim Mesilov",
+                    "homepage": "https://github.com/mesilov/"
+                }
+            ],
+            "description": "A powerfull PHP library for the Bitrix24 REST API",
+            "homepage": "https://github.com/mesilov/bitrix24-php-sdk",
+            "keywords": [
+                "Bitrix24",
+                "api",
+                "php",
+                "rest"
+            ],
+            "time": "2015-06-23 22:27:26"
+        },
+        {
             "name": "nodge/yii-eauth",
             "version": "dev-master",
             "source": {
@@ -436,7 +481,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Nodge/yii-eauth/zipball/986e5f2e2cae209dba4cd6cee8487a9403cdc0da",
+                "url": "https://api.github.com/repos/Nodge/yii-eauth/zipball/39ee0c665a07dd471245b7180cb08d9a4f1bc725",
                 "reference": "986e5f2e2cae209dba4cd6cee8487a9403cdc0da",
                 "shasum": ""
             },

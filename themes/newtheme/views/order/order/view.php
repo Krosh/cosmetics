@@ -10,7 +10,7 @@ $this->title = [Yii::t('OrderModule.order', 'Order #{n}', [$model->id]), Yii::ap
     <div class="order-box">
         <?php if ($model->payment_method_id == 0 &&  !$model->isPaid()  && !empty($model->delivery) && $model->delivery->hasPaymentMethods()): ?>
             <div class="order-box">
-                <div class="order-box__header order-box__header_normal"><?= Yii::t("OrderModule.order", "Payment"); ?></div>
+                <h1 class="h2">Оформление заказа > Шаг 3. ОПЛАТА</h1>
                 <div class="order-box__body">
                     <?php foreach ((array)$model->delivery->paymentMethods as $payment): ?>
                         <div class="rich-radio payment-method">
@@ -34,7 +34,7 @@ $this->title = [Yii::t('OrderModule.order', 'Order #{n}', [$model->id]), Yii::ap
 
             <div class="order-box__bottom order-box__bottom_left">
                 <button type="submit" class="btn btn_big btn_primary" id="start-payment">
-                    <?= Yii::t("OrderModule.order", "Pay"); ?>&nbsp;
+                    Оплатить
                     <span class="fa fa-fw fa-play"></span>
                 </button>
             </div>
@@ -130,7 +130,7 @@ $this->title = [Yii::t('OrderModule.order', 'Order #{n}', [$model->id]), Yii::ap
                 $couponDiscount = $model->getCouponDiscount($model->getCoupons());
             ?>
             <?php if ($couponDiscount > 0):?>
-                <div class="order-box__subtotal">Скидка по купонам:
+                <div class="order-box__subtotal">Скидка по промокоду:
                     <div class="product-price"><?= $couponDiscount ?><span class="ruble"> <?= Yii::t("OrderModule.order", Yii::app()->getModule('store')->currency); ?></span></div>
                 </div>
             <?php endif; ?>
