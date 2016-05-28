@@ -3,7 +3,7 @@
 </head>
 <body>
 <h1 style="font-weight:normal;">
-    Ваш заказ на сумму <?= Yii::t('OrderModule.order', '{n} рубль|{n} рубля|{n} рублей', [$order->getTotalPrice()]);?> в магазине "<?= Yii::app()->getModule('yupe')->siteName;?>".
+    Ваш заказ на сумму <?= Yii::t('OrderModule.order', '{n} рубль|{n} рубля|{n} рублей', [$order->getTotalPriceWithDelivery()]);?> в магазине "<?= Yii::app()->getModule('yupe')->siteName;?>".
 </h1>
 <table cellpadding="6" cellspacing="0" style="border-collapse: collapse;">
     <tr>

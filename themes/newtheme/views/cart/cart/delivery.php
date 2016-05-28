@@ -202,13 +202,21 @@ $this->breadcrumbs = [
                                                         <span class="rich-radio-body__title">
                                                             <?php if ($delivery->id != 2): ?>
                                                                 <?= $delivery->name; ?>
-                                                                - <?= $delivery->price; ?> <?= Yii::t(
-                                                                    "CartModule.cart",
-                                                                    "RUB"
-                                                                ); ?>
+                                                                - <?= ($delivery->price > 0) ? number_format($delivery->price,0,"."," ").' <span class="ruble">'.Yii::t(
+                                                                "CartModule.cart",
+                                                                "RUB"
+                                                            ).'</span>':"бесплатно" ?>
                                                             <?php else: ?>
                                                                 <?= $delivery->name; ?>
                                                                 - согласно тарифам <a style="color: blue; text-decoration: underline" href = "http://www.pochta.ru">www.pochta.ru</a>
+                                                            <?php endif; ?>
+                                                            <?php if ($delivery->free_from > 0):?>
+                                                            <span class="rich-radio-body__free-from-text">
+                                                                Бесплатно при заказе от <?= number_format($delivery->free_from,0,"."," ")." "; ?><span class="ruble"> <?= Yii::t(
+                                                                        "CartModule.cart",
+                                                                        "RUB"
+                                                                    ); ?></span>
+                                                            </span>
                                                             <?php endif; ?>
                                                         </span>
                                         </div>
@@ -220,9 +228,6 @@ $this->breadcrumbs = [
                         </div>
                     <?php endforeach; ?>
                 </div>
-            </div>
-            <div class="order-box__free-cost-message">
-                При заказе от 5000 доставка бесплатно
             </div>
         </div>
 
@@ -339,7 +344,7 @@ $this->breadcrumbs = [
                 <input id="coupon-code" class="input coupon-box__input">
                 <button class="btn btn_primary coupon-box__button" type="button"
                         id="add-coupon-code"><?= Yii::t("CartModule.cart", "Add coupon"); ?></button>
-                <div class="row fast-order__inputs">
+                <div class="row fast-order__inputs" id="coupon__container">
                     <?php foreach ($coupons as $coupon): ?>
                         <div class="coupon">
                             <span class="label" title="<?= $coupon->name; ?>">

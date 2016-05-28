@@ -3641,6 +3641,12 @@ span.required {
     display: table
 }
 
+.rich-radio-body__free-from-text
+{
+    font-style: italic;
+    display: block;
+
+}
 .rich-radio-body__img {
     display: block;
     margin-left: 34px;

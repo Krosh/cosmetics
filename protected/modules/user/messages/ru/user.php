@@ -349,7 +349,7 @@ return [
     'You need to confirm your e-mail. Please check the mail!' => 'Вам необходимо продтвердить новый e-mail, проверьте почту!',
     'You successfully registered on "{site}" !' => 'Вы успешно зарегистрировались на сайте "{site}"!',
     'You was successfully registered on "{site}" !' => 'Вы успешно зарегистрировались на сайте "{site}"!',
-    'Your account on "{site}" was activated successfully!' => 'Ваш аккаунт на сайте "{site}" успешно активирован!',
+    'Your account on "{site}" was activated successfully!' => '-Ваш аккаунт на сайте "{site}" успешно активирован!',
     'Your account on "{site}" was created successfully' => 'Ваш аккаунт на сайте "{site}" успешно создан!',
     'Your e-mail was added to blacklist! You can\'t register!' => 'Email указанный Вами при регистрации занесен в черный список! Регистрация невозможна!',
     'Your IP was added to blacklist! Registration can\'t be continued!' => 'Ваш IP занесен в черный список! Регистрация невозможна!',

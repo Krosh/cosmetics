@@ -8,22 +8,36 @@ echo "\xEF\xBB\xBF"; // UTF-8 BOM
 $output = fopen('php://output', 'w');
 
 // output the column headings
-fputcsv($output, array('Клиент', 'Телефон', 'E-mail', 'Товар', 'Цена', 'Количество', 'Итог. стоимость'),";");
+fputcsv($output, array('№ заказа', 'Дата заказа', 'Статус заказа', 'Клиент', 'Телефон', 'E-mail', 'Товар', 'Цена', 'Количество', 'Стоимость доставки', 'Скидка по промокоду', 'Итог. стоимость',
+    'Способ оплаты','Статус оплаты','Способ доставки','Адрес доставки','Комментарий'),";");
 
 //$data = $model->search()->getData();
 $data = Order::model()->findAll();
+/** @var Order $row */
 foreach ($data as $row)
 {
+    /** @var Product $product */
     foreach ($row->products as $product)
     {
         $result = [];
+
+        $result[] = $row->id;
+        $result[] = $row->date;
+        $result[] = $row->status->name;
         $result[] = $row->name;
         $result[] = $row->phone;
         $result[] = $row->email;
         $result[] = $product->product_name;
         $result[] = $product->price;
         $result[] = $product->quantity;
-        $result[] = $product->getTotalPrice();
+        $result[] = $row->delivery_price;
+        $result[] = $row->coupon_discount;
+        $result[] = $row->getTotalPriceWithDelivery();
+        $result[] = $row->payment->name;
+        $result[] = $row->getPaidStatus();
+        $result[] = $row->delivery->name;
+        $result[] = $row->getAddress();
+        $result[] = $row->comment;
         fputcsv($output, $result, ";");
     }
 }

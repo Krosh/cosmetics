@@ -24,7 +24,7 @@ class RobokassaPaymentSystem extends PaymentSystem
             'application.modules.robokassa.views.form',
             [
                 'id' => $order->id,
-                'price' => Yii::app()->money->convert($order->getTotalPrice(), $payment->currency_id),
+                'price' => Yii::app()->money->convert($order->getTotalPriceWithDelivery(), $payment->currency_id),
                 'settings' => $payment->getPaymentSystemSettings(),
             ],
             $return
@@ -80,7 +80,7 @@ class RobokassaPaymentSystem extends PaymentSystem
             return false;
         }
 
-        if ($amount != Yii::app()->money->convert($order->getTotalPrice(), $payment->currency_id)) {
+        if ($amount != Yii::app()->money->convert($order->getTotalPriceWithDelivery(), $payment->currency_id)) {
             Yii::log(
                 Yii::t(
                     'RobokassaModule.robokassa',

@@ -12,7 +12,7 @@
         "Заказ №{$order->id}",
         Yii::app()->createAbsoluteUrl('/order/orderBackend/update', ['id' => $order->id])
     ); ?>
-    на сумму <?= Yii::t('OrderModule.order', '{n} рубль|{n} рубля|{n} рублей', [$order->getTotalPrice()]); ?>.
+    на сумму <?= Yii::t('OrderModule.order', '{n} рубль|{n} рубля|{n} рублей', [$order->getTotalPriceWithDelivery()]); ?>.
 </h1>
 <table cellpadding="6" cellspacing="0" style="border-collapse: collapse;">
     <tr>

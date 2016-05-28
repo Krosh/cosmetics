@@ -50,10 +50,14 @@ class CouponController extends FrontController
 
         $result = $this->couponManager->add($coupon);
 
+        $item = $this->renderPartial("item",["coupon" => $coupon],true);
+
         if (true === $result) {
-            Yii::app()->ajax->success(
-                Yii::t("CouponModule.coupon", "Coupon «{code}» added", ['{code}' => $coupon->code])
-            );
+            echo json_encode([
+                "result" => true,
+                "data" => Yii::t("CouponModule.coupon", "Coupon «{code}» added", ['{code}' => $coupon->code]),
+                "item" => $item
+            ]);
         } else {
             if (Yii::app()->getRequest()->getIsAjaxRequest()) {
                 Yii::app()->ajax->failure($result);

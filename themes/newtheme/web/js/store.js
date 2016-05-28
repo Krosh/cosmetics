@@ -77,17 +77,23 @@ $(document).ready(function () {
                 data: data,
                 dataType: 'json',
                 success: function (data) {
+                    console.log(data);
                     if (data.result) {
-                        window.location.reload();
+                        var item = $(data.item);
+                        item.find(".close").click(couponCloseClick);
+                        $("#coupon__container").append(item);
+                        updateAllCosts();
+//                        window.location.reload();
                     }
-                    showNotify(button, data.result ? 'success' : 'danger', data.data.join('; '));
+                    showNotify(button, data.result ? 'success' : 'danger', data.data);
                 }
             });
             $('#coupon-code').val('');
         }
     });
 
-    $('.coupon .close').click(function (e) {
+    var couponCloseClick = function(e)
+    {
         e.preventDefault();
         var code = $(this).siblings('input[type="hidden"]').data('code');
         var data = {'code': code};
@@ -106,7 +112,9 @@ $(document).ready(function () {
                 }
             }
         });
-    });
+    }
+
+    $('.coupon .close').click(couponCloseClick);
 
     $('#coupon-code').keypress(function (e) {
         if (e.which == 13) {
