@@ -227,5 +227,6 @@ $this->breadcrumbs = array_merge(
 <?php else:?>
     <?php $this->widget('application.modules.store.widgets.LinkedProductsWidget', ['product' => $product, 'code' => null,]); ?>
 <?php endif; ?>
+<?php if ($product->category_id != 6):?>
 <?php $this->widget('application.modules.store.widgets.IngridientsWidget', ['product' => $product, 'code' => null,]); ?>
-
+<?php endif; ?>

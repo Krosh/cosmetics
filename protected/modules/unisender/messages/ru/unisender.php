@@ -4,7 +4,7 @@ return [
     'apiId' => 'Код API',
     'senderId' => 'Имя отправителя СМС',
     'Index' => 'Форма управления',
-    'aramba' => 'Арамба',
+    'unisender' => 'Unisender',
 
 
 

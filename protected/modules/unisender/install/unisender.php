@@ -11,12 +11,11 @@
  */
 return [
     'module'    => [
-        'class' => 'application.modules.aramba.ArambaModule',
+        'class' => 'application.modules.unisender.UnisenderModule',
     ],
     'import'    => [
     ],
     'component' => [],
     'rules'     => [
-        '/aramba' => 'aramba/aramba/index',
     ],
 ];

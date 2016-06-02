@@ -94,7 +94,7 @@
             </div>
             <div class="header__center-column">
                 <a href="<?= Yii::app()->createUrl(Yii::app()->hasModule('homepage') ? '/homepage/hp/index' : '/site/index') ?>" class="header__logo-link">
-                    <img src="<?= $this->mainAssets ?>/images/new_logo_header.jpg" class="header-logo-image">
+                    <img src="<?= $this->mainAssets ?>/images/logo_final_small_centered.png" class="header-logo-image">
                 </a>
             </div>
             <div class="header__right-column">
@@ -213,5 +213,40 @@
         Yii::app()->clientScript->registerScript("setCatalogHeight",
         '$(".catalog-filter").height($(".catalog-filter").parent().height())');
     ?>
+
+
+    <!— Yandex.Metrika counter —>
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter37659580 = new Ya.Metrika({
+                        id:37659580,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true,
+                        trackHash:true
+                    });
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/37659580" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!— /Yandex.Metrika counter —>
+
+
+
 </body>
 </html>

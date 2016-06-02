@@ -428,13 +428,25 @@ $form = $this->beginWidget(
 <div class="row">
     <div class="col-sm-12">
         <label class="checkbox">
-            <input class="" name="notify_user" value="1" type="checkbox"><?= Yii::t(
+            <input class="" name="notify_user_email" value="1" type="checkbox"><?= Yii::t(
                 'OrderModule.order',
-                'Inform buyer about order status'
+                'Inform buyer about order status by email'
             ); ?>
         </label>
     </div>
 </div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <label class="checkbox">
+            <input class="" name="notify_user_sms" value="1" type="checkbox"><?= Yii::t(
+                'OrderModule.order',
+                'Inform buyer about order status by sms'
+            ); ?>
+        </label>
+    </div>
+</div>
+
 
 <?php $this->widget(
     'bootstrap.widgets.TbButton',

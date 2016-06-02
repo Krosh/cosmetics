@@ -1,6 +1,6 @@
 <?php
 /**
- * Отображение для arambaBackend/index
+ * Отображение для unisenderBackend/index
  *
  * @category YupeView
  * @package  yupe
@@ -9,27 +9,27 @@
  * @link     http://yupe.ru
  **/
 $this->breadcrumbs = [
-    Yii::t('ArambaModule.aramba', 'aramba') => ['/aramba/arambaBackend/index'],
-    Yii::t('ArambaModule.aramba', 'Index'),
+    Yii::t('UnisenderModule.unisender', 'unisender') => ['/unisender/unisenderBackend/index'],
+    Yii::t('UnisenderModule.unisender', 'Index'),
 ];
 
-$this->pageTitle = Yii::t('ArambaModule.aramba', 'aramba');
+$this->pageTitle = Yii::t('UnisenderModule.unisender', 'unisender');
 
 $this->menu = $this->getModule()->getNavigation();;
 ?>
 
     <div class="page-header">
         <h1>
-            <?php echo Yii::t('ArambaModule.aramba', 'aramba'); ?>
-            <small><?php echo Yii::t('ArambaModule.aramba', 'Index'); ?></small>
+            <?php echo Yii::t('UnisenderModule.unisender', 'unisender'); ?>
+            <small><?php echo Yii::t('UnisenderModule.unisender', 'Index'); ?></small>
         </h1>
     </div>
 <?php
 $form = $this->beginWidget(
     '\yupe\widgets\ActiveForm',
     [
-        "action" => "/backend/aramba/aramba/save",
-        'id' => 'aramba-form',
+        "action" => "/backend/unisender/unisender/save",
+        'id' => 'unisender-form',
         'enableAjaxValidation' => false,
         'enableClientValidation' => true,
         'type' => 'vertical',
@@ -44,8 +44,8 @@ $form = $this->beginWidget(
         </div>
     </div>
     <div class='row'>
-        <div class="col-sm-4">
-            Используемое имя отправителя: <?=CHtml::dropDownList("senderId",$senderName,$names,["class" => "form-control"]) ?>
+        <div class="col-sm-8">
+            Используемое имя отправителя: <?=CHtml::textField("senderId",$senderId,["class" => "form-control"]) ?>
         </div>
     </div>
     <div class='row'>
