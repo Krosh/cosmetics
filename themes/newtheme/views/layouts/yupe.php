@@ -170,11 +170,11 @@
             <div class="bottom_social grid">
                 <h2 class="h2">АлтайЯ в социальных сетях</h2>
                 <div class="bottom_social-icons">
-                    <a href = "#"><i class="fa fa-facebook"></i></a>
-                    <a href = "#"><i class="fa fa-vk"></i></a>
+                    <a href = "https://www.facebook.com/ayaorganic.ru"><i class="fa fa-facebook"></i></a>
+                    <a href = "http://vk.com/ayaorganic"><i class="fa fa-vk"></i></a>
                     <a href = "#"><i class="fa fa-youtube-play"></i></a>
-                    <a href = "#"><i class="fa fa-instagram"></i></a>
-                    <a href = "#"><i class="fa fa-odnoklassniki"></i></a>
+                    <a href = "https://www.instagram.com/ayaorganic.ru/"><i class="fa fa-instagram"></i></a>
+                    <a href = "http://ok.ru/group/53041416044757"><i class="fa fa-odnoklassniki"></i></a>
                 </div>
             </div>
 

@@ -1454,6 +1454,13 @@ a {
     color: #9dc21d;
 }
 
+.main__promo-slider
+{
+    max-width: 1180px;
+    width: 100%;
+    margin: auto;
+    height: auto;
+}
 .grid {
     width: 100%;
     max-width: 1180px;
@@ -2102,7 +2109,11 @@ a {
     width: 350px;
     margin:auto;
     display: flex;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    justify-content: space-around;
+
 }
 .bottom_social-icons i
 {
@@ -2114,6 +2125,8 @@ a {
     min-height: 40px;
     text-align: center;
     font-size: 30px;
+    margin-left: 13px;
+    margin-right: 13px;
 }
 .main__hit-slider, .main__new-slider {
     padding: 20px 0
@@ -2121,7 +2134,10 @@ a {
 .main__logos
 {
     display: flex;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    justify-content: space-around;
 }
 .main__hit-slider .h2, .bottom_social .h2
 {
@@ -2135,16 +2151,6 @@ a {
 .main__logo
 {
     margin: auto;
-}
-.packs .main__logo img
-{
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    border: 2px solid #87cc03;
-}
-.main__logo
-{
     width: 150px;
     height: 150px;
 }
@@ -2154,9 +2160,22 @@ a {
     height: 70px;
     border-radius: 50%;
 }
+.packs .main__logo img
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid #87cc03;
+}
 .main__logos_item
 {
-    width: 236px;
+    width: 292px;
+    display: inline-block;
+}
+.main__logos_small_item
+{
+    width: 232px;
+    display: inline-block;
 }
 .main__logos_item .product-price
 {
@@ -2176,6 +2195,56 @@ a {
     text-align: center;
     width: 100%;
 }
+
+.main__pack-title
+{
+    width: 200px !important;
+    margin: auto;
+}
+
+
+/* Хиты */
+.main__topseller_logo
+{
+    margin: auto;
+    width: 200px;
+    height: 200px;
+}
+.main__topseller_logo img
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid #87cc03;
+}
+.main__logos_topseller_item
+{
+    width: 390px;
+    display: inline-block;
+    margin: auto;
+}
+.main__logos_topseller_item .product-price
+{
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.main__logos_topseller_item .btn
+{
+    display: block;
+    margin: auto;
+}
+.main__logo_topseller_item-title
+{
+    height: 35px;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+}
+/* конец хитов */
+
+
 .main__pack-title
 {
     height: 35px;
@@ -3397,6 +3466,17 @@ a {
     background: inherit
 }
 
+.product-vertical__non-in-stock
+{
+    text-transform: uppercase;
+    padding: 0px;
+    width: 136px;
+    height: 41px;
+    line-height: 41px;
+    color: #fff;
+    color: black;
+    font-size: 14px;
+}
 .product-vertical-extra {
     font-size: 13px;
     text-align: left
@@ -3641,12 +3721,6 @@ span.required {
     display: table
 }
 
-.rich-radio-body__free-from-text
-{
-    font-style: italic;
-    display: block;
-
-}
 .rich-radio-body__img {
     display: block;
     margin-left: 34px;
@@ -4018,7 +4092,8 @@ span.required {
 .tabs__list_delivery {
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
-    justify-content: space-between
+    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .tabs__item:first-child .tabs__link {
@@ -4107,7 +4182,10 @@ span.required {
 
 .top-menu {
     display: flex;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    justify-content: space-around;
     position: relative;
     height: 100%;
     font-size: 12px

@@ -30,6 +30,7 @@ Yii::import('application.modules.comment.components.ICommentable');
  * @property string $meta_description
  * @property string $meta_keywords
  * @property string $image
+ * @property string $main_page_image
  * @property double $average_price
  * @property double $purchase_price
  * @property double $recommended_price
@@ -138,7 +139,7 @@ class Product extends yupe\models\YModel implements ICommentable
                 'price, average_price, purchase_price, recommended_price, discount_price, discount, length, height, width, weight',
                 'store\components\validators\NumberValidator',
             ],
-            ['name, meta_keywords, meta_title, meta_description, image', 'length', 'max' => 250],
+            ['name, meta_keywords, meta_title, meta_description, image, main_page_image', 'length', 'max' => 250],
             ['discount_price, discount', 'default', 'value' => null],
             ['sku', 'length', 'max' => 100],
             ['slug', 'length', 'max' => 150],
@@ -210,8 +211,8 @@ class Product extends yupe\models\YModel implements ICommentable
     {
         return [
             'published' => [
-                'condition' => 't.status = :status',
-                'params' => [':status' => self::STATUS_ACTIVE],
+                'condition' => 't.status <> :status',
+                'params' => [':status' => self::STATUS_NOT_ACTIVE],
             ],
             'specialOffer' => [
                 'condition' => 't.is_special = :is_special',
@@ -235,6 +236,7 @@ class Product extends yupe\models\YModel implements ICommentable
             'discount' => Yii::t('StoreModule.store', 'Discount, %'),
             'sku' => Yii::t('StoreModule.store', 'SKU'),
             'image' => Yii::t('StoreModule.store', 'Image'),
+            'main_page_image' => "Изображение для главной страницы",
             'short_description' => Yii::t('StoreModule.store', 'Short description'),
             'description' => Yii::t('StoreModule.store', 'Description'),
             'slug' => Yii::t('StoreModule.store', 'Alias'),
@@ -365,6 +367,20 @@ class Product extends yupe\models\YModel implements ICommentable
                 'resizeOptions' => [
                     'maxWidth' => 900,
                     'maxHeight' => 900,
+                ],
+            ],
+            'upload_main_page_image' => [
+                'class' => 'yupe\components\behaviors\ImageUploadBehavior',
+                'attributeName' => 'main_page_image',
+                'minSize' => $module->minSize,
+                'maxSize' => $module->maxSize,
+                'deleteFileKey' => 'delete-main-page-file',
+                'types' => $module->allowedExtensions,
+                'uploadPath' => $module->uploadPath.'/product_main_page',
+                'resizeOnUpload' => true,
+                'resizeOptions' => [
+                    'maxWidth' => 400,
+                    'maxHeight' => 400,
                 ],
             ],
             'sortable' => [
@@ -1034,6 +1050,7 @@ class Product extends yupe\models\YModel implements ICommentable
     public function getLinkedProductsCriteria($typeCode = null)
     {
         $criteria = new CDbCriteria();
+        $criteria->scopes = ["published"];
 
         $criteria->join .= ' JOIN {{store_product_link}} linked ON t.id = linked.linked_product_id';
         $criteria->compare('linked.product_id', $this->id);
@@ -1092,6 +1109,7 @@ class Product extends yupe\models\YModel implements ICommentable
             $ids[] = $item->product_id;
         }
         $criteria = new CDbCriteria();
+        $criteria->scopes = ["published"];
         $criteria->addInCondition("id",$ids);
         $criteria->compare("type_id",1); // 1 - входит в набор
         return new CActiveDataProvider(

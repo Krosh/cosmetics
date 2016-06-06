@@ -190,13 +190,54 @@ $form = $this->beginWidget(
                     [
                         'widgetOptions' => [
                             'htmlOptions' => [
-                                'onchange' => 'readURL(this);',
+//                                'onchange' => 'readURL(this);',
                             ],
                         ],
                     ]
                 ); ?>
             </div>
         </div>
+
+        <hr style="color: black; background-color: black; height: 2px">
+        <?php $model->disableBehavior("upload");?>
+        <div class='row'>
+            <div class="col-sm-7">
+                <?=
+                CHtml::image(
+                    !$model->getIsNewRecord() && $model->main_page_image ? $model->getImageUrl(200, 200, true) : '#',
+                    $model->name,
+                    [
+                        'class' => 'preview-image img-thumbnail',
+                        'style' => !$model->getIsNewRecord() && $model->main_page_image ? '' : 'display:none',
+                    ]
+                ); ?>
+
+                <?php if (!$model->getIsNewRecord() && $model->main_page_image): ?>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="delete-main-page-file"> <?= Yii::t(
+                                'YupeModule.yupe',
+                                'Delete the file'
+                            ) ?>
+                        </label>
+                    </div>
+                <?php endif; ?>
+
+                <?= $form->fileFieldGroup(
+                    $model,
+                    'main_page_image',
+                    [
+                        'widgetOptions' => [
+                            'htmlOptions' => [
+//                                'onchange' => 'readURL(this);',
+                            ],
+                        ],
+                    ]
+                ); ?>
+            </div>
+        </div>
+        <?php $model->enableBehavior("upload");?>
+
 
         <div class='row'>
             <div class="col-sm-12 <?= $model->hasErrors('description') ? 'has-error' : ''; ?>">

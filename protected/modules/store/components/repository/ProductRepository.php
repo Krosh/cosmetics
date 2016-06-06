@@ -28,8 +28,7 @@ class ProductRepository extends CApplicationComponent
         $criteria = new CDbCriteria();
         $criteria->select = 't.*';
         $criteria->params = [];
-        $criteria->addCondition('t.status = :status');
-        $criteria->params['status'] = Product::STATUS_ACTIVE;
+        $criteria->scopes = ['published'];
 
 
         //поиск по категории, производителю и цене
@@ -185,8 +184,7 @@ class ProductRepository extends CApplicationComponent
     {
         $criteria = new CDbCriteria();
         $criteria->select = 't.*';
-        $criteria->scopes = ['published'];
-        $criteria->compare("is_special",1);
+        $criteria->scopes = ['published','specialOffer'];
 
         return new CActiveDataProvider(
             'Product',

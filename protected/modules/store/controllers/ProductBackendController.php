@@ -138,12 +138,15 @@ class ProductBackendController extends yupe\components\controllers\BackControlle
     {
         $model = $this->loadModel($id);
 
+//        var_dump($_POST);
+//        return;
         if (Yii::app()->getRequest()->getIsPostRequest() && Yii::app()->getRequest()->getPost('Product')) {
 
             $attributes = Yii::app()->getRequest()->getPost('Product');
             $typeAttributes = Yii::app()->getRequest()->getPost('Attribute', []);
             $variants = Yii::app()->getRequest()->getPost('ProductVariant', []);
             $categories = Yii::app()->getRequest()->getPost('categories', []);
+
 
             if ($model->saveData($attributes, $typeAttributes, $variants, $categories)) {
 

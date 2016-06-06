@@ -5,7 +5,7 @@
                 <?php $this->widget('zii.widgets.CListView', [
                     'dataProvider' => $dataProvider,
                     'template' => '{items}',
-                    'itemView' => '_item',
+                    'itemView' => 'themes.newtheme.views.store.product._item',
                     'cssFile' => false,
                     'pager' => false,
                 ]); ?>

@@ -1,4 +1,7 @@
 <?php
+/**
+ * @var Product $data
+ */
 $productUrl = Yii::app()->createUrl('/store/product/view', ['name' => CHtml::encode($data->slug)]);
 $basePrice = (float)$data->getBasePrice();
 ?>
@@ -22,13 +25,19 @@ $basePrice = (float)$data->getBasePrice();
                 <?php if ($data->hasDiscount()): ?>
                     <div class="product-price product-price_old"><?= $basePrice ?><span class="ruble"> <?= Yii::t("StoreModule.store", Yii::app()->getModule('store')->currency); ?></span></div>
                 <?php endif; ?>
-                <div class="product-vertical-extra__cart">
-                    <?php if (Yii::app()->hasModule('cart')): ?>
+                <?php if ($data->status == Product::STATUS_ACTIVE):?>
+                    <div class="product-vertical-extra__cart">
                         <a href="javascript:void(0);" class="btn btn_cart quick-add-product-to-cart" data-product-id="<?= $data->id; ?>" data-cart-add-url="<?= Yii::app()->createUrl('/cart/cart/add');?>">
                             <?= Yii::t('StoreModule.store', 'Into cart') ?>
                         </a>
-                    <?php endif; ?>
-                </div>
+                    </div>
+                <?php else: ?>
+                    <div class="product-vertical-extra__cart">
+                        <div class="product-vertical__non-in-stock">
+                            Нет в наличии
+                        </div>
+                    </div>
+                <?php endif; ?>
 
             </div>
         </div>

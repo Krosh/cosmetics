@@ -178,7 +178,7 @@ $this->breadcrumbs = array_merge(
                         <?php endif; ?>
                     </div>
                 </div>
-                <?php if (Yii::app()->hasModule('order')): ?>
+                <?php if ($data->status == Product::STATUS_ACTIVE):?>
                     <div class="entry__count">
                         <div class="entry__count-label">Кол-во:</div>
                         <div class="entry__count-input">
@@ -194,13 +194,17 @@ $this->breadcrumbs = array_merge(
                         <span id="product-quantity">1</span> =
                         <span id="product-total-price"><?= round($product->getResultPrice(), 2); ?></span>
                         <span class="ruble"> <?= Yii::t("StoreModule.store", Yii::app()->getModule('store')->currency); ?></span></div>
-                <?php endif; ?>
-                <?php if (Yii::app()->hasModule('order')): ?>
                     <div class="entry__cart-button">
                         <button class="btn btn_cart" id="add-product-to-cart"
                                 data-loading-text="<?= Yii::t("StoreModule.store", "Adding"); ?>">
-                               <?= Yii::t('StoreModule.store', 'Into cart') ?>
+                            <?= Yii::t('StoreModule.store', 'Into cart') ?>
                         </button>
+                    </div>
+                <?php else: ?>
+                    <div class="product-vertical-extra__cart">
+                        <div class="product-vertical__non-in-stock">
+                            Нет в наличии
+                        </div>
                     </div>
                 <?php endif; ?>
                 <div class="entry__share">
