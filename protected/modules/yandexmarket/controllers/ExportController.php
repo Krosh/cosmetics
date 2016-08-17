@@ -19,7 +19,7 @@ class ExportController extends application\components\Controller
 
         $cacheKey = $this->cacheKey . $model->id;
 
-        if (!($xml = Yii::app()->getCache()->get($cacheKey))) {
+        if (true || !($xml = Yii::app()->getCache()->get($cacheKey))) {
 
             $xml = $this->getXmlHead();
             $xml .= CHtml::openTag('yml_catalog', ['date' => date('Y-m-d H:i')]);
@@ -142,9 +142,9 @@ class ExportController extends application\components\Controller
             $criteria->addInCondition('t.category_id', (array)$categories);
         }
 
-        if (!empty($brands)) {
-            $criteria->addInCondition('t.producer_id', (array)$brands);
-        }
+//        if (!empty($brands)) {
+//            $criteria->addInCondition('t.producer_id', (array)$brands);
+//        }
 
         $dataProvider = new CActiveDataProvider('Product', ['criteria' => $criteria]);
         $iterator = new CDataProviderIterator($dataProvider, 100);
@@ -154,9 +154,9 @@ class ExportController extends application\components\Controller
         /* @var $model Product */
         foreach ($iterator as $model) {
             //пропускам товар без производителя
-            if(empty($model->producer)) {
-                continue;
-            }
+//            if(empty($model->producer)) {
+//                continue;
+//            }
             $res .= CHtml::openTag(
                 'offer',
                 ['id' => $model->id, 'type' => 'vendor.model', 'available' => ($model->in_stock ? 'true' : 'false')]
@@ -197,14 +197,21 @@ class ExportController extends application\components\Controller
         // tag pickup
         // tag delivery
         // tag local_delivery_cost
-        // tag typePrefix
+        $typePreffix = $model->attribute( Attribute::model()->findByAttributes(['name' => "typepreffix-dlya-yandeks-marketa"]));
+        $res .= CHtml::tag('typePrefix', [], $typePreffix);
 
-        $res .= CHtml::tag('vendor', [], $model->producer->name);
+        if ($model->producer != null)
+            $res .= CHtml::tag('vendor', [], $model->producer->name);
 
         // tag vendorCode
+        $res .= CHtml::tag('vendorCode', [], "Altay1");
+
 
         $res .= CHtml::tag('model', [], htmlspecialchars(strip_tags($model->name)));
-        $res .= CHtml::tag('description', [], htmlspecialchars(strip_tags($model->description)));
+        $action = $model->attribute( Attribute::model()->findByAttributes(['name' => "deystvie"]));
+        $res .= CHtml::tag('description', [], htmlspecialchars(strip_tags($action)));
+        $res .= CHtml::tag('sales_notes', [], "Предоплата");
+        $res .= CHtml::tag('country_of_origin', [], "Россия");
 
         // tag sales_notes
         // tag manufacturer_warranty

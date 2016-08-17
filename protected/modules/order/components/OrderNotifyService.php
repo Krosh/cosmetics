@@ -44,7 +44,8 @@ class OrderNotifyService extends CApplicationComponent
      */
     public function sendOrderCreatedAdminNotify(Order $order)
     {
-        $from = $this->module->notifyEmailFrom ?: Yii::app()->getModule('yupe')->email;
+
+       $from = $this->module->notifyEmailFrom ?: Yii::app()->getModule('yupe')->email;
 
         $theme = Yii::t(
             'OrderModule.order',
@@ -54,7 +55,7 @@ class OrderNotifyService extends CApplicationComponent
 
         $to = $this->module->getNotifyTo();
 
-        $body = $this->view->renderPartial('/order/email/newOrderAdmin', ['order' => $order], true);
+        $body = $this->view->renderPartial('//order/order/email/newOrderAdmin', ['order' => $order], true);
 
         foreach ($to as $email) {
             $this->mail->send($from, $email, $theme, $body);
@@ -74,9 +75,10 @@ class OrderNotifyService extends CApplicationComponent
             ['{n}' => $order->id, '{site}' => Yii::app()->getModule('yupe')->siteName]
         );
 
+
         $from = $this->module->notifyEmailFrom ?: Yii::app()->getModule('yupe')->email;
 
-        $body = $this->view->renderPartial('/order/email/newOrderUser', ['order' => $order], true);
+        $body = $this->view->renderPartial('//order/order/email/newOrderUser', ['order' => $order], true);
 
         $this->mail->send($from, $order->email, $theme, $body);
     }

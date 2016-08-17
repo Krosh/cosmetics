@@ -7,6 +7,9 @@ $this->title = [Yii::t('OrderModule.order', 'Order #{n}', [$model->id]), Yii::ap
 ?>
 
 <div class="main__order-box grid">
+    <div class="grid-module-12">
+        <?php $this->widget('yupe\widgets\YFlashMessages'); ?>
+    </div>
     <div class="order-box">
         <?php if ($model->payment_method_id == 0 &&  !$model->isPaid()  && !empty($model->delivery) && $model->delivery->hasPaymentMethods()): ?>
             <div class="order-box">

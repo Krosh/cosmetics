@@ -38,7 +38,7 @@ $(document).ready(function () {
     $("input[name=payment_method_id]").change(function()
     {
         if ($(this).val() == 3 || $(this).val() == 4)
-            $("#start-payment").html("Завершить оформлание");
+            $("#start-payment").html("Завершить оформление");
         else
             $("#start-payment").html("Оплатить");
     }).change();

@@ -101,7 +101,7 @@ class RobokassaPaymentSystem extends PaymentSystem
                 self::LOG_CATEGORY
             );
 
-            return true;
+            return $order;
         } else {
             Yii::log(
                 Yii::t(

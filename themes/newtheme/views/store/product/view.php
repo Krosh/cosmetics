@@ -178,7 +178,7 @@ $this->breadcrumbs = array_merge(
                         <?php endif; ?>
                     </div>
                 </div>
-                <?php if ($data->status == Product::STATUS_ACTIVE):?>
+                <?php if ($product->status == Product::STATUS_ACTIVE):?>
                     <div class="entry__count">
                         <div class="entry__count-label">Кол-во:</div>
                         <div class="entry__count-input">

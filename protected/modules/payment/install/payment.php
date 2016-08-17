@@ -19,6 +19,7 @@ return [
         ],
     ],
     'rules' => [
+        '/payment/failed/<id:\w+>' => 'payment/payment/failed',
         '/payment/process/<id:\w+>' => 'payment/payment/process',
     ],
 ];

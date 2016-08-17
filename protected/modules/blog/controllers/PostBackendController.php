@@ -105,7 +105,7 @@ class PostBackendController extends yupe\components\controllers\BackController
      */
     public function actionUpdate($id)
     {
-        if (($model = Post::model()->find($id)) === null) {
+        if (($model = Post::model()->findByPk($id)) === null) {
             throw new CHttpException(404, Yii::t('BlogModule.blog', 'Requested page was not found!'));
         }
 

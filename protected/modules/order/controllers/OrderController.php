@@ -20,7 +20,6 @@ class OrderController extends \yupe\components\controllers\FrontController
         if ($model === null) {
             throw new CHttpException(404, Yii::t('OrderModule.order', 'Page not found!'));
         }
-
         $this->render('view', ['model' => $model]);
     }
 
@@ -45,19 +44,10 @@ class OrderController extends \yupe\components\controllers\FrontController
                     $model->applyCoupons($coupons);
                 }
 
-                Yii::app()->getUser()->setFlash(
-                    yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
-                    Yii::t('OrderModule.order', 'The order created')
-                );
 
                 if (Yii::app()->hasModule('cart')) {
                     Yii::app()->getModule('cart')->clearCart();
                 }
-
-                //отправить уведомления
-                Yii::app()->orderNotifyService->sendOrderCreatedAdminNotify($model);
-
-                Yii::app()->orderNotifyService->sendOrderCreatedUserNotify($model);
 
 
                 if (Yii::app()->getModule('order')->showOrder) {

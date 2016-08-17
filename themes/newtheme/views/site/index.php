@@ -12,6 +12,7 @@ $this->widget('application.modules.slide.widgets.SlideWidget',
         <?php
         $criteria = new CDbCriteria();
         $criteria->compare("is_special",1);
+        $criteria->scopes = ["published"];
         $products = Product::model()->findAll($criteria);
         ?>
         <?php foreach ($products as $item):?>
@@ -51,6 +52,7 @@ $this->widget('application.modules.slide.widgets.SlideWidget',
         $criteria = new CDbCriteria();
         $criteria->compare("type_id",2);
         $products = Product::model()->findAll($criteria);
+        $criteria->scopes = ["published"];
         ?>
         <?php foreach ($products as $item):?>
             <a href= "<?=Yii::app()->createUrl('/store/product/view', ['name' => CHtml::encode($item->slug)]); ?>">
