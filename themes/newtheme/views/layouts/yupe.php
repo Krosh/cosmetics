@@ -246,6 +246,7 @@
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/37659580" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!— /Yandex.Metrika counter —>
+    <!— /Yandex.Metrika counter —>
 
     <script type="text/javascript" src="http://api.venyoo.ru/wnew.js?wc=venyoo/default/science&widget_id=6657789764304896"></script>
 
