@@ -4981,3 +4981,14 @@ label.error, .errorMessage, .text-error {
     text-align: justify;
     padding: 5px;
 }
+
+.slider-wrapper {
+
+}
+
+.my-slider__slide {
+    height: 300px;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}

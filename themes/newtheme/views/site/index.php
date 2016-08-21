@@ -1,11 +1,11 @@
 <?php $this->pageTitle = Yii::app()->getModule('yupe')->siteName; ?>
 
-<?php
-$this->widget('application.modules.slide.widgets.SlideWidget',
-    ["slideshow_identifier" => "mainpage", "containerClass" => "main__promo-slider"]);
-?>
-
-
+<div class="main__hit-slider grid">
+    <?php
+    $this->widget('application.modules.slide.widgets.SlideWidget',
+        ["slideshow_identifier" => "mainpage", "containerClass" => "main__promo-slider"]);
+    ?>
+</div>
 <div class="main__hit-slider grid packs">
     <div class="h2">Хиты продаж</div>
     <div class="main__logos">
