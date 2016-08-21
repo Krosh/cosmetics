@@ -1,12 +1,17 @@
-<?php foreach ($this->params['items'] as $item):?>
-    <a href= "<?=$this->getController()->createUrl(is_array($item["url"]) ? $item["url"][0]: $item["url"]); ?>">
-        <div class="main__logos_small_item">
-            <div class="main__logo small">
-                <img src="<?= $this->getController()->mainAssets ?>/images/<?=++$i;?>.jpg">
-            </div>
-            <div class="main__logo_item-title">
-                <?=$item["label"]; ?>
-            </div>
+<?php foreach ($this->params['items'] as $item): ?>
+    <div class="b-reviews__item">
+    <div class="b-reviews__logo-desc">
+        <div class="b-reviews__item--logo">
+            <img src="<?= $this->getController()->mainAssets ?>/images/<?= ++$i; ?>.jpg">
         </div>
-    </a>
+        <div class="b-reviews__item--description">
+            <p class="b-reviews__item--description--title">
+                <a href="<?= $this->getController()->createUrl(is_array($item["url"]) ? $item["url"][0] : $item["url"]); ?>">   <?= $item["label"]; ?> </a>
+            </p>
+            <div class="b-reviews__item--description--text">
+            <?= str_replace("{menu}","",$item["template"])?>
+            </div>
+            </div>
+    </div>
+    </div>
 <?php endforeach; ?>
