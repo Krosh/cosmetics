@@ -31,10 +31,18 @@
     Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/slick.css');
     Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/libs/select2/select2.css');
     Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/common.css');
+    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/mediaelementplayer.css');
+    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/jquery-ui.css');
+    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/jquery-ui.structure.css');
+    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/jquery-ui.theme.css');
+    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/unslider.css');
+    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/unslider-dots.css');
     Yii::app()->getClientScript()->registerCssFile('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css');
 
     Yii::app()->getClientScript()->registerCoreScript('jquery');
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/index.js', CClientScript::POS_END);
+    Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/unslider-min.js', CClientScript::POS_END);
+    Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/slide.js', CClientScript::POS_END);
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/jquery.collapse.js', CClientScript::POS_END);
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/jquery.collapse_storage.js', CClientScript::POS_END);
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/jquery.fancybox.js', CClientScript::POS_END);
@@ -46,6 +54,10 @@
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/toggle.js', CClientScript::POS_END);
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/libs/select2/select2.min.js', CClientScript::POS_END);
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/store.js', CClientScript::POS_END);
+    Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/mediaelement-and-player.min.js');
+    Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/jquery-ui.js');
+    Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/unslider-min.js', CClientScript::POS_END);
+    Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/slide.js', CClientScript::POS_END);
     ?>
     <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-touch-icon-60x60.png">
@@ -69,7 +81,7 @@
     <meta name="msapplication-config" content="/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
-    <meta name='yandex-verification' content='50404e448d6a8a56' />
+    <meta name='yandex-verification' content='50404e448d6a8a56'/>
     <script type="text/javascript">
         var yupeTokenName = '<?= Yii::app()->getRequest()->csrfTokenName;?>';
         var yupeToken = '<?= Yii::app()->getRequest()->getCsrfToken();?>';
@@ -77,11 +89,11 @@
         var yupeCartUpdateUrl = '<?= Yii::app()->createUrl('/cart/cart/update/')?>';
         var yupeCartWidgetUrl = '<?= Yii::app()->createUrl('/cart/cart/widget/')?>';
     </script>
-    <?php \yupe\components\TemplateEvent::fire(ShopThemeEvents::HEAD_END);?>
+    <?php \yupe\components\TemplateEvent::fire(ShopThemeEvents::HEAD_END); ?>
 </head>
 
 <body>
-<?php \yupe\components\TemplateEvent::fire(ShopThemeEvents::BODY_START);?>
+<?php \yupe\components\TemplateEvent::fire(ShopThemeEvents::BODY_START); ?>
 <div class="main">
     <div class="main__header">
         <div class="header grid">
@@ -94,7 +106,8 @@
                 </div>
             </div>
             <div class="header__center-column">
-                <a href="<?= Yii::app()->createUrl(Yii::app()->hasModule('homepage') ? '/homepage/hp/index' : '/site/index') ?>" class="header__logo-link">
+                <a href="<?= Yii::app()->createUrl(Yii::app()->hasModule('homepage') ? '/homepage/hp/index' : '/site/index') ?>"
+                   class="header__logo-link">
                     <img src="<?= $this->mainAssets ?>/images/logo_final_small_centered.png" class="header-logo-image">
                 </a>
             </div>
@@ -111,17 +124,19 @@
                         <i class="fa fa-lock fa-lg fa-fw"></i><?= Yii::t('UserModule.user', 'Login'); ?>
                     </a>
                 <?php else: ?>
-                    <div id = "client-dropdown" class="toolbar-button_dropdown">
+                    <div id="client-dropdown" class="toolbar-button_dropdown">
                                     <span class="toolbar-button__label" style="color: black">
                                         <i class="fa fa-user fa-lg fa-fw"></i> Личный кабинет
                                     </span>
                         <span class="badge badge_light-blue"></span>
 
                         <div class="dropdown-menu">
-                            <div class="dropdown-menu__header"><?= Yii::app()->getUser()->getProfile()->getFullName() ?></div>
+                            <div
+                                class="dropdown-menu__header"><?= Yii::app()->getUser()->getProfile()->getFullName() ?></div>
                             <!--                            <div class="dropdown-menu__item">-->
                             <!--                                <div class="dropdown-menu__link">-->
-                            <!--                                    <a href="--><?//= Yii::app()->createUrl('/order/user/index') ?><!--">Мои заказы</a>-->
+                            <!--                                    <a href="-->
+                            <? //= Yii::app()->createUrl('/order/user/index') ?><!--">Мои заказы</a>-->
                             <!--                                </div>-->
                             <!--                            </div>-->
                             <div class="dropdown-menu__item">
@@ -143,11 +158,12 @@
                     </div>
                 <?php endif; ?>
              </span>
-            <span class="header__right-item" style = "margin-top: 15px">
-                 <i class="fa fa-phone fa-lg fa-fw"></i><?php $module = Yii::app()->getModule("store"); echo $module->phone;?>
+            <span class="header__right-item" style="margin-top: 15px">
+                 <i class="fa fa-phone fa-lg fa-fw"></i><?php $module = Yii::app()->getModule("store");
+                echo $module->phone; ?>
             </span>
-            <span class="header__right-item"style = "margin-top: 10px" >
-                 <i class="fa fa-envelope fa-fw" style="font-size: 1.2em"></i><a href= "mailto:zakaz@ayaorganic.ru">zakaz@ayaorganic.ru</a>
+            <span class="header__right-item" style="margin-top: 10px">
+                 <i class="fa fa-envelope fa-fw" style="font-size: 1.2em"></i><a href="mailto:zakaz@ayaorganic.ru">zakaz@ayaorganic.ru</a>
             </span>
             </div>
 
@@ -159,23 +175,20 @@
             <div class="navbar__wrapper grid">
                 <div class="navbar__menu">
                     <?php $this->widget('application.modules.menu.widgets.MenuWidget', ['name' => 'verhnee-menyu-s-kategoriyami']); ?>
-                    <?php /*$this->widget('application.modules.store.widgets.CategoryWidget', ['depth' => 2]); */?>
+                    <?php /*$this->widget('application.modules.store.widgets.CategoryWidget', ['depth' => 2]); */ ?>
                 </div>
             </div>
         </div>
-
-
         <?= $content ?>
-
         <div class="main__footer">
             <div class="bottom_social grid">
                 <h2 class="h2">АлтайЯ в социальных сетях</h2>
                 <div class="bottom_social-icons">
-                    <a href = "https://www.facebook.com/ayaorganic.ru"><i class="fa fa-facebook"></i></a>
-                    <a href = "http://vk.com/ayaorganic"><i class="fa fa-vk"></i></a>
-                    <a href = "#"><i class="fa fa-youtube-play"></i></a>
-                    <a href = "https://www.instagram.com/ayaorganic.ru/"><i class="fa fa-instagram"></i></a>
-                    <a href = "http://ok.ru/group/53041416044757"><i class="fa fa-odnoklassniki"></i></a>
+                    <a href="https://www.facebook.com/ayaorganic.ru"><i class="fa fa-facebook"></i></a>
+                    <a href="http://vk.com/ayaorganic"><i class="fa fa-vk"></i></a>
+                    <a href="#"><i class="fa fa-youtube-play"></i></a>
+                    <a href="https://www.instagram.com/ayaorganic.ru/"><i class="fa fa-instagram"></i></a>
+                    <a href="http://ok.ru/group/53041416044757"><i class="fa fa-odnoklassniki"></i></a>
                 </div>
             </div>
 
@@ -191,7 +204,9 @@
                             <?php $this->widget('application.modules.menu.widgets.MenuWidget', ['name' => 'menyu-o-nas', 'layout' => 'footer']); ?>
                         </div>
                         <div class="footer__group">
-                            <a href="<?=$this->createUrl("/store")?>"><div class="footer__item footer__item_header">Каталог</div></a>
+                            <a href="<?= $this->createUrl("/store") ?>">
+                                <div class="footer__item footer__item_header">Каталог</div>
+                            </a>
                             <?php $this->widget('application.modules.store.widgets.CategoryWidget', [
                                 'view' => 'footer'
                             ]); ?>
@@ -202,16 +217,17 @@
                         </div>
                     </div>
                     <div class="footer__copyright">
-                       <?=date("Y")?>,&laquoАлтайЯ&raquo, все права защищены / <a href = "<?=$this->createUrl("/safety.docx")?>">Политика безопасности</a>
+                        <?= date("Y") ?>,&laquoАлтайЯ&raquo, все права защищены / <a
+                            href="<?= $this->createUrl("/safety.docx") ?>">Политика безопасности</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <?php \yupe\components\TemplateEvent::fire(ShopThemeEvents::BODY_END);?>
+    <?php \yupe\components\TemplateEvent::fire(ShopThemeEvents::BODY_END); ?>
     <div class='notifications top-right' id="notifications"></div>
     <?php
-        Yii::app()->clientScript->registerScript("setCatalogHeight",
+    Yii::app()->clientScript->registerScript("setCatalogHeight",
         '$(".catalog-filter").height($(".catalog-filter").parent().height())');
     ?>
 
@@ -219,35 +235,83 @@
     <!— Yandex.Metrika counter —>
     <script type="text/javascript">
         (function (d, w, c) {
-            (w[c] = w[c] || []).push(function() {
+            (w[c] = w[c] || []).push(function () {
                 try {
                     w.yaCounter37659580 = new Ya.Metrika({
-                        id:37659580,
-                        clickmap:true,
-                        trackLinks:true,
-                        accurateTrackBounce:true,
-                        webvisor:true,
-                        trackHash:true
+                        id: 37659580,
+                        clickmap: true,
+                        trackLinks: true,
+                        accurateTrackBounce: true,
+                        webvisor: true,
+                        trackHash: true
                     });
-                } catch(e) { }
+                } catch (e) {
+                }
             });
 
             var n = d.getElementsByTagName("script")[0],
                 s = d.createElement("script"),
-                f = function () { n.parentNode.insertBefore(s, n); };
+                f = function () {
+                    n.parentNode.insertBefore(s, n);
+                };
             s.type = "text/javascript";
             s.async = true;
             s.src = "https://mc.yandex.ru/metrika/watch.js";
 
             if (w.opera == "[object Opera]") {
                 d.addEventListener("DOMContentLoaded", f, false);
-            } else { f(); }
+            } else {
+                f();
+            }
         })(document, window, "yandex_metrika_callbacks");
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/37659580" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/37659580" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
+    <!— /Yandex.Metrika counter —>
     <!— /Yandex.Metrika counter —>
 
-    <script type="text/javascript" src="http://api.venyoo.ru/wnew.js?wc=venyoo/default/science&widget_id=6657789764304896"></script>
+    <script type="text/javascript"
+            src="http://api.venyoo.ru/wnew.js?wc=venyoo/default/science&widget_id=6657789764304896"></script>
+    <script>
+        $(document).ready(
+            function () {
+                $('.audio').mediaelementplayer({
+                    alwaysShowControls: true,
+                    features: ['playpause', 'volume', 'progress'],
+                    audioVolume: 'horizontal',
+                    audioWidth: 450,
+                    audioHeight: 70,
+                    iPadUseNativeControls: true,
+                    iPhoneUseNativeControls: true,
+                    AndroidUseNativeControls: true
+                });
+            }
+        )
+    </script>
 
+    <script>
+        $(document).ready(
+            function () {
+                var a = $(".product-gallery").height();
+                var b = $("#js-height-block").height();
+                if (a <= b) {
+                    $(".b-next-read").show();
+                    var c = a - 100;
+                    $("#js-height-block").css("max-height", c);
+                }
+                else {
+                    $(".b-next-read").hide();
+                }
+                ;
+                $("#btn-next-read").click(
+                    function () {
+                        $("#js-height-block").css("max-height", 2000);
+                    }
+                )
+
+            }
+        )
+    </script>
 </body>
 </html>
