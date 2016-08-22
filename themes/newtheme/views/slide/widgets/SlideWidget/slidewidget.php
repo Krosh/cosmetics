@@ -7,22 +7,29 @@
  * To change this template use File | Settings | File Templates.
  */
 ?>
-<div class="slider-wrapper">
+<div class="camera_wrap">
+    <?php foreach ($items as $item): ?>
+        <div data-src="<?= $item["image"] ?>">
+        </div>
+    <?php endforeach; ?>
+</div>
+
+<!--<div class="slider-wrapper">
     <div id="my-slider">
         <div class="my-slider_container">
         </div>
         <ul>
-            <?php foreach ($items as $item): ?>
+            <?php /*foreach ($items as $item): */?>
                 <li>
-                    <div class="my-slider__slide" style="background-image: url('<?= $item["image"] ?>')">
+                    <div class="my-slider__slide" style="background-image: url('<?/*= $item["image"] */?>')">
                     </div>
                 </li>
-            <?php endforeach; ?>
+            <?php /*endforeach; */?>
         </ul>
     </div>
     <div class="clearfix"></div>
 </div>
-<!--
+--><!--
 <div class="<? /*=$containerClass; */ ?>">
     <div data-show='1' data-scroll='1' data-infinite='1' data-autoplay='5000' data-speed='1500' data-dots='1' class="promo-slider js-slick promo-slider_main">
         <div class="promo-slider__slides js-slick__container">

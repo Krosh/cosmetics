@@ -39,6 +39,8 @@
     Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/unslider-dots.css');
     Yii::app()->getClientScript()->registerCssFile('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css');
 
+    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/camera.css');
+
     Yii::app()->getClientScript()->registerCoreScript('jquery');
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/index.js', CClientScript::POS_END);
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/unslider-min.js', CClientScript::POS_END);
@@ -57,6 +59,7 @@
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/mediaelement-and-player.min.js');
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/jquery-ui.js');
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/unslider-min.js', CClientScript::POS_END);
+    Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/camera.js', CClientScript::POS_END);
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/slide.js', CClientScript::POS_END);
     ?>
     <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-touch-icon-57x57.png">
