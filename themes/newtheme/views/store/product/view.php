@@ -78,6 +78,13 @@ $this->breadcrumbs = array_merge(
                             </div>
                         </div>
                     <?php endif; ?>
+                    <div class="product__rating">
+                        <div class="rating-star" style="height: 30px;width: 30px"></div>
+                        <div class="rating-star" style="height: 30px;width: 30px"></div>
+                        <div class="rating-star" style="height: 30px;width: 30px"></div>
+                        <div class="rating-star" style="height: 30px;width: 30px"></div>
+                        <div class="rating-star-none" style="height: 30px;width: 30px"></div>
+                    </div>
                     <div class="product__title">
                         <h2 class="h2"><?= CHtml::encode($product->name); ?></h2>
                     </div>
@@ -287,24 +294,106 @@ $this->breadcrumbs = array_merge(
                 <?php endif; ?>
             </div>
             <div id="tab3" class="tabs__body js-tab">
-                <div class="product-reviews">
-                    3 таб
-                </div>
+                <?php $hraneniya = $product->attribute(Attribute::model()->findByAttributes(['name' => "usloviya-hraneniya"])); ?>
+                <?php if ($hraneniya != null): ?>
+                    <div class="entry__attribute">
+                        <div class="wysiwyg">
+                            ХРАНЕНИЕ: <?= $hraneniya; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
             </div>
             <div id="tab4" class="tabs__body js-tab">
+
+                <div class="b-rewies-product--alert">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies vulputate elit, a
+                    pretium erat sagittis accumsan. Etiam non arcu ac urna fringilla congue sed a est. <span
+                        class="ui-icon ui-icon-alert"></span>
+                </div>
                 <div class="b-rewies-product">
                     <div class="b-rewies-product__head">
+                        <div class="b-rewies-product__head--avatar">
+                            <div class="head--avatar">
+                                <div class="social_pic">
+
+                                </div>
+                            </div>
+                        </div>
                         <div class="b-rewies-product__head--info">
                             Елена
-                            <br>
-                            Барнаул
                         </div>
                     </div>
                     <div class="b-rewies-product__body">
                         <div class="b-rewies-product__body--star">
-                            <div style="display: inline">
-                                <ul id="starsDemo"></ul>
+                            <div class="rating-star" style="height: 20px;width: 20px"></div>
+                            <div class="rating-star" style="height: 20px;width: 20px"></div>
+                            <div class="rating-star" style="height: 20px;width: 20px"></div>
+                            <div class="rating-star" style="height: 20px;width: 20px"></div>
+                            <div class="rating-star-none" style="height: 20px;width: 20px"></div>
+                        </div>
+                        <div class="b-rewies-product__body--text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat finibus interdum. In
+                            hac habitasse platea dictumst. Vestibulum tincidunt non velit nec faucibus. Quisque
+                            ultricies urna consectetur erat pulvinar, nec feugiat sapien luctus. Vivamus vitae dolor a
+                            lacus porttitor pretium. Mauris sit amet placerat odio, eu vestibulum diam. Aenean eleifend
+                            lectus id neque blandit scelerisque. Maecenas convallis nec ipsum sit amet lacinia. Aliquam
+                            erat volutpat.
+                        </div>
+                    </div>
+
+                </div>
+                <div class="b-rewies-product">
+                    <div class="b-rewies-product__head">
+                        <div class="b-rewies-product__head--avatar">
+                            <div class="head--avatar">
+                                <div class="social_pic">
+
+                                </div>
                             </div>
+                        </div>
+                        <div class="b-rewies-product__head--info">
+                            Елена
+                        </div>
+                    </div>
+                    <div class="b-rewies-product__body">
+                        <div class="b-rewies-product__body--star">
+                            <div class="rating-star" style="height: 20px;width: 20px"></div>
+                            <div class="rating-star" style="height: 20px;width: 20px"></div>
+                            <div class="rating-star" style="height: 20px;width: 20px"></div>
+                            <div class="rating-star" style="height: 20px;width: 20px"></div>
+                            <div class="rating-star-none" style="height: 20px;width: 20px"></div>
+                        </div>
+                        <div class="b-rewies-product__body--text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat finibus interdum. In
+                            hac habitasse platea dictumst. Vestibulum tincidunt non velit nec faucibus. Quisque
+                            ultricies urna consectetur erat pulvinar, nec feugiat sapien luctus. Vivamus vitae dolor a
+                            lacus porttitor pretium. Mauris sit amet placerat odio, eu vestibulum diam. Aenean eleifend
+                            lectus id neque blandit scelerisque. Maecenas convallis nec ipsum sit amet lacinia. Aliquam
+                            erat volutpat.
+                        </div>
+                    </div>
+
+                </div>
+                <div class="b-rewies-product">
+                    <div class="b-rewies-product__head">
+                        <div class="b-rewies-product__head--avatar">
+                            <div class="head--avatar">
+                                <div class="social_pic">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="b-rewies-product__head--info">
+                            Елена
+                        </div>
+                    </div>
+                    <div class="b-rewies-product__body">
+                        <div class="b-rewies-product__body--star">
+                            <div class="rating-star" style="height: 20px;width: 20px"></div>
+                            <div class="rating-star" style="height: 20px;width: 20px"></div>
+                            <div class="rating-star" style="height: 20px;width: 20px"></div>
+                            <div class="rating-star" style="height: 20px;width: 20px"></div>
+                            <div class="rating-star-none" style="height: 20px;width: 20px"></div>
                         </div>
                         <div class="b-rewies-product__body--text">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat finibus interdum. In
@@ -380,15 +469,12 @@ $this->breadcrumbs = array_merge(
     $(document).ready(
         function () {
             var el = document.getElementById('stars');
-            var elDemo = document.getElementById('starsDemo');
             var currentRating = 0;
-            var currentRatingDemo = 4;
             var maxRating = 5;
             var callback = function (rating) {
                 $("#modal__rating").val(rating);
             };
             var myRating = rating(el, currentRating, maxRating, callback);
-            var myRatingDemo = rating(elDemo, currentRatingDemo, maxRating, callback);
         }
     )
 </script>
