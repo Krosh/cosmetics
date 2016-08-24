@@ -32,11 +32,12 @@
     Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/libs/select2/select2.css');
     Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/common.css');
     Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/mediaelementplayer.css');
-    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/jquery-ui.css');
     Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/jquery-ui.structure.css');
     Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/jquery-ui.theme.css');
+    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/jquery-ui.css');
     Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/unslider.css');
     Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/unslider-dots.css');
+    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/rating.css');
     Yii::app()->getClientScript()->registerCssFile('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css');
 
     Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/camera.css');
@@ -61,6 +62,7 @@
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/unslider-min.js', CClientScript::POS_END);
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/camera.js', CClientScript::POS_END);
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/slide.js', CClientScript::POS_END);
+    Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/rating.min.js', CClientScript::POS_END);
     ?>
     <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-touch-icon-60x60.png">
@@ -315,6 +317,26 @@
 
             }
         )
+    </script>
+    <script>
+        $(function () {
+            $("#dialog-confirm").dialog({
+                modal: true,
+                autoOpen: false,
+                resizable: false,
+                height: "auto",
+                width: 500,
+            });
+        });
+        $(function () {
+            $("#dialog-close").dialog({
+                modal: true,
+                autoOpen: false,
+                resizable: false,
+                height: "auto",
+                width: 400,
+            });
+        });
     </script>
 </body>
 </html>
