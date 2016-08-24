@@ -59,14 +59,14 @@ return [
          * On production `gii` recommended disable
          * @link http://www.yiiframework.com/doc/guide/1.1/en/quickstart.first-app
          */
-        /*'gii'   => array(
-            'class'          => 'system.gii.GiiModule',
-            'password'       => 'giiYupe',
-            'generatorPaths' => array(
-                'application.modules.yupe.extensions.yupe.gii',
-            ),
-            'ipFilters'=>array(),
-        ),*/
+//        'gii'   => array(
+//            'class'          => 'system.gii.GiiModule',
+//            'password'       => 'giiYupe',
+//            'generatorPaths' => array(
+//                'application.modules.yupe.extensions.yupe.gii',
+//            ),
+//            'ipFilters'=>array(),
+//        ),
     ],
     'behaviors' => [
         'onBeginRequest' => [
@@ -79,12 +79,134 @@ return [
         ]
 
     ],
-    'params' => require __DIR__. '/params.php',
+    'params' => require __DIR__ . '/params.php',
     /**
      * Configuration base components
      * @link http://www.yiiframework.ru/doc/guide/ru/basics.component
      */
     'components' => [
+        'loid' => array(
+            'class' => 'ext.lightopenid.loid',
+        ),
+        'eauth' => array(
+            'class' => 'ext.eauth.EAuth',
+            'popup' => true, // Use the popup window instead of redirecting.
+            'cache' => false, // Cache component name or false to disable cache. Defaults to 'cache'.
+            'cacheExpire' => 0, // Cache lifetime. Defaults to 0 - means unlimited.
+            'services' => array( // You can change the providers and their classes.
+                'google' => array(
+                    'class' => 'GoogleOpenIDService',
+                    //'realm' => '*.example.org',
+                ),
+                'yandex' => array(
+                    'class' => 'YandexOpenIDService',
+                    //'realm' => '*.example.org',
+                ),
+                'steam' => array(
+                    'class' => 'SteamOpenIDService',
+                    //'realm' => '*.example.org',
+                ),
+                'yahoo' => array(
+                    'class' => 'YahooOpenIDService',
+                    //'realm' => '*.example.org',
+                ),
+                'wargaming' => array(
+                    'class' => 'WargamingOpenIDService'
+                ),
+                'twitter' => array(
+                    // register your app here: https://dev.twitter.com/apps/new
+                    'class' => 'TwitterOAuthService',
+                    'key' => '...',
+                    'secret' => '...',
+                ),
+                'google_oauth' => array(
+                    // register your app here: https://code.google.com/apis/console/
+                    'class' => 'GoogleOAuthService',
+                    'client_id' => '...',
+                    'client_secret' => '...',
+                    'title' => 'Google (OAuth)',
+                ),
+                'yandex_oauth' => array(
+                    // register your app here: https://oauth.yandex.ru/client/my
+                    'class' => 'YandexOAuthService',
+                    'client_id' => '...',
+                    'client_secret' => '...',
+                    'title' => 'Yandex (OAuth)',
+                ),
+                'facebook' => array(
+                    // register your app here: https://developers.facebook.com/apps/
+                    'class' => 'FacebookOAuthService',
+                    'client_id' => '...',
+                    'client_secret' => '...',
+                ),
+                'linkedin' => array(
+                    // register your app here: https://www.linkedin.com/secure/developer
+                    'class' => 'LinkedinOAuthService',
+                    'key' => '...',
+                    'secret' => '...',
+                ),
+                'github' => array(
+                    // register your app here: https://github.com/settings/applications
+                    'class' => 'GitHubOAuthService',
+                    'client_id' => '...',
+                    'client_secret' => '...',
+                ),
+                'live' => array(
+                    // register your app here: https://manage.dev.live.com/Applications/Index
+                    'class' => 'LiveOAuthService',
+                    'client_id' => '...',
+                    'client_secret' => '...',
+                ),
+                'vkontakte' => array(
+                    // register your app here: https://vk.com/editapp?act=create&site=1
+                    'class' => 'VKontakteOAuthService',
+                    'client_id' => '5601990',
+                    'client_secret' => 'OlHymkffrd94cbs6OEcd',
+                ),
+                'mailru' => array(
+                    // register your app here: http://api.mail.ru/sites/my/add
+                    'class' => 'MailruOAuthService',
+                    'client_id' => '...',
+                    'client_secret' => '...',
+                ),
+                'moikrug' => array(
+                    // register your app here: https://oauth.yandex.ru/client/my
+                    'class' => 'MoikrugOAuthService',
+                    'client_id' => '...',
+                    'client_secret' => '...',
+                ),
+                'odnoklassniki' => array(
+                    // register your app here: http://dev.odnoklassniki.ru/wiki/pages/viewpage.action?pageId=13992188
+                    // ... or here: http://www.odnoklassniki.ru/dk?st.cmd=appsInfoMyDevList&st._aid=Apps_Info_MyDev
+                    'class' => 'OdnoklassnikiOAuthService',
+                    'client_id' => '...',
+                    'client_public' => '...',
+                    'client_secret' => '...',
+                    'title' => 'Odnokl.',
+                ),
+                'dropbox' => array(
+                    // register your app here: https://www.dropbox.com/developers/apps/create
+                    'class' => 'DropboxOAuthService',
+                    'client_id' => '...',
+                    'client_secret' => '...',
+                ),
+                'eve' => array(
+                    // register your app here: https://developers.eveonline.com/applications
+                    'class' => 'EveOnlineOAuthService',
+                    'client_id' => '...',
+                    'client_secret' => '...',
+                ),
+                'slack' => array(
+                    // register your app here: https://api.slack.com/applications/new
+                    'class' => 'SlackOAuthService',
+                    'client_id' => '...',
+                    'client_secret' => '...',
+                    'title' => 'Slack',
+                ),
+
+            ),
+        ),
+
         'clientScript' => [
 //            'class' => 'ext.minScript.components.ExtMinScript',
         ],
@@ -121,7 +243,7 @@ return [
         ],
         'cache' => [
             'class' => 'CFileCache',
-           // 'behaviors' => ['clear' => ['class' => 'application.modules.yupe.extensions.tagcache.TaggingCacheBehavior']]
+            // 'behaviors' => ['clear' => ['class' => 'application.modules.yupe.extensions.tagcache.TaggingCacheBehavior']]
         ],
         /**
          * Configuration of urlManager
