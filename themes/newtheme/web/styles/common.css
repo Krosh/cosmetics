@@ -5162,3 +5162,14 @@ label.error, .errorMessage, .text-error {
 .js-height-block-max-height {
     max-height: 2000px;
 }
+
+.b-error {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.b-error a {
+    text-decoration: underline;
+    color:#90c921;
+}
