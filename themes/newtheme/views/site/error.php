@@ -8,18 +8,7 @@
         case '404':
             $msg = Yii::t(
                 'default',
-                'К сожалению, ссылка недействительная, но вы можете выбрать товары {link}',
-                [
-                    '{link}' => CHtml::link(
-                        Yii::t('default', 'из нашего каталога'),
-                        $this->createUrl("/" . Yii::app()->defaultController . '/store'),
-                        [
-                            'title' => Yii::t('default', 'из нашего каталога'),
-                            'alt' => Yii::t('default', 'из нашего каталога'),
-                        ]
-                    ),
-
-                ]
+                "К сожалению, ссылка недействительная, но вы можете выбрать товары <a href='/store'>из нашего каталога</a>"
             );
             break;
         default:

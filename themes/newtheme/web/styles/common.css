@@ -3040,7 +3040,7 @@ a {
 }
 
 .product-label_hit {
-    background: #c8a2c8;
+    background: #af86ba;
 }
 
 .product-label_slim {
@@ -4850,6 +4850,7 @@ label.error, .errorMessage, .text-error {
 }
 
 .b-reviews__logo-desc {
+    text-align: center;
     display: flex;
     align-items: flex-start;
 }
@@ -5171,5 +5172,5 @@ label.error, .errorMessage, .text-error {
 
 .b-error a {
     text-decoration: underline;
-    color:#90c921;
+    color: #90c921;
 }
