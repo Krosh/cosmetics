@@ -5174,3 +5174,34 @@ label.error, .errorMessage, .text-error {
     text-decoration: underline;
     color: #90c921;
 }
+
+.b-quick-view {
+    display: flex;
+    width: 100%;
+    position: absolute;
+    z-index: 9;
+    top: 40%;
+    justify-content: center;
+}
+
+.b-quick-view__btn {
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #90c921;
+    background-color: rgba(255, 255, 255, 0.95);
+    text-transform: uppercase;
+    visibility: hidden;
+    transition: .1s;
+}
+
+.product-vertical:hover .b-quick-view__btn {
+    visibility: visible;
+}
+
+.b-quick-link__pic {
+    height: 20px;
+    width: 20px;
+    margin-left: 3px;
+    vertical-align: bottom;
+}
