@@ -12,12 +12,11 @@ $basePrice = (float)$data->getBasePrice();
                 <img src="<?= StoreImage::product($data, 150, 180, false) ?>" class="product-vertical__img"/>
                 <div class="b-quick-view">
                     <div class="b-quick-view__btn">
-                        <a rel="group" href="<?= StoreImage::product($data) ?>" class="b-quick-link fancybox"> Быстрый
+                        <a rel="group-<?= CHtml::encode($data->getName()); ?>" href="<?= StoreImage::product($data) ?>" class="b-quick-link fancybox"> Быстрый
                             просмотр <img
                                 src="<?= $this->mainAssets ?>/images/eye.png" class="b-quick-link__pic" alt=""></a>
-
                         <?php foreach ($data->getImages() as $key => $image): ?>
-                            <a href="<?= $image->getImageUrl(); ?>" rel="group" class="fancybox"> </a>
+                            <a href="<?= $image->getImageUrl(); ?>" rel="group-<?= CHtml::encode($data->getName()); ?>" class="fancybox"> </a>
                         <?php endforeach; ?>
                     </div>
                 </div>
