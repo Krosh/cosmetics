@@ -94,6 +94,12 @@ $this->breadcrumbs = array_merge(
                             <?= $slogan; ?>
                         </div>
                     <?php endif; ?>
+                    <div class="entry__cart-button">
+                        <button class="btn btn_cart" id="add-product-to-cart"
+                                data-loading-text="<?= Yii::t("StoreModule.store", "Adding"); ?>">
+                            <?= Yii::t('StoreModule.store', 'Into cart') ?>
+                        </button>
+                    </div>
                     <?php $tip_kozhi = $product->attribute(Attribute::model()->findByAttributes(['name' => "tip-kozhi"])); ?>
                     <?php if ($tip_kozhi != null): ?>
                         <div class="entry__attribute">
@@ -209,12 +215,6 @@ $this->breadcrumbs = array_merge(
                         <span
                             class="ruble"> <?= Yii::t("StoreModule.store", Yii::app()->getModule('store')->currency); ?></span>
                     </div>
-                    <div class="entry__cart-button">
-                        <button class="btn btn_cart" id="add-product-to-cart"
-                                data-loading-text="<?= Yii::t("StoreModule.store", "Adding"); ?>">
-                            <?= Yii::t('StoreModule.store', 'Into cart') ?>
-                        </button>
-                    </div>
                 <?php else: ?>
                     <div class="product-vertical-extra__cart">
                         <div class="product-vertical__non-in-stock">
@@ -288,7 +288,9 @@ $this->breadcrumbs = array_merge(
                 <?php if ($primenenie != null): ?>
                     <div class="entry__attribute">
                         <div class="wysiwyg">
-                            ПРИМЕНЕНИЕ: <?= $primenenie; ?>
+                            <div class="h3 tabs__title" style="text-align: center">ПРИМЕНЕНИЕ:</div>
+                            <br>
+                            <?= $primenenie; ?>
                         </div>
                     </div>
                 <?php endif; ?>
@@ -298,13 +300,16 @@ $this->breadcrumbs = array_merge(
                 <?php if ($hraneniya != null): ?>
                     <div class="entry__attribute">
                         <div class="wysiwyg">
-                            ХРАНЕНИЕ: <?= $hraneniya; ?>
+                            <div class="h3 tabs__title" style="text-align: center">ХРАНЕНИЕ:</div>
+                            <br>
+                            <?= $hraneniya; ?>
                         </div>
                     </div>
                 <?php endif; ?>
             </div>
             <div id="tab4" class="tabs__body js-tab">
-
+                <div class="h3 tabs__title" style="text-align: center">ОТЗЫВЫ</div>
+                <br>
                 <div class="b-rewies-product--alert">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies vulputate elit, a
                     pretium erat sagittis accumsan. Etiam non arcu ac urna fringilla congue sed a est. <span

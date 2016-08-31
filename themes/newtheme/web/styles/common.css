@@ -533,7 +533,7 @@ a {
 .btn_cart {
     text-transform: uppercase;
     padding: 0px;
-    width: 136px;
+    width: 195px;
     height: 41px;
     line-height: 41px;
     color: #fff;
@@ -4598,7 +4598,13 @@ label.error, .errorMessage, .text-error {
 
 .ingridients__title {
     margin-bottom: 20px;
+    text-transform: uppercase;
 }
+
+.tabs__title {
+    text-transform: uppercase;
+}
+
 
 .ingridient__item {
     float: left;
