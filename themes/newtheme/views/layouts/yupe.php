@@ -303,7 +303,7 @@
                 if (a <= b) {
                     $(".b-next-read").show();
                     var c = a - 100;
-                    $("#js-height-block").css("max-height", c);
+                    $("#js-height-block").addClass("js-height-block-min-height");
                 }
                 else {
                     $(".b-next-read").hide();
@@ -311,7 +311,7 @@
                 ;
                 $("#btn-next-read").click(
                     function () {
-                        $("#js-height-block").css("max-height", 2000);
+                        $("#js-height-block").toggleClass("js-height-block-max-height");
                     }
                 )
 
@@ -336,6 +336,11 @@
                 height: "auto",
                 width: 400,
             });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".fancybox").fancybox();
         });
     </script>
 </body>

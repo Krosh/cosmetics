@@ -42,8 +42,9 @@
 </div>
 <div class="main__hit-slider grid">
     <div class="b-reviews">
+        <div style="margin: 0 auto">
         <?php $this->widget('application.modules.menu.widgets.MenuWidget', ['name' => 'servisy', 'layout' => 'main_logos']); ?>
-
+        </div>
         <!--   <div class="b-reviews__item">
                <div class="b-reviews__item--logo">
                Логотип

@@ -3,9 +3,9 @@ $mainAssets = Yii::app()->getTheme()->getAssetsUrl();
 Yii::app()->getClientScript()->registerScriptFile($mainAssets . '/js/store.js');
 /* @var $category StoreCategory */
 
-$this->title =  $category->getMetaTile();
+$this->title = $category->getMetaTile();
 $this->metaDescription = $category->getMetaDescription();
-$this->metaKeywords =  $category->getMetaKeywords();
+$this->metaKeywords = $category->getMetaKeywords();
 
 $this->breadcrumbs = [Yii::t("StoreModule.store", "Catalog") => ['/store/product/index']];
 
@@ -35,18 +35,18 @@ $this->breadcrumbs = array_merge(
                             'links' => $this->breadcrumbs,
                             'tagName' => 'ul',
                             'separator' => '',
-                            'homeLink' => '<li><a href="'.$this->createUrl("/").'">' . Yii::t('Yii.zii', 'Home') . '</a>',
+                            'homeLink' => '<li><a href="' . $this->createUrl("/") . '">' . Yii::t('Yii.zii', 'Home') . '</a>',
                             'activeLinkTemplate' => '<li><a href="{url}">{label}</a>',
                             'inactiveLinkTemplate' => '<li><a>{label}</a>',
                             'htmlOptions' => []
                         ]
-                    );?>
+                    ); ?>
                 </div>
             </div>
             <?php $this->widget(
                 'zii.widgets.CListView', [
                     'dataProvider' => $dataProvider,
-                    'itemView' => '//store/product/_item',
+                    'itemView' => '//store/product/_itemPreview',
                     'template' => '
                    <!--     <div class="catalog-controls">
                             <div class="catalog-controls__col">{sorter}</div>
