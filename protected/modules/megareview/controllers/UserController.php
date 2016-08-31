@@ -12,16 +12,6 @@
 
 class UserController extends \yupe\components\controllers\FrontController
 {
-    /**
-     * Действие "по умолчанию"
-     *
-     * @return void
-     */
-    public function actionIndex()
-    {
-        $this->render('index');
-    }
-
     public function actionLogin($service)
     {
         $serviceName = Yii::app()->request->getQuery('service');

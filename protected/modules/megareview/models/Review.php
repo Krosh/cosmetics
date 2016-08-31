@@ -6,6 +6,7 @@
  * The followings are the available columns in table '{{megareview_review}}':
  * @property integer $id
  * @property integer $id_mega_user
+ * @property integer $moderation_status
  * @property string $rating
  * @property string $text
  * @property string $date_add
@@ -17,6 +18,36 @@
  */
 class Review extends yupe\models\YModel
 {
+    static public $MODERATION_ON = 0;
+    static public $MODERATION_SUCCESS = 1;
+    static public $MODERATION_FAILED = 2;
+
+    static public function getStatuses()
+    {
+        return [self::$MODERATION_ON => "На модерации", self::$MODERATION_FAILED => "Не прошел модерацию", self::$MODERATION_SUCCESS => "Прошел модерацию"];
+    }
+
+    public function getTargets()
+    {
+        $result = [];
+        $result[-1] = "Общий отзыв";
+        $products = Product::model()->findAll();
+        foreach ($products as $item) {
+            $result[$item->id] = $item->name;
+        }
+        return $result;
+    }
+
+
+    public function getUsers()
+    {
+        $result = [];
+        $megausers = Megauser::model()->findAll();
+        foreach ($megausers as $item) {
+            $result[$item->id] = $item->getUser()->getFullName();
+        }
+    }
+
     /**
      * @return string the associated database table name
      */
@@ -33,14 +64,14 @@ class Review extends yupe\models\YModel
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('id_mega_user, has_audio, has_video', 'numerical', 'integerOnly' => true),
-            array('rating', 'length', 'max' => 2),
+            array('review_target, moderation_status, id_mega_user, has_audio, has_video', 'numerical', 'integerOnly' => true),
+            array('rating', 'length', 'max' => 3),
             array('text', 'length', 'max' => 300),
             array('audio_file, video_file, video_preview', 'length', 'max' => 150),
             array('date_add', 'safe'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, id_mega_user, rating, text, date_add, has_audio, audio_file, has_video, video_file, video_preview', 'safe', 'on' => 'search'),
+            array('review_target, moderation_status, id, id_mega_user, rating, text, date_add, has_audio, audio_file, has_video, video_file, video_preview', 'safe', 'on' => 'search'),
         );
     }
 
@@ -52,6 +83,20 @@ class Review extends yupe\models\YModel
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array();
+    }
+
+    public function behaviors()
+    {
+        return array(
+            'upload' => array(
+                'class' => 'yupe\components\behaviors\FileUploadBehavior',
+                'scenarios' => array('insert', 'update'),
+                'attributeName' => 'audio_file',
+                'types' => "mp3",
+                'maxSize' => 5368709120,
+                'uploadPath' => "/upload/audio",
+            ),
+        );
     }
 
     /**

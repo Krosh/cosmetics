@@ -17,7 +17,11 @@ $form = $this->beginWidget(
         'id' => 'review-form',
         'enableAjaxValidation' => false,
         'enableClientValidation' => true,
-        'htmlOptions' => ['class' => 'well'],
+        'htmlOptions' => [
+            'class' => 'well',
+            'enctype' => 'multipart/form-data'
+        ]
+        ,
     ]
 );
 ?>
@@ -32,8 +36,9 @@ $form = $this->beginWidget(
 
     <div class="row">
         <div class="col-sm-7">
-            <?php echo $form->textFieldGroup($model, 'id_mega_user', [
+            <?php echo $form->dropDownListGroup($model, 'id_mega_user', [
                 'widgetOptions' => [
+                    'data' => $model->getUsers(),
                     'htmlOptions' => [
                         'class' => 'popover-help',
                         'data-original-title' => $model->getAttributeLabel('id_mega_user'),
@@ -43,6 +48,37 @@ $form = $this->beginWidget(
             ]); ?>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <?php echo $form->dropDownListGroup($model, 'review_target', [
+                'widgetOptions' => [
+                    'data' => $model->getTargets(),
+                    'htmlOptions' => [
+                        'class' => 'popover-help',
+                        'data-original-title' => $model->getAttributeLabel('review_target'),
+                        'data-content' => $model->getAttributeDescription('review_target')
+                    ]
+                ]
+            ]); ?>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <?php echo $form->dropDownListGroup($model, 'moderation_status', [
+                'widgetOptions' => [
+                    'data' => Review::getStatuses(),
+                    'htmlOptions' => [
+                        'class' => 'popover-help',
+                        'data-original-title' => $model->getAttributeLabel('moderation_status'),
+                        'data-content' => $model->getAttributeDescription('moderation_status')
+                    ]
+                ]
+            ]); ?>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-sm-7">
             <?php echo $form->textFieldGroup($model, 'rating', [
@@ -82,7 +118,7 @@ $form = $this->beginWidget(
     </div>
     <div class="row">
         <div class="col-sm-7">
-            <?php echo $form->textFieldGroup($model, 'has_audio', [
+            <?php echo $form->checkboxGroup($model, 'has_audio', [
                 'widgetOptions' => [
                     'htmlOptions' => [
                         'class' => 'popover-help',
@@ -95,7 +131,7 @@ $form = $this->beginWidget(
     </div>
     <div class="row">
         <div class="col-sm-7">
-            <?php echo $form->textFieldGroup($model, 'audio_file', [
+            <?php echo $form->fileFieldGroup($model, 'audio_file', [
                 'widgetOptions' => [
                     'htmlOptions' => [
                         'class' => 'popover-help',
@@ -108,7 +144,7 @@ $form = $this->beginWidget(
     </div>
     <div class="row">
         <div class="col-sm-7">
-            <?php echo $form->textFieldGroup($model, 'has_video', [
+            <?php echo $form->checkboxGroup($model, 'has_video', [
                 'widgetOptions' => [
                     'htmlOptions' => [
                         'class' => 'popover-help',
@@ -127,19 +163,6 @@ $form = $this->beginWidget(
                         'class' => 'popover-help',
                         'data-original-title' => $model->getAttributeLabel('video_file'),
                         'data-content' => $model->getAttributeDescription('video_file')
-                    ]
-                ]
-            ]); ?>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-7">
-            <?php echo $form->textFieldGroup($model, 'video_preview', [
-                'widgetOptions' => [
-                    'htmlOptions' => [
-                        'class' => 'popover-help',
-                        'data-original-title' => $model->getAttributeLabel('video_preview'),
-                        'data-content' => $model->getAttributeDescription('video_preview')
                     ]
                 ]
             ]); ?>

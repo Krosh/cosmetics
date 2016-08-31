@@ -16,8 +16,8 @@ return [
     'import' => [],
     'component' => [],
     'rules' => [
-        '/megareview' => 'megareview/megareview/index',
         '/loginFromSocial' => 'megareview/user/login',
-        'testLogin' => 'megareview/user/test',
+        '/testLogin' => 'megareview/user/test',
+        '/review/add' => 'megareview/review/add',
     ],
 ];
