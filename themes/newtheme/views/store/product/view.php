@@ -486,8 +486,13 @@ $this->breadcrumbs = array_merge(
 <script>
     $("#b-modal__form").submit(
         function () {
+            var rating = $("#modal__rating").val();
             $.ajax(
-                {}
+                {
+                    type: "POST",
+                    url: "/mail.php",
+                    data: $(this).serialize() + "&ratingStar=" + rating
+                }
             ).done(
                 function () {
                     $('#dialog-confirm').dialog('close');
