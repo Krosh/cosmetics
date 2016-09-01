@@ -7,7 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 ?>
-<div class="camera_wrap">
+<div class="camera_wrap" <?php if ($height > 0): ?> data-height= <?= $height; ?><?php endif; ?>>
     <?php foreach ($items as $item): ?>
         <div data-src="<?= $item["image"] ?>">
         </div>

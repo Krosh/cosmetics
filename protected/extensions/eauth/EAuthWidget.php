@@ -41,6 +41,8 @@ class EAuthWidget extends CWidget
      */
     public $action = null;
 
+    public $backUrl = null;
+
     /**
      * @var boolean include the CSS file. Default is true.
      * If this is set false, you are responsible to explicitly include the necessary CSS file in your page.
@@ -83,6 +85,10 @@ class EAuthWidget extends CWidget
         if (!isset($this->action)) {
             $this->action = Yii::app()->urlManager->parseUrl(Yii::app()->request);
         }
+
+        if (!isset($this->backUrl)) {
+            $this->backUrl = Yii::app()->request->getUrl();
+        }
     }
 
     /**
@@ -95,6 +101,7 @@ class EAuthWidget extends CWidget
 
         $this->registerAssets();
         $this->render('auth', array(
+            'backUrl' => $this->backUrl,
             'id' => $this->getId(),
             'services' => $this->services,
             'action' => $this->action,

@@ -12,7 +12,7 @@
 
 class UserController extends \yupe\components\controllers\FrontController
 {
-    public function actionLogin($service)
+    public function actionLogin($service, $backUrl)
     {
         $serviceName = Yii::app()->request->getQuery('service');
         $serviceType = 1;
@@ -79,7 +79,7 @@ class UserController extends \yupe\components\controllers\FrontController
                         //var_dump($identity->id, $identity->name, Yii::app()->user->id);exit;
 
                         // special redirect with closing popup window
-                        $eauth->redirect();
+                        $eauth->redirect($backUrl);
                     } else {
                         // close popup window and redirect to cancelUrl
                         $eauth->cancel();

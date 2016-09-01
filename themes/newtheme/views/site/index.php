@@ -3,7 +3,7 @@
 <div class="main__hit-slider grid">
     <?php
     $this->widget('application.modules.slide.widgets.SlideWidget',
-        ["slideshow_identifier" => "mainpage", "containerClass" => "main__promo-slider"]);
+        ["slideshow_identifier" => "mainpage", "containerClass" => "main__promo-slider", "height" => "650"]);
     ?>
 </div>
 <div class="main__hit-slider grid packs">
@@ -43,7 +43,7 @@
 <div class="main__hit-slider grid">
     <div class="b-reviews">
         <div style="margin: 0 auto">
-        <?php $this->widget('application.modules.menu.widgets.MenuWidget', ['name' => 'servisy', 'layout' => 'main_logos']); ?>
+            <?php $this->widget('application.modules.menu.widgets.MenuWidget', ['name' => 'servisy', 'layout' => 'main_logos']); ?>
         </div>
         <!--   <div class="b-reviews__item">
                <div class="b-reviews__item--logo">
@@ -155,6 +155,7 @@
                 vestibulum tincidunt iaculis.
             </div>
             <br>
+
             <div class="audio-player">
                 <audio class="audio" preload="true" src="/123.mp3">
                 </audio>
@@ -181,6 +182,7 @@
                 vestibulum tincidunt iaculis.
             </div>
             <br>
+
             <div class="audio-player">
                 <audio class="audio" preload="true" src="/123.mp3">
                 </audio>
@@ -207,6 +209,7 @@
                 vestibulum tincidunt iaculis.
             </div>
             <br>
+
             <div class="audio-player">
                 <audio class="audio" preload="true" src="/123.mp3">
                 </audio>

@@ -1,10 +1,14 @@
 $(document).ready(
     function () {
-        jQuery('.camera_wrap').camera(
-            {
-                playPause: false,
-            }
-        );
+        $('.camera_wrap').each(function () {
+            $(this).camera(
+                {
+                    playPause: false,
+                    height: $(this).data("height") > 0 ? $(this).data("height").toString() : "auto",
+                }
+            )
+        });
+
         $('#my-slider').unslider({
             autoplay: true,
             arrows: false,

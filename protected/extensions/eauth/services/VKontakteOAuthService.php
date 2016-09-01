@@ -39,7 +39,7 @@ class VKontakteOAuthService extends EOAuth2Service
         $info = (array)$this->makeSignedRequest('https://api.vk.com/method/users.get.json', array(
             'query' => array(
                 'uids' => $this->uid,
-                'fields' => 'city, photo', // uid, first_name and last_name is always available
+                'fields' => 'city, photo, photo_medium, photo_big, photo_rec', // uid, first_name and last_name is always available
                 //'fields' => 'nickname, sex, bdate, city, country, timezone, photo, photo_medium, photo_big, photo_rec',
             ),
         ));
@@ -64,9 +64,9 @@ class VKontakteOAuthService extends EOAuth2Service
 
         */
         $this->attributes['photo'] = $info->photo;
-        /*		$this->attributes['photo_medium'] = $info->photo_medium;
-                $this->attributes['photo_big'] = $info->photo_big;
-                $this->attributes['photo_rec'] = $info->photo_rec;*/
+        $this->attributes['photo_medium'] = $info->photo_medium;
+        $this->attributes['photo_big'] = $info->photo_big;
+        $this->attributes['photo_rec'] = $info->photo_rec;
     }
 
     /**

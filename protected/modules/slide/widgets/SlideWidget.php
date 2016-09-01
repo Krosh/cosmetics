@@ -18,10 +18,10 @@ class SlideWidget extends yupe\widgets\YWidget
 {
 
 
-
     public $containerClass = "page-slider";
     public $slideshow_identifier = "";
     public $view = 'slidewidget';
+    public $height = 0;
 
     /**
      * Запускаем отрисовку виджета
@@ -32,24 +32,23 @@ class SlideWidget extends yupe\widgets\YWidget
     {
 
 
+        /*
+                $baseUrl = Yii::app()->assetManager->publish(
+                        Yii::getPathOfAlias('application.modules.gallery.views.assets')
+                );
+        */
+        //Yii::app()->clientScript->registerCssFile($baseUrl.'/css/gallery.css');
+        $module = Yii::app()->getModule('slide');
 
-/*
-    	$baseUrl = Yii::app()->assetManager->publish(
-    			Yii::getPathOfAlias('application.modules.gallery.views.assets')
-    	);
-*/
-    	//Yii::app()->clientScript->registerCssFile($baseUrl.'/css/gallery.css');
-    	$module = Yii::app()->getModule('slide');
-
-		$slides = Slide::model()->findAll("status=1 AND slideshow_identifier = '".$this->slideshow_identifier."' order by sort");
-		$items = array();
-		foreach ($slides as $slide){
-			$items[] = array(
-				'image' => $slide->getImageUrl($module->maxWidth, $module->maxHeight),
+        $slides = Slide::model()->findAll("status=1 AND slideshow_identifier = '" . $this->slideshow_identifier . "' order by sort");
+        $items = array();
+        foreach ($slides as $slide) {
+            $items[] = array(
+                'image' => $slide->getImageUrl($module->maxWidth, $module->maxHeight),
                 'label' => $slide->name,
                 'caption' => $slide->description,
-					);
-		}
+            );
+        }
 
         if (count($items) > 0)
             $this->render(
@@ -57,6 +56,7 @@ class SlideWidget extends yupe\widgets\YWidget
                 array(
                     'containerClass' => $this->containerClass,
                     'items' => $items,
+                    'height' => $this->height,
                 )
             );
     }
