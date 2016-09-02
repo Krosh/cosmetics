@@ -489,12 +489,11 @@ $this->breadcrumbs = array_merge(
 <script>
     $("#b-modal__form").submit(
         function () {
-            var rating = $("#modal__rating").val();
             $.ajax(
                 {
                     type: "POST",
                     url: "/review/add",
-                    data: $("#b-modal__form").serialize() + "&ratingStar=" + rating
+                    data: $("#b-modal__form").serialize()
                 }
             ).done(
                 function () {
