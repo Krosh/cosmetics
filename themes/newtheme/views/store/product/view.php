@@ -488,26 +488,22 @@ $this->breadcrumbs = array_merge(
 </script>
 <script>
     $("#b-modal__form").submit(
-        function ()
-    var rating = $("#modal__rating").val();
-    {
-        $.ajax({
-                type: "POST",
-                url: "/review/add",
-                data: $("#b-modal__form").serialize() + "&ratingStar=" + rating
-            }
-        ).done(
-            function () {
-                $('#dialog-confirm').dialog('close');
-                $('#dialog-close').dialog('open');
-                setTimeout(
-                    function () {
-                        $('#dialog-close').dialog('close');
-                    }, 3000
-                )
-            }
-        )
-        return false;
-    }
+        function () {
+            var rating = $("#modal__rating").val();
+            $.ajax(
+                {
+                    type: "POST",
+                    url: "/review/add",
+                    data: $("#b-modal__form").serialize() + "&ratingStar=" + rating
+                }
+            ).done(
+                function () {
+                    $('#dialog-confirm').dialog('close');
+                    $('#dialog-close').dialog('open');
+                    setTimeout(function () { $('#dialog-close').dialog('close');}, 3000)
+                }
+            );
+            return false
+        }
     )
 </script>
