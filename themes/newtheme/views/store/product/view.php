@@ -436,18 +436,18 @@ $this->breadcrumbs = array_merge(
                 </div>
             </div>
             <form action="" id="b-modal__form">
-
                 <?=
                 CHtml::hiddenField(
                     Yii::app()->getRequest()->csrfTokenName,
                     Yii::app()->getRequest()->csrfToken
                 ); ?>
-
                 <div class="b-modal-reviews__body">
+                    <input type="text" id="modal__rating" name="modal__rating" hidden>
+                    <input type="text" id="modal__product-id" name="modal__product-id" value="<?= CHtml::encode($product->id); ?>"
+                           hidden>
                     <textarea class="b-modal-reviews__textarea" name="b-modal-reviews__text" id="">
                     </textarea>
                 </div>
-
                 <div class="b-modal-reviews__btns">
                     <button class="btn" type="submit"> Отправить</button>
                 </div>
@@ -493,23 +493,22 @@ $this->breadcrumbs = array_merge(
 <script>
     $("#b-modal__form").submit(
         function () {
-            $.ajax({
+            $.ajax(
+                {
                     type: "POST",
                     url: "/review/add",
-                    data: $("#b-modal__form").serialize(),
+                    data: $("#b-modal__form").serialize()
                 }
             ).done(
                 function () {
                     $('#dialog-confirm').dialog('close');
                     $('#dialog-close').dialog('open');
-                    setTimeout(
-                        function () {
-                            $('#dialog-close').dialog('close');
-                        }, 3000
-                    )
+                    setTimeout(function () {
+                        $('#dialog-close').dialog('close');
+                    }, 3000)
                 }
-            )
-            return false;
+            );
+            return false
         }
     )
 </script>
