@@ -7,6 +7,7 @@
  * @property integer $id
  * @property integer $id_mega_user
  * @property integer $moderation_status
+ * @property integer $review_target
  * @property string $rating
  * @property string $text
  * @property string $date_add
