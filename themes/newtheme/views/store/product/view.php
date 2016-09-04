@@ -429,7 +429,9 @@ $this->breadcrumbs = array_merge(
                 </div>
                 <div class="b-modal-reviews__rating">
                     <div style="display: inline-block">
-                        <ul id="stars"></ul>
+                        <div id="js-modal-rating">
+                            <input type="hidden" name="val" value="4"/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -440,7 +442,7 @@ $this->breadcrumbs = array_merge(
                     Yii::app()->getRequest()->csrfToken
                 ); ?>
                 <div class="b-modal-reviews__body">
-                    <input type="text" id="modal__rating" name="modal__rating" hidden>
+                    <input type="text" id="modal__rating" value="4" name="modal__rating" hidden>
                     <input type="text" id="modal__product-id" name="modal__product-id" value="<?= CHtml::encode($product->id); ?>"
                            hidden>
                     <textarea class="b-modal-reviews__textarea" name="b-modal-reviews__text" id="">
@@ -472,22 +474,6 @@ $this->breadcrumbs = array_merge(
 <?php else: ?>
     <?php $this->widget('application.modules.store.widgets.LinkedProductsWidget', ['product' => $product, 'code' => null,]); ?>
 <?php endif; ?>
-<script>
-    $(document).ready(
-        function () {
-            var el = document.getElementById('stars');
-            if (el == null) {
-                return;
-            }
-            var currentRating = 0;
-            var maxRating = 5;
-            var callback = function (rating) {
-                $("#modal__rating").val(rating);
-            };
-            var myRating = rating(el, currentRating, maxRating, callback);
-        }
-    )
-</script>
 <script>
     $("#b-modal__form").submit(
         function () {

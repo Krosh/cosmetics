@@ -38,6 +38,7 @@
     Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/unslider.css');
     Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/unslider-dots.css');
     Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/rating.css');
+    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/jquery.rating.css');
     Yii::app()->getClientScript()->registerCssFile('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css');
 
     Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/camera.css');
@@ -63,6 +64,7 @@
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/camera.js', CClientScript::POS_END);
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/slide.js', CClientScript::POS_END);
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/rating.min.js', CClientScript::POS_END);
+    Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/jquery.rating-2.0.js', CClientScript::POS_END);
     ?>
     <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-touch-icon-60x60.png">
@@ -342,6 +344,20 @@
         $(document).ready(function () {
             $(".fancybox").fancybox();
         });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+
+            
+            $('#js-modal-rating').rating({
+                fx: 'half',
+                image: '/stars.png',
+                loader: '/ajax-loader.gif',
+                callback: function (responce) {
+                    this.vote_success.fadeOut(2000);
+                }
+            });
+        })
     </script>
 </body>
 </html>
