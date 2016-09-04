@@ -79,11 +79,9 @@ $this->breadcrumbs = array_merge(
                         </div>
                     <?php endif; ?>
                     <div class="product__rating">
-                        <div class="rating-star" style="height: 30px;width: 30px"></div>
-                        <div class="rating-star" style="height: 30px;width: 30px"></div>
-                        <div class="rating-star" style="height: 30px;width: 30px"></div>
-                        <div class="rating-star" style="height: 30px;width: 30px"></div>
-                        <div class="rating-star-none" style="height: 30px;width: 30px"></div>
+                        <div class="rating-reviews">
+                            <input type="hidden" name="val" value="4.5"/>
+                        </div>
                     </div>
                     <div class="product__title">
                         <h2 class="h2"><?= CHtml::encode($product->name); ?></h2>
@@ -94,6 +92,7 @@ $this->breadcrumbs = array_merge(
                             <?= $slogan; ?>
                         </div>
                     <?php endif; ?>
+                    <form action="<?= Yii::app()->createUrl('cart/cart/add'); ?>" method="post">
                     <div class="entry__cart-button">
                         <button class="btn btn_cart" id="add-product-to-cart"
                                 data-loading-text="<?= Yii::t("StoreModule.store", "Adding"); ?>">
@@ -142,7 +141,7 @@ $this->breadcrumbs = array_merge(
 
         </div>
         <div class="product-description__buy grid-module-2">
-            <form action="<?= Yii::app()->createUrl('cart/cart/add'); ?>" method="post">
+
                 <input type="hidden" name="Product[id]" value="<?= $product->id; ?>"/>
                 <?= CHtml::hiddenField(
                     Yii::app()->getRequest()->csrfTokenName,
@@ -330,11 +329,11 @@ $this->breadcrumbs = array_merge(
                     </div>
                     <div class="b-rewies-product__body">
                         <div class="b-rewies-product__body--star">
-                            <div class="rating-star" style="height: 20px;width: 20px"></div>
-                            <div class="rating-star" style="height: 20px;width: 20px"></div>
-                            <div class="rating-star" style="height: 20px;width: 20px"></div>
-                            <div class="rating-star" style="height: 20px;width: 20px"></div>
-                            <div class="rating-star-none" style="height: 20px;width: 20px"></div>
+                            <div class="b-rewies-product__body--rating">
+                                <div class="rating-reviews">
+                                    <input type="hidden" name="val" value="3.5"/>
+                                </div>
+                            </div>
                         </div>
                         <div class="b-rewies-product__body--text">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat finibus interdum. In
@@ -362,11 +361,11 @@ $this->breadcrumbs = array_merge(
                     </div>
                     <div class="b-rewies-product__body">
                         <div class="b-rewies-product__body--star">
-                            <div class="rating-star" style="height: 20px;width: 20px"></div>
-                            <div class="rating-star" style="height: 20px;width: 20px"></div>
-                            <div class="rating-star" style="height: 20px;width: 20px"></div>
-                            <div class="rating-star" style="height: 20px;width: 20px"></div>
-                            <div class="rating-star-none" style="height: 20px;width: 20px"></div>
+                            <div class="b-rewies-product__body--rating">
+                                <div class="rating-reviews">
+                                    <input type="hidden" name="val" value="2.5"/>
+                                </div>
+                            </div>
                         </div>
                         <div class="b-rewies-product__body--text">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat finibus interdum. In
@@ -394,11 +393,11 @@ $this->breadcrumbs = array_merge(
                     </div>
                     <div class="b-rewies-product__body">
                         <div class="b-rewies-product__body--star">
-                            <div class="rating-star" style="height: 20px;width: 20px"></div>
-                            <div class="rating-star" style="height: 20px;width: 20px"></div>
-                            <div class="rating-star" style="height: 20px;width: 20px"></div>
-                            <div class="rating-star" style="height: 20px;width: 20px"></div>
-                            <div class="rating-star-none" style="height: 20px;width: 20px"></div>
+                          <div class="b-rewies-product__body--rating">
+                              <div class="rating-reviews">
+                                  <input type="hidden" name="val" value="4"/>
+                              </div>
+                          </div>
                         </div>
                         <div class="b-rewies-product__body--text">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat finibus interdum. In
