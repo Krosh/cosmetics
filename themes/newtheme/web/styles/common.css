@@ -5256,3 +5256,12 @@ label.error, .errorMessage, .text-error {
 .product__rating {
     margin-bottom: 10px;
 }
+
+.b-youtube {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.b-youtube__preview {
+    text-align: center;
+}

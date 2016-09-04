@@ -80,7 +80,7 @@ $this->breadcrumbs = array_merge(
                     <?php endif; ?>
                     <div class="product__rating">
                         <div class="rating-reviews">
-                            <input type="hidden" name="val" value="5"/>
+                            <input type="hidden" name="val" value="4.5"/>
                         </div>
                     </div>
                     <div class="product__title">
