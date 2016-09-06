@@ -55,6 +55,7 @@ class UserController extends \yupe\components\controllers\FrontController
                             $megauser->social_link = $attributes["url"];
                             $megauser->id_user = $user->id;
                             $megauser->social_type = $serviceType;
+                            $megauser->fio = $user->first_name . " " . $user->last_name;
                             $megauser->save();
                         }
 
