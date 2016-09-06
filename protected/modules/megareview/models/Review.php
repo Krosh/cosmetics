@@ -40,13 +40,39 @@ class Review extends yupe\models\YModel
     }
 
 
+    public static function getByProduct($idProduct, $onlyApproved = true)
+    {
+        $criteria = new CDbCriteria();
+        $criteria->compare("review_target", $idProduct);
+        if ($onlyApproved) {
+            $criteria->compare("moderation_status", self::$MODERATION_SUCCESS);
+        }
+        $result = Review::model()->findAll($criteria);
+        return $result;
+    }
+
+    public static function getRating($idProduct, $onlyApproved = true)
+    {
+        $criteria = new CDbCriteria();
+        $criteria->compare("review_target", $idProduct);
+        if ($onlyApproved) {
+            $criteria->compare("moderation_status", self::$MODERATION_SUCCESS);
+        }
+        $criteria->select = "AVG(rating) as rating";
+        $review = Review::model()->find($criteria);
+        return $review->rating;
+    }
+
     public function getUsers()
     {
         $result = [];
         $megausers = Megauser::model()->findAll();
         foreach ($megausers as $item) {
-            $result[$item->id] = $item->getUser()->getFullName();
+            $user = $item->getUser();
+            if ($user != null)
+                $result[$item->id] = $user->nick_name;
         }
+        return $result;
     }
 
     /**
@@ -83,7 +109,9 @@ class Review extends yupe\models\YModel
     {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
-        return array();
+        return array(
+            'megauser' => [self::BELONGS_TO, 'Megauser', 'id_mega_user'],
+        );
     }
 
     public function behaviors()

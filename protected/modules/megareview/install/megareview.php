@@ -13,7 +13,9 @@ return [
     'module' => [
         'class' => 'application.modules.megareview.MegareviewModule',
     ],
-    'import' => [],
+    'import' => [
+        'application.modules.megareview.models.*',
+    ],
     'component' => [],
     'rules' => [
         '/loginFromSocial' => 'megareview/user/login',

@@ -4,7 +4,8 @@
  *  Dual licensed under the MIT and GPL licenses
  */
 
-;(function ($) {
+;
+(function ($) {
 
 
     $.rating = function (e, o) {
@@ -123,27 +124,27 @@
                 });
 
             })
-                .bind('mouseout', function () {
+                .bind('mouseout',function () {
                     if (self.options.readOnly) return;
                     self.reset();
                     self.vote_success.empty();
                 }).bind('click.rating', function () {
 
-                if (self.options.readOnly) return;
+                    if (self.options.readOnly) return;
 
-                var score = Math.round(width / self.width * 10) / 10;
+                    var score = Math.round(width / self.width * 10) / 10;
 
-                if (score > self.options.stars) score = self.options.stars;
-                if (score < 0) score = 0;
+                    if (score > self.options.stars) score = self.options.stars;
+                    if (score < 0) score = 0;
 
-                self.old = self._data.val;
-                self._data.val = (self._data.val * self._data.votes + score) / (self._data.votes + 1);
-                self._data.val = Math.round(self._data.val * 100) / 100;
-                self._data.score = score;
-                $("#modal__rating").val(score);
-                self.options.readOnly = true;
-                self.options.click.apply(this, [score]);
-            });
+                    self.old = self._data.val;
+                    self._data.val = (self._data.val * self._data.votes + score) / (self._data.votes + 1);
+                    self._data.val = Math.round(self._data.val * 100) / 100;
+                    self._data.score = score;
+                    $("#modal__rating").val(score);
+                    self.options.readOnly = true;
+                    self.options.click.apply(this, [score]);
+                });
 
         },
         set: function () {

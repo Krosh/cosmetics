@@ -13,6 +13,9 @@ $this->breadcrumbs = array_merge(
     $product->category ? $product->category->getBreadcrumbs(true) : [],
     [CHtml::encode($product->name)]
 );
+
+
+$reviews = Review::getByProduct($product->id);
 ?>
 <div class="main__breadcrumbs grid">
     <div class="breadcrumbs">
@@ -31,226 +34,227 @@ $this->breadcrumbs = array_merge(
     </div>
 </div>
 <div class="main__product-description grid">
-    <div class="product-description">
-        <div class="product-description__img-block grid-module-5">
-            <div class="product-gallery js-product-gallery">
-                <div class="product-gallery__body">
-                    <div data-product-image class="product-gallery__img-wrap">
-                        <img src="<?= StoreImage::product($product); ?>" class="product-gallery__main-img">
+<div class="product-description">
+<div class="product-description__img-block grid-module-5">
+    <div class="product-gallery js-product-gallery">
+        <div class="product-gallery__body">
+            <div data-product-image class="product-gallery__img-wrap">
+                <img src="<?= StoreImage::product($product); ?>" class="product-gallery__main-img">
+            </div>
+            <?php if ($product->isSpecial()): ?>
+                <div class="product-gallery__label">
+                    <div class="product-label product-label_hit big-label">
+                        <div class="product-label__text">Хит</div>
                     </div>
-                    <?php if ($product->isSpecial()): ?>
-                        <div class="product-gallery__label">
-                            <div class="product-label product-label_hit big-label">
-                                <div class="product-label__text">Хит</div>
-                            </div>
-                        </div>
-                    <?php endif; ?>
                 </div>
-                <div class="product-gallery__nav">
-                    <a href="<?= StoreImage::product($product); ?>" rel="group" data-product-thumbnail
-                       class="product-gallery__nav-item">
-                        <img src="<?= $product->getImageUrl(60, 60, false); ?>" alt=""
-                             class="product-gallery__nav-img">
-                    </a>
-                    <?php foreach ($product->getImages() as $key => $image): ?>
-                        <a href="<?= $image->getImageUrl(); ?>" rel="group" data-product-thumbnail
-                           class="product-gallery__nav-item">
-                            <img src="<?= $image->getImageUrl(60, 60, false); ?>" alt=""
-                                 class="product-gallery__nav-img">
-                        </a>
-                    <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+        <div class="product-gallery__nav">
+            <a href="<?= StoreImage::product($product); ?>" rel="group" data-product-thumbnail
+               class="product-gallery__nav-item">
+                <img src="<?= $product->getImageUrl(60, 60, false); ?>" alt=""
+                     class="product-gallery__nav-img">
+            </a>
+            <?php foreach ($product->getImages() as $key => $image): ?>
+                <a href="<?= $image->getImageUrl(); ?>" rel="group" data-product-thumbnail
+                   class="product-gallery__nav-item">
+                    <img src="<?= $image->getImageUrl(60, 60, false); ?>" alt=""
+                         class="product-gallery__nav-img">
+                </a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</div>
+<div class="product-description__entry grid-module-4">
+    <div id="js-height-block">
+        <div class="entry">
+            <?php if (false): ?>
+                <div class="entry__toolbar">
+                    <div class="entry__toolbar-right">
+                        <?php if (Yii::app()->hasModule('favorite')): ?>
+                            <?php $this->widget('application.modules.favorite.widgets.FavoriteControl', ['product' => $product, 'view' => '_in-product']); ?>
+                        <?php endif; ?>
+                        <?php if (Yii::app()->hasModule('compare')): ?>
+                            <a href="javascript:void(0);" class="entry__toolbar-button"><i
+                                    class="fa fa-balance-scale"></i></a>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <div class="product__rating">
+                <div class="rating-reviews">
+                    <input type="hidden" name="val" value="<?= Review::getRating($product->id); ?>"/>
                 </div>
             </div>
-        </div>
-        <div class="product-description__entry grid-module-4">
-            <div id="js-height-block">
-                <div class="entry">
-                    <?php if (false): ?>
-                        <div class="entry__toolbar">
-                            <div class="entry__toolbar-right">
-                                <?php if (Yii::app()->hasModule('favorite')): ?>
-                                    <?php $this->widget('application.modules.favorite.widgets.FavoriteControl', ['product' => $product, 'view' => '_in-product']); ?>
-                                <?php endif; ?>
-                                <?php if (Yii::app()->hasModule('compare')): ?>
-                                    <a href="javascript:void(0);" class="entry__toolbar-button"><i
-                                            class="fa fa-balance-scale"></i></a>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                    <?php endif; ?>
-                    <div class="product__rating">
-                        <div class="rating-reviews">
-                            <input type="hidden" name="val" value="4.5"/>
+            <div class="product__title">
+                <h2 class="h2"><?= CHtml::encode($product->name); ?></h2>
+            </div>
+            <?php $slogan = $product->attribute(Attribute::model()->findByAttributes(['name' => "slogan"])); ?>
+            <?php if ($slogan != null): ?>
+                <div class="wysiwyg entry__slogan">
+                    <?= $slogan; ?>
+                </div>
+            <?php endif; ?>
+            <form action="<?= Yii::app()->createUrl('cart/cart/add'); ?>" method="post">
+                <div class="entry__cart-button">
+                    <button class="btn btn_cart" id="add-product-to-cart"
+                            data-loading-text="<?= Yii::t("StoreModule.store", "Adding"); ?>">
+                        <?= Yii::t('StoreModule.store', 'Into cart') ?>
+                    </button>
+                </div>
+                <?php $tip_kozhi = $product->attribute(Attribute::model()->findByAttributes(['name' => "tip-kozhi"])); ?>
+                <?php if ($tip_kozhi != null): ?>
+                    <div class="entry__attribute">
+                        <div class="wysiwyg">
+                            ТИП КОЖИ: <?= $tip_kozhi; ?>
                         </div>
                     </div>
-                    <div class="product__title">
-                        <h2 class="h2"><?= CHtml::encode($product->name); ?></h2>
+                <?php endif; ?>
+                <?php $tekstura = $product->attribute(Attribute::model()->findByAttributes(['name' => "tekstura"])); ?>
+                <?php if ($tekstura != null): ?>
+                    <div class="entry__attribute">
+                        <div class="wysiwyg">
+                            ТЕКСТУРА: <?= $tekstura; ?>
+                        </div>
                     </div>
-                    <?php $slogan = $product->attribute(Attribute::model()->findByAttributes(['name' => "slogan"])); ?>
-                    <?php if ($slogan != null): ?>
-                        <div class="wysiwyg entry__slogan">
-                            <?= $slogan; ?>
+                <?php endif; ?>
+                <?php $deystvie = $product->attribute(Attribute::model()->findByAttributes(['name' => "deystvie"])); ?>
+                <?php if ($deystvie != null): ?>
+                    <div class="entry__attribute">
+                        <div class="wysiwyg">
+                            ДЕЙСТВИЕ: <?= $deystvie; ?>
                         </div>
-                    <?php endif; ?>
-                    <form action="<?= Yii::app()->createUrl('cart/cart/add'); ?>" method="post">
-                    <div class="entry__cart-button">
-                        <button class="btn btn_cart" id="add-product-to-cart"
-                                data-loading-text="<?= Yii::t("StoreModule.store", "Adding"); ?>">
-                            <?= Yii::t('StoreModule.store', 'Into cart') ?>
-                        </button>
                     </div>
-                    <?php $tip_kozhi = $product->attribute(Attribute::model()->findByAttributes(['name' => "tip-kozhi"])); ?>
-                    <?php if ($tip_kozhi != null): ?>
-                        <div class="entry__attribute">
-                            <div class="wysiwyg">
-                                ТИП КОЖИ: <?= $tip_kozhi; ?>
-                            </div>
-                        </div>
-                    <?php endif; ?>
-                    <?php $tekstura = $product->attribute(Attribute::model()->findByAttributes(['name' => "tekstura"])); ?>
-                    <?php if ($tekstura != null): ?>
-                        <div class="entry__attribute">
-                            <div class="wysiwyg">
-                                ТЕКСТУРА: <?= $tekstura; ?>
-                            </div>
-                        </div>
-                    <?php endif; ?>
-                    <?php $deystvie = $product->attribute(Attribute::model()->findByAttributes(['name' => "deystvie"])); ?>
-                    <?php if ($deystvie != null): ?>
-                        <div class="entry__attribute">
-                            <div class="wysiwyg">
-                                ДЕЙСТВИЕ: <?= $deystvie; ?>
-                            </div>
-                        </div>
-                    <?php endif; ?>
-                    <!-- <div class="entry__wysiwyg">
+                <?php endif; ?>
+                <!-- <div class="entry__wysiwyg">
                     <div class="wysiwyg">
                         <? /*= $product->description; */ ?>
                     </div>
                 </div>-->
-                </div>
-
-            </div>
-            <div class="b-next-read">
-                <div class="b-next-read-shadow"></div>
-                <button type="button" id="btn-next-read">Читать далее</button>
-            </div>
-
         </div>
-        <div class="product-description__buy grid-module-1">
 
+    </div>
+    <div class="b-next-read">
+        <div class="b-next-read-shadow"></div>
+        <button type="button" id="btn-next-read">Читать далее</button>
+    </div>
+
+</div>
+<div class="product-description__buy grid-module-1">
+
+</div>
+<div class="product-description__buy grid-module-2">
+
+    <input type="hidden" name="Product[id]" value="<?= $product->id; ?>"/>
+    <?=
+    CHtml::hiddenField(
+        Yii::app()->getRequest()->csrfTokenName,
+        Yii::app()->getRequest()->csrfToken
+    ); ?>
+
+    <div class="entry__obem">
+    </div>
+    <?php $obem = $product->attribute(Attribute::model()->findByAttributes(['name' => "obem"])); ?>
+    <?php if ($obem != null): ?>
+        <div class="entry__attribute" style="margin-top: 0px">
+            Объем: <?= CHtml::encode($obem); ?> мл
         </div>
-        <div class="product-description__buy grid-module-2">
+    <?php endif; ?>
 
-                <input type="hidden" name="Product[id]" value="<?= $product->id; ?>"/>
-                <?= CHtml::hiddenField(
-                    Yii::app()->getRequest()->csrfTokenName,
-                    Yii::app()->getRequest()->csrfToken
-                ); ?>
+    <?php if ($product->getVariantsGroup()): ?>
 
-                <div class="entry__obem">
+        <div class="entry__title">
+            <h2 class="h3 h_upcase"><?= Yii::t("StoreModule.store", "Variants"); ?></h2>
+        </div>
+
+        <div class="entry__variants">
+            <?php foreach ($product->getVariantsGroup() as $title => $variantsGroup): ?>
+                <div class="entry__variant">
+                    <div class="entry__variant-title"><?= CHtml::encode($title); ?></div>
+                    <div class="entry__variant-value">
+                        <?=
+                        CHtml::dropDownList('ProductVariant[]', null, CHtml::listData($variantsGroup, 'id', 'optionValue'), [
+                            'empty' => '--выберите--',
+                            'class' => 'js-select2 entry__variant-value-select noborder',
+                            'options' => $product->getVariantsOptions()
+                        ]); ?>
+                    </div>
                 </div>
-                <?php $obem = $product->attribute(Attribute::model()->findByAttributes(['name' => "obem"])); ?>
-                <?php if ($obem != null): ?>
-                    <div class="entry__attribute" style="margin-top: 0px">
-                        Объем: <?= CHtml::encode($obem); ?> мл
-                    </div>
-                <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
 
-                <?php if ($product->getVariantsGroup()): ?>
-
-                    <div class="entry__title">
-                        <h2 class="h3 h_upcase"><?= Yii::t("StoreModule.store", "Variants"); ?></h2>
-                    </div>
-
-                    <div class="entry__variants">
-                        <?php foreach ($product->getVariantsGroup() as $title => $variantsGroup): ?>
-                            <div class="entry__variant">
-                                <div class="entry__variant-title"><?= CHtml::encode($title); ?></div>
-                                <div class="entry__variant-value">
-                                    <?=
-                                    CHtml::dropDownList('ProductVariant[]', null, CHtml::listData($variantsGroup, 'id', 'optionValue'), [
-                                        'empty' => '--выберите--',
-                                        'class' => 'js-select2 entry__variant-value-select noborder',
-                                        'options' => $product->getVariantsOptions()
-                                    ]); ?>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                <?php endif; ?>
-
-                <div class="entry__price">
-                    <div class="product-price">
-                        <input type="hidden" id="base-price"
-                               value="<?= round($product->getResultPrice(), 2); ?>"/>
-                        <span id="result-price"><?= round($product->getResultPrice(), 2); ?></span>
+    <div class="entry__price">
+        <div class="product-price">
+            <input type="hidden" id="base-price"
+                   value="<?= round($product->getResultPrice(), 2); ?>"/>
+            <span id="result-price"><?= round($product->getResultPrice(), 2); ?></span>
                         <span
                             class="ruble"> <?= Yii::t("StoreModule.store", Yii::app()->getModule('store')->currency); ?></span>
-                        <?php if ($product->hasDiscount()): ?>
-                            <div class="product-price product-price_old"><?= round($product->getBasePrice(), 2) ?>
-                                <span
-                                    class="ruble"> <?= Yii::t("StoreModule.store", Yii::app()->getModule('store')->currency); ?></span>
-                            </div>
-                        <?php endif; ?>
-                    </div>
+            <?php if ($product->hasDiscount()): ?>
+                <div class="product-price product-price_old"><?= round($product->getBasePrice(), 2) ?>
+                    <span
+                        class="ruble"> <?= Yii::t("StoreModule.store", Yii::app()->getModule('store')->currency); ?></span>
                 </div>
-                <?php if ($product->status == Product::STATUS_ACTIVE): ?>
-                    <div class="entry__count">
-                        <div class="entry__count-label">Кол-во:</div>
-                        <div class="entry__count-input">
+            <?php endif; ?>
+        </div>
+    </div>
+    <?php if ($product->status == Product::STATUS_ACTIVE): ?>
+        <div class="entry__count">
+            <div class="entry__count-label">Кол-во:</div>
+            <div class="entry__count-input">
                                 <span data-min-value='1' data-max-value='99' class="spinput js-spinput">
                                     <span class="spinput__minus js-spinput__minus product-quantity-decrease"></span>
                                     <input name="Product[quantity]" value="1" class="spinput__value"
                                            id="product-quantity-input"/>
                                     <span class="spinput__plus js-spinput__plus product-quantity-increase"></span>
                                 </span>
-                        </div>
-                    </div>
-                    <div class="entry__subtotal">
-                        <span id="product-result-price"><?= round($product->getResultPrice(), 2); ?></span> x
-                        <span id="product-quantity">1</span> =
-                        <span id="product-total-price"><?= round($product->getResultPrice(), 2); ?></span>
+            </div>
+        </div>
+        <div class="entry__subtotal">
+            <span id="product-result-price"><?= round($product->getResultPrice(), 2); ?></span> x
+            <span id="product-quantity">1</span> =
+            <span id="product-total-price"><?= round($product->getResultPrice(), 2); ?></span>
                         <span
                             class="ruble"> <?= Yii::t("StoreModule.store", Yii::app()->getModule('store')->currency); ?></span>
-                    </div>
-                <?php else: ?>
-                    <div class="product-vertical-extra__cart">
-                        <div class="product-vertical__non-in-stock">
-                            Нет в наличии
-                        </div>
-                    </div>
-                <?php endif; ?>
-                <div class="entry__share">
-
-                    <script type="text/javascript">(function (w, doc) {
-                            if (!w.__utlWdgt) {
-                                w.__utlWdgt = true;
-                                var d = doc, s = d.createElement('script'), g = 'getElementsByTagName';
-                                s.type = 'text/javascript';
-                                s.charset = 'UTF-8';
-                                s.async = true;
-                                s.src = ('https:' == w.location.protocol ? 'https' : 'http') + '://w.uptolike.com/widgets/v1/uptolike.js';
-                                var h = d[g]('body')[0];
-                                h.appendChild(s);
-                            }
-                        })(window, document);
-                    </script>
-                    <div data-background-alpha="0.0" data-buttons-color="#FFFFFF"
-                         data-counter-background-color="#ffffff" data-share-counter-size="12"
-                         data-top-button="false"
-                         data-share-counter-type="disable" data-share-style="1" data-mode="share"
-                         data-like-text-enable="false" data-mobile-view="true" data-icon-color="#ffffff"
-                         data-orientation="horizontal" data-text-color="#000000" data-share-shape="round-rectangle"
-                         data-sn-ids="vk.fb.ok." data-share-size="30" data-background-color="#ffffff"
-                         data-preview-mobile="false" data-mobile-sn-ids="fb.vk.tw.wh.ok.vb." data-pid="1504687"
-                         data-counter-background-alpha="1.0" data-following-enable="false"
-                         data-exclude-show-more="false" data-selection-enable="true" class="uptolike-buttons"></div>
-                </div>
-
-            </form>
         </div>
+    <?php else: ?>
+        <div class="product-vertical-extra__cart">
+            <div class="product-vertical__non-in-stock">
+                Нет в наличии
+            </div>
+        </div>
+    <?php endif; ?>
+    <div class="entry__share">
+
+        <script type="text/javascript">(function (w, doc) {
+                if (!w.__utlWdgt) {
+                    w.__utlWdgt = true;
+                    var d = doc, s = d.createElement('script'), g = 'getElementsByTagName';
+                    s.type = 'text/javascript';
+                    s.charset = 'UTF-8';
+                    s.async = true;
+                    s.src = ('https:' == w.location.protocol ? 'https' : 'http') + '://w.uptolike.com/widgets/v1/uptolike.js';
+                    var h = d[g]('body')[0];
+                    h.appendChild(s);
+                }
+            })(window, document);
+        </script>
+        <div data-background-alpha="0.0" data-buttons-color="#FFFFFF"
+             data-counter-background-color="#ffffff" data-share-counter-size="12"
+             data-top-button="false"
+             data-share-counter-type="disable" data-share-style="1" data-mode="share"
+             data-like-text-enable="false" data-mobile-view="true" data-icon-color="#ffffff"
+             data-orientation="horizontal" data-text-color="#000000" data-share-shape="round-rectangle"
+             data-sn-ids="vk.fb.ok." data-share-size="30" data-background-color="#ffffff"
+             data-preview-mobile="false" data-mobile-sn-ids="fb.vk.tw.wh.ok.vb." data-pid="1504687"
+             data-counter-background-alpha="1.0" data-following-enable="false"
+             data-exclude-show-more="false" data-selection-enable="true" class="uptolike-buttons"></div>
     </div>
+
+    </form>
+</div>
+</div>
 </div>
 <div class="main__product-tabs grid">
     <div class="tabs tabs_classic tabs_gray js-tabs">
@@ -271,7 +275,7 @@ $this->breadcrumbs = array_merge(
                         src="<?= $this->mainAssets ?>/images/triangle.png" alt=""> </a>
             </li>
             <li class="tabs__item"><a href="#tab4"
-                                      class="tabs__link">ОТЗЫВЫ (5) <img
+                                      class="tabs__link">ОТЗЫВЫ (<?= count($reviews); ?>) <img
                         style="height: 15px;margin-left: 20px;vertical-align: middle;margin-bottom: 5px;"
                         src="<?= $this->mainAssets ?>/images/triangle.png" alt=""> </a>
             </li>
@@ -309,107 +313,43 @@ $this->breadcrumbs = array_merge(
             <div id="tab4" class="tabs__body js-tab">
                 <div class="h3 tabs__title" style="text-align: center">ОТЗЫВЫ</div>
                 <br>
+
                 <div class="b-rewies-product--alert">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies vulputate elit, a
                     pretium erat sagittis accumsan. Etiam non arcu ac urna fringilla congue sed a est. <span
                         class="ui-icon ui-icon-alert"></span>
                 </div>
-                <div class="b-rewies-product">
-                    <div class="b-rewies-product__head">
-                        <div class="b-rewies-product__head--avatar">
-                            <div class="head--avatar">
-                                <div class="social_pic">
 
+                <?php foreach ($reviews as $review): ?>
+                    <div class="b-rewies-product">
+                        <div class="b-rewies-product__head">
+                            <div class="b-rewies-product__head--avatar">
+                                <div class="head--avatar">
+                                    <div class="social_pic">
+
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="b-rewies-product__head--info">
-                            Елена
-                        </div>
-                    </div>
-                    <div class="b-rewies-product__body">
-                        <div class="b-rewies-product__body--star">
-                            <div class="b-rewies-product__body--rating">
-                                <div class="rating-reviews">
-                                    <input type="hidden" name="val" value="3.5"/>
-                                </div>
+                            <div class="b-rewies-product__head--info">
+                                <?= $review->megauser->fio; ?>
                             </div>
                         </div>
-                        <div class="b-rewies-product__body--text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat finibus interdum. In
-                            hac habitasse platea dictumst. Vestibulum tincidunt non velit nec faucibus. Quisque
-                            ultricies urna consectetur erat pulvinar, nec feugiat sapien luctus. Vivamus vitae dolor a
-                            lacus porttitor pretium. Mauris sit amet placerat odio, eu vestibulum diam. Aenean eleifend
-                            lectus id neque blandit scelerisque. Maecenas convallis nec ipsum sit amet lacinia. Aliquam
-                            erat volutpat.
-                        </div>
-                    </div>
-
-                </div>
-                <div class="b-rewies-product">
-                    <div class="b-rewies-product__head">
-                        <div class="b-rewies-product__head--avatar">
-                            <div class="head--avatar">
-                                <div class="social_pic">
-
+                        <div class="b-rewies-product__body">
+                            <div class="b-rewies-product__body--star">
+                                <div class="b-rewies-product__body--rating">
+                                    <div class="rating-reviews">
+                                        <input type="hidden" name="val" value="<?= $review->rating; ?>"/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="b-rewies-product__head--info">
-                            Елена
-                        </div>
-                    </div>
-                    <div class="b-rewies-product__body">
-                        <div class="b-rewies-product__body--star">
-                            <div class="b-rewies-product__body--rating">
-                                <div class="rating-reviews">
-                                    <input type="hidden" name="val" value="2.5"/>
-                                </div>
+                            <div class="b-rewies-product__body--text">
+                                <?= $review->text; ?>
                             </div>
                         </div>
-                        <div class="b-rewies-product__body--text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat finibus interdum. In
-                            hac habitasse platea dictumst. Vestibulum tincidunt non velit nec faucibus. Quisque
-                            ultricies urna consectetur erat pulvinar, nec feugiat sapien luctus. Vivamus vitae dolor a
-                            lacus porttitor pretium. Mauris sit amet placerat odio, eu vestibulum diam. Aenean eleifend
-                            lectus id neque blandit scelerisque. Maecenas convallis nec ipsum sit amet lacinia. Aliquam
-                            erat volutpat.
-                        </div>
-                    </div>
 
-                </div>
-                <div class="b-rewies-product">
-                    <div class="b-rewies-product__head">
-                        <div class="b-rewies-product__head--avatar">
-                            <div class="head--avatar">
-                                <div class="social_pic">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="b-rewies-product__head--info">
-                            Елена
-                        </div>
                     </div>
-                    <div class="b-rewies-product__body">
-                        <div class="b-rewies-product__body--star">
-                          <div class="b-rewies-product__body--rating">
-                              <div class="rating-reviews">
-                                  <input type="hidden" name="val" value="4"/>
-                              </div>
-                          </div>
-                        </div>
-                        <div class="b-rewies-product__body--text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat finibus interdum. In
-                            hac habitasse platea dictumst. Vestibulum tincidunt non velit nec faucibus. Quisque
-                            ultricies urna consectetur erat pulvinar, nec feugiat sapien luctus. Vivamus vitae dolor a
-                            lacus porttitor pretium. Mauris sit amet placerat odio, eu vestibulum diam. Aenean eleifend
-                            lectus id neque blandit scelerisque. Maecenas convallis nec ipsum sit amet lacinia. Aliquam
-                            erat volutpat.
-                        </div>
-                    </div>
+                <?php endforeach; ?>
 
-                </div>
                 <div style="text-align: right">
                     <button class="btn" id="btn-reviews" type="button" onclick="$('#dialog-confirm').dialog('open');">
                         Оставить свой отзыв
@@ -442,7 +382,8 @@ $this->breadcrumbs = array_merge(
                 ); ?>
                 <div class="b-modal-reviews__body">
                     <input type="text" id="modal__rating" value="4" name="modal__rating" hidden>
-                    <input type="text" id="modal__product-id" name="modal__product-id" value="<?= CHtml::encode($product->id); ?>"
+                    <input type="text" id="modal__product-id" name="modal__product-id"
+                           value="<?= CHtml::encode($product->id); ?>"
                            hidden>
                     <textarea class="b-modal-reviews__textarea" name="b-modal-reviews__text" id="">
                     </textarea>

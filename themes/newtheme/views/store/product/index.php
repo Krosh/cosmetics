@@ -6,9 +6,9 @@ Yii::app()->getClientScript()->registerScriptFile($mainAssets . '/js/store.js');
 /* @var $category StoreCategory */
 
 if (isset($isHit))
- $this->breadcrumbs = [Yii::t("StoreModule.store", "Хиты продаж")];
-    else
-$this->breadcrumbs = [Yii::t("StoreModule.store", "Catalog")];
+    $this->breadcrumbs = [Yii::t("StoreModule.store", "Хиты продаж")];
+else
+    $this->breadcrumbs = [Yii::t("StoreModule.store", "Catalog")];
 
 ?>
 <!--<div class="main__title grid">

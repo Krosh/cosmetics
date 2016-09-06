@@ -4,7 +4,8 @@
  *  Dual licensed under the MIT and GPL licenses
  */
 
-;(function ($) {
+;
+(function ($) {
 
 
     $.ratingReviews = function (e, o) {
