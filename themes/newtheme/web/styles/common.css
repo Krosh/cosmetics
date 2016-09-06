@@ -4605,7 +4605,6 @@ label.error, .errorMessage, .text-error {
     text-transform: uppercase;
 }
 
-
 .ingridient__item {
     float: left;
     width: 45%;
@@ -4859,6 +4858,7 @@ label.error, .errorMessage, .text-error {
     text-align: center;
     display: flex;
     align-items: flex-start;
+    justify-content: space-around;
 }
 
 .b-reviews__item--description {
@@ -4877,9 +4877,8 @@ label.error, .errorMessage, .text-error {
 .b-audio-feedback {
     border: 1px solid #87cc03;
     padding: 10px;
-    display: flex;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    width: 70%;
+    margin: 15px auto;
 }
 
 .b-audio-feedback__head {
@@ -5006,7 +5005,8 @@ label.error, .errorMessage, .text-error {
 
 .b-modal-reviews__question {
     margin-bottom: 5px;
-    margin-top: 5px;
+    margin-top: 8px;
+    font-size: 18px;
 }
 
 .b-modal-reviews__textarea {
@@ -5210,4 +5210,58 @@ label.error, .errorMessage, .text-error {
     width: 20px;
     margin-left: 3px;
     vertical-align: bottom;
+}
+
+.next-read {
+    text-align: center;
+}
+
+.news-reviews {
+    margin-right: 5px;
+}
+
+.news-view {
+
+}
+
+.news-reviews img {
+    height: 20px;
+    width: 20px;
+    vertical-align: bottom;
+}
+
+.news-view img {
+    vertical-align: bottom;
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
+}
+
+.rating-reviews .vote-active {
+    cursor: default !important;
+}
+
+.rating-reviews .vote-stars {
+    cursor: default !important;
+}
+
+.b-rewies-product__body--rating {
+    display: inline-block;
+}
+
+.product__rating .vote-hover {
+    padding: 0 !important;
+}
+
+.product__rating {
+    margin-bottom: 10px;
+}
+
+.b-youtube {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.b-youtube__preview {
+    text-align: center;
 }

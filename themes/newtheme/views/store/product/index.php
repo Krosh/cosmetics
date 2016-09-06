@@ -42,7 +42,7 @@ $this->breadcrumbs = [Yii::t("StoreModule.store", "Catalog")];
             <?php $this->widget(
                 'zii.widgets.CListView', [
                     'dataProvider' => $dataProvider,
-                    'itemView' => '_item',
+                    'itemView' => '_itemPreview',
                     'template' => '
                        <!-- <div class="catalog-controls">
                             <div class="catalog-controls__col">{sorter}</div>

@@ -131,95 +131,109 @@
 </div>
 <div class="main__hit-slider grid" style="padding: 3px">
     <div class="b-audio-feedback__title">
-        Отзывы наших прекрасных Клиентов
+        «Отзывы о косметике «АлтайЯ»
     </div>
 </div>
 <div class="main__hit-slider grid" style="padding: 0 10px">
     <div class="b-audio-feedback">
-        <div class="b-audio-feedback__head">
-            <div class="b-audio-feedback__info-author">
-                <div class="b-audio-feedback__name">
-                    Елена
-                    <br>
-                    г. Томск
-                    <br>
-                    Июнь 2016
+        <div style="display: flex">
+            <div class="b-audio-feedback__head">
+                <div class="b-audio-feedback__info-author">
+                    <div class="b-audio-feedback__name">
+                        Елена
+                        <br>
+                        г. Томск
+                        <br>
+                        Июнь 2016
+                    </div>
                 </div>
             </div>
+            <div class="b-audio-feedback__body">
+                <div class="b-audio-feedback__description-audio">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget dui orci. Vestibulum euismod
+                    est a
+                    erat tempus volutpat. Sed non varius ex. Fusce pretium nulla non leo molestie vehicula. Nullam eu
+                    velit
+                    in nunc rhoncus ultrices ut a lacus. Praesent eu porttitor risus, a finibus nunc. Nulla dignissim
+                    arcu
+                    vestibulum tincidunt iaculis.
+                </div>
+                <br>
+            </div>
         </div>
-        <div class="b-audio-feedback__body">
-            <div class="b-audio-feedback__description-audio">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget dui orci. Vestibulum euismod est a
-                erat tempus volutpat. Sed non varius ex. Fusce pretium nulla non leo molestie vehicula. Nullam eu velit
-                in nunc rhoncus ultrices ut a lacus. Praesent eu porttitor risus, a finibus nunc. Nulla dignissim arcu
-                vestibulum tincidunt iaculis.
-            </div>
-            <br>
-
-            <div class="audio-player">
-                <audio class="audio" preload="true" src="/123.mp3">
-                </audio>
-            </div>
+        <div class="audio-player" style="width: 90%">
+            <audio class="audio" preload="true" src="/123.mp3">
+            </audio>
         </div>
     </div>
     <div class="b-audio-feedback">
-        <div class="b-audio-feedback__head">
-            <div class="b-audio-feedback__info-author">
-                <div class="b-audio-feedback__name">
-                    Елена
-                    <br>
-                    г. Томск
-                    <br>
-                    Июнь 2016
+        <div style="display: flex">
+            <div class="b-audio-feedback__head">
+                <div class="b-audio-feedback__info-author">
+                    <div class="b-audio-feedback__name">
+                        Елена
+                        <br>
+                        г. Томск
+                        <br>
+                        Июнь 2016
+                    </div>
                 </div>
             </div>
+            <div class="b-audio-feedback__body">
+                <div class="b-audio-feedback__description-audio">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget dui orci. Vestibulum euismod
+                    est a
+                    erat tempus volutpat. Sed non varius ex. Fusce pretium nulla non leo molestie vehicula. Nullam eu
+                    velit
+                    in nunc rhoncus ultrices ut a lacus. Praesent eu porttitor risus, a finibus nunc. Nulla dignissim
+                    arcu
+                    vestibulum tincidunt iaculis.
+                </div>
+                <br>
+            </div>
         </div>
-        <div class="b-audio-feedback__body">
-            <div class="b-audio-feedback__description-audio">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget dui orci. Vestibulum euismod est a
-                erat tempus volutpat. Sed non varius ex. Fusce pretium nulla non leo molestie vehicula. Nullam eu velit
-                in nunc rhoncus ultrices ut a lacus. Praesent eu porttitor risus, a finibus nunc. Nulla dignissim arcu
-                vestibulum tincidunt iaculis.
-            </div>
-            <br>
-
-            <div class="audio-player">
-                <audio class="audio" preload="true" src="/123.mp3">
-                </audio>
-            </div>
+        <div class="audio-player" style="width: 90%">
+            <audio class="audio" preload="true" src="/123.mp3">
+            </audio>
         </div>
     </div>
     <div class="b-audio-feedback">
-        <div class="b-audio-feedback__head">
-            <div class="b-audio-feedback__info-author">
-                <div class="b-audio-feedback__name">
-                    Елена
-                    <br>
-                    г. Томск
-                    <br>
-                    Июнь 2016
+        <div style="display: flex">
+            <div class="b-audio-feedback__head">
+                <div class="b-audio-feedback__info-author">
+                    <div class="b-audio-feedback__name">
+                        Елена
+                        <br>
+                        г. Томск
+                        <br>
+                        Июнь 2016
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="b-audio-feedback__body">
-            <div class="b-audio-feedback__description-audio">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget dui orci. Vestibulum euismod est a
-                erat tempus volutpat. Sed non varius ex. Fusce pretium nulla non leo molestie vehicula. Nullam eu velit
-                in nunc rhoncus ultrices ut a lacus. Praesent eu porttitor risus, a finibus nunc. Nulla dignissim arcu
-                vestibulum tincidunt iaculis.
+            <div class="b-audio-feedback__body">
+                <div class="b-audio-feedback__description-audio">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget dui orci. Vestibulum euismod
+                    est a
+                    erat tempus volutpat. Sed non varius ex. Fusce pretium nulla non leo molestie vehicula. Nullam eu
+                    velit
+                    in nunc rhoncus ultrices ut a lacus. Praesent eu porttitor risus, a finibus nunc. Nulla dignissim
+                    arcu
+                    vestibulum tincidunt iaculis.
+                </div>
+                <br>
             </div>
-            <br>
-
-            <div class="audio-player">
-                <audio class="audio" preload="true" src="/123.mp3">
-                </audio>
+        </div>
+        <div class="b-youtube">
+            <div class="b-youtube__preview">
+                <a class="video-youtube" title="Отзыв"
+                   href="https://www.youtube.com/watch?v=XFkzRNyygfk&amp;autoplay=1">Ссылка на youtube</a>
             </div>
         </div>
     </div>
 </div>
 <div class="main__hit-slider grid" style="padding: 3px">
     <div class="b-audio-feedback__title">
-        <a href="#">Все аудио-отзывы...</a>
+        <a href="#">«Все аудио- и видео-отзывы»  </a>
     </div>
 </div>
 <div class="main__hit-slider grid">
