@@ -62,6 +62,135 @@ $this->breadcrumbs = [
                     <div class="b-news-text"> <?= $model->full_text; ?> </div>
                 </div>
             </div>
+            <hr style="margin: 10px 0">
+            <div style="text-align: center;margin: 10px auto">
+                КОММЕНТАРИИ
+            </div>
+            <div class="b-rewies-product">
+                <div class="b-rewies-product__head">
+                    <div class="b-rewies-product__head--avatar">
+                        <div class="head--avatar">
+                            <div class="social_pic">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="b-rewies-product__head--info">
+                        Елена
+                    </div>
+                </div>
+                <div class="b-rewies-product__body">
+                    <div class="b-rewies-product__body--star">
+                        <div class="b-rewies-product__body--rating">
+                        </div>
+                    </div>
+                    <div class="b-rewies-product__body--text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat finibus interdum. In
+                        hac habitasse platea dictumst. Vestibulum tincidunt non velit nec faucibus. Quisque
+                        ultricies urna consectetur erat pulvinar, nec feugiat sapien luctus. Vivamus vitae dolor a
+                        lacus porttitor pretium. Mauris sit amet placerat odio, eu vestibulum diam. Aenean eleifend
+                        lectus id neque blandit scelerisque. Maecenas convallis nec ipsum sit amet lacinia. Aliquam
+                        erat volutpat.
+                    </div>
+                </div>
+
+            </div>
+            <div class="b-rewies-product">
+                <div class="b-rewies-product__head">
+                    <div class="b-rewies-product__head--avatar">
+                        <div class="head--avatar">
+                            <div class="social_pic">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="b-rewies-product__head--info">
+                        Елена
+                    </div>
+                </div>
+                <div class="b-rewies-product__body">
+                    <div class="b-rewies-product__body--star">
+                        <div class="b-rewies-product__body--rating">
+                        </div>
+                    </div>
+                    <div class="b-rewies-product__body--text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat finibus interdum. In
+                        hac habitasse platea dictumst. Vestibulum tincidunt non velit nec faucibus. Quisque
+                        ultricies urna consectetur erat pulvinar, nec feugiat sapien luctus. Vivamus vitae dolor a
+                        lacus porttitor pretium. Mauris sit amet placerat odio, eu vestibulum diam. Aenean eleifend
+                        lectus id neque blandit scelerisque. Maecenas convallis nec ipsum sit amet lacinia. Aliquam
+                        erat volutpat.
+                    </div>
+                </div>
+
+            </div>
+            <div class="b-rewies-product">
+                <div class="b-rewies-product__head">
+                    <div class="b-rewies-product__head--avatar">
+                        <div class="head--avatar">
+                            <div class="social_pic">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="b-rewies-product__head--info">
+                        Елена
+                    </div>
+                </div>
+                <div class="b-rewies-product__body">
+                    <div class="b-rewies-product__body--star">
+                        <div class="b-rewies-product__body--rating">
+                        </div>
+                    </div>
+                    <div class="b-rewies-product__body--text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat finibus interdum. In
+                        hac habitasse platea dictumst. Vestibulum tincidunt non velit nec faucibus. Quisque
+                        ultricies urna consectetur erat pulvinar, nec feugiat sapien luctus. Vivamus vitae dolor a
+                        lacus porttitor pretium. Mauris sit amet placerat odio, eu vestibulum diam. Aenean eleifend
+                        lectus id neque blandit scelerisque. Maecenas convallis nec ipsum sit amet lacinia. Aliquam
+                        erat volutpat.
+                    </div>
+                </div>
+
+            </div>
+            <div style="text-align: right">
+                <button class="btn" id="btn-reviews" type="button" onclick="$('#dialog-confirm').dialog('open');">
+                    Оставить комментарий
+                </button>
+            </div>
         </div>
     </div>
+</div>
+<div id="dialog-confirm">
+    <?php if (Yii::app()->user->getId() > 0): ?>
+        <div class="b-modal-reviews">
+            <div class="b-modal-reviews__head">
+                <div class="b-modal-reviews__question">
+                    Ваш комментарий
+                </div>
+                <div class="b-modal-reviews__rating">
+                </div>
+            </div>
+            <form action="" id="b-modal__form">
+                <?=
+                CHtml::hiddenField(
+                    Yii::app()->getRequest()->csrfTokenName,
+                    Yii::app()->getRequest()->csrfToken
+                ); ?>
+                <div class="b-modal-reviews__body">
+                    <textarea class="b-modal-reviews__textarea" name="b-modal-reviews__text" id="">
+                    </textarea>
+                </div>
+                <div class="b-modal-reviews__btns">
+                    <button class="btn" type="submit"> Отправить</button>
+                </div>
+            </form>
+        </div>
+    <?php else: ?>
+        Надо авторизоваться, тут форма для авторизации блаблабла<br>
+        <?php
+        $this->widget('ext.eauth.EAuthWidget', array('action' => '/loginFromSocial'));
+        ?>
+    <?php endif; ?>
+
 </div>
