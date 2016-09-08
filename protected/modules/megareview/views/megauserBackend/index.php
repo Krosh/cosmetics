@@ -67,7 +67,7 @@ $this->widget(
             'id',
             'id_user',
             'social_type',
-            'social_link',
+            'id_from_social',
             'avatar_path',
             'fio',
 //            'adres',
