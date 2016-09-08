@@ -322,16 +322,18 @@ $reviews = Review::getByProduct($product->id);
                 <?php foreach ($reviews as $review): ?>
                     <div class="b-reviews-product">
                         <div class="b-reviews-product__head">
-                            <div class="b-reviews-product__head--avatar">
-                                <div class="head--avatar">
-                                    <div class="social_pic"
-                                         style="background-image: url('<?= $review->megauser->avatar_path; ?>')">
+                            <div class="b-reviews-product__head--avatar" >
+                                <div class="head--avatar" style="background-image:url('<?= $review->megauser->avatar_path ; ?>')">
 
-                                    </div>
+                                    <?php if ($review->megauser->social_type > 0):  ?>
+                                        <div class="social_pic" style="background-image:url('<?= $this->mainAssets ?>/images/<?=$review->megauser->social_type?>.png')">
+
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                             <div class="b-reviews-product__head--info">
-                                <a href="<?= $review->megauser->social_link; ?>"> <?= $review->megauser->fio; ?></a>
+                                <a href="<?= $review->megauser->social_link; ?>"> <?= $review->megauser->fio; ?> </a>
                             </div>
                         </div>
                         <div class="b-reviews-product__body">

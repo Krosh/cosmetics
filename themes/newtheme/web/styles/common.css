@@ -5114,12 +5114,15 @@ label.error, .errorMessage, .text-error {
 }
 
 .social_pic {
-    height: 30px;
-    width: 30px;
-    background-color: #0a6aa1;
+    height: 32px;
+    width: 32px;
     position: relative;
     top: 65px;
     left: 70px;
+    background-size:contain;
+    background-position:50%;
+    background-repeat:no-repeat;
+
 }
 
 .b-reviews-product__head--info {
