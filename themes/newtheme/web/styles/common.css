@@ -5061,7 +5061,7 @@ label.error, .errorMessage, .text-error {
     text-align: right;
 }
 
-.b-rewies-product {
+.b-reviews-product {
     display: flex;
     min-height: 150px;
     background: white;
@@ -5069,7 +5069,7 @@ label.error, .errorMessage, .text-error {
     border: 1px solid #90c921;
 }
 
-.b-rewies-product__head {
+.b-reviews-product__head {
     width: 20%;
     font-size: 21px;
     line-height: 1.5;
@@ -5080,11 +5080,11 @@ label.error, .errorMessage, .text-error {
     justify-content: center;
 }
 
-.b-rewies-product__body {
+.b-reviews-product__body {
     width: 80%;
 }
 
-.b-rewies-product__body--text {
+.b-reviews-product__body--text {
     font-size: 16px;
     line-height: 1.5;
     padding: 15px;
@@ -5092,7 +5092,7 @@ label.error, .errorMessage, .text-error {
     font-family: Arial, sans-serif;
 }
 
-.b-rewies-product__body--star {
+.b-reviews-product__body--star {
     text-align: right;
     padding: 10px;
     padding-bottom: 3px;
@@ -5122,11 +5122,11 @@ label.error, .errorMessage, .text-error {
     left: 70px;
 }
 
-.b-rewies-product__head--info {
+.b-reviews-product__head--info {
     margin-bottom: 5px;
 }
 
-.b-rewies-product--alert {
+.b-reviews-product--alert {
     border: 2px solid #90c921;
     padding: 5px;
     text-align: center;
@@ -5244,7 +5244,7 @@ label.error, .errorMessage, .text-error {
     cursor: default !important;
 }
 
-.b-rewies-product__body--rating {
+.b-reviews-product__body--rating {
     display: inline-block;
 }
 

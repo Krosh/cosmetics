@@ -40,12 +40,13 @@ class Review extends yupe\models\YModel
     }
 
 
-    public static function getByProduct($idProduct, $onlyApproved = true)
+    public static function getByProduct($idProduct,$onlyApproved = true)
     {
         $criteria = new CDbCriteria();
-        $criteria->compare("review_target", $idProduct);
-        if ($onlyApproved) {
-            $criteria->compare("moderation_status", self::$MODERATION_SUCCESS);
+        $criteria->compare("review_target",$idProduct);
+        if ($onlyApproved)
+        {
+            $criteria->compare("moderation_status",self::$MODERATION_SUCCESS);
         }
         $result = Review::model()->findAll($criteria);
         return $result;
@@ -54,9 +55,10 @@ class Review extends yupe\models\YModel
     public static function getRating($idProduct, $onlyApproved = true)
     {
         $criteria = new CDbCriteria();
-        $criteria->compare("review_target", $idProduct);
-        if ($onlyApproved) {
-            $criteria->compare("moderation_status", self::$MODERATION_SUCCESS);
+        $criteria->compare("review_target",$idProduct);
+        if ($onlyApproved)
+        {
+            $criteria->compare("moderation_status",self::$MODERATION_SUCCESS);
         }
         $criteria->select = "AVG(rating) as rating";
         $review = Review::model()->find($criteria);
