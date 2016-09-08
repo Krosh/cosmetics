@@ -346,6 +346,9 @@ $reviews = Review::getByProduct($product->id);
                             </div>
                             <div class="b-reviews-product__body--text">
                                 <?= $review->text; ?>
+                                <div class="b-reviews-product__body--text--time">
+                                    <?= $review->date_add; ?>
+                                </div>
                             </div>
                         </div>
 
