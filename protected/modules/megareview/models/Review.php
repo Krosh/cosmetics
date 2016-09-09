@@ -63,8 +63,14 @@ class Review extends yupe\models\YModel
 
     public static function hasNonModerated($idProduct)
     {
+        $idUser = Yii::app()->user->getId();
+        $megauser = Megauser::model()->find("id_user = " . $idUser);
+        if ($megauser == null)
+            return false;
+
         $criteria = new CDbCriteria();
         $criteria->compare("review_target", $idProduct);
+        $criteria->compare("id_mega_user", $megauser->id);
         $criteria->compare("moderation_status", self::$MODERATION_ON);
         return Review::model()->exists($criteria);
     }
