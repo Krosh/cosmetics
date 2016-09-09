@@ -66,25 +66,25 @@ $this->breadcrumbs = [
             <div style="text-align: center;margin: 10px auto">
                 КОММЕНТАРИИ
             </div>
-            <div class="b-rewies-product">
-                <div class="b-rewies-product__head">
-                    <div class="b-rewies-product__head--avatar">
+            <div class="b-reviews-product">
+                <div class="b-reviews-product__head">
+                    <div class="b-reviews-product__head--avatar">
                         <div class="head--avatar">
                             <div class="social_pic">
 
                             </div>
                         </div>
                     </div>
-                    <div class="b-rewies-product__head--info">
+                    <div class="b-reviews-product__head--info">
                         Елена
                     </div>
                 </div>
-                <div class="b-rewies-product__body">
-                    <div class="b-rewies-product__body--star">
-                        <div class="b-rewies-product__body--rating">
+                <div class="b-reviews-product__body">
+                    <div class="b-reviews-product__body--star">
+                        <div class="b-reviews-product__body--rating">
                         </div>
                     </div>
-                    <div class="b-rewies-product__body--text">
+                    <div class="b-reviews-product__body--text">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat finibus interdum. In
                         hac habitasse platea dictumst. Vestibulum tincidunt non velit nec faucibus. Quisque
                         ultricies urna consectetur erat pulvinar, nec feugiat sapien luctus. Vivamus vitae dolor a
@@ -95,25 +95,25 @@ $this->breadcrumbs = [
                 </div>
 
             </div>
-            <div class="b-rewies-product">
-                <div class="b-rewies-product__head">
-                    <div class="b-rewies-product__head--avatar">
+            <div class="b-reviews-product">
+                <div class="b-reviews-product__head">
+                    <div class="b-reviews-product__head--avatar">
                         <div class="head--avatar">
                             <div class="social_pic">
 
                             </div>
                         </div>
                     </div>
-                    <div class="b-rewies-product__head--info">
+                    <div class="b-reviews-product__head--info">
                         Елена
                     </div>
                 </div>
-                <div class="b-rewies-product__body">
-                    <div class="b-rewies-product__body--star">
-                        <div class="b-rewies-product__body--rating">
+                <div class="b-reviews-product__body">
+                    <div class="b-reviews-product__body--star">
+                        <div class="b-reviews-product__body--rating">
                         </div>
                     </div>
-                    <div class="b-rewies-product__body--text">
+                    <div class="b-reviews-product__body--text">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat finibus interdum. In
                         hac habitasse platea dictumst. Vestibulum tincidunt non velit nec faucibus. Quisque
                         ultricies urna consectetur erat pulvinar, nec feugiat sapien luctus. Vivamus vitae dolor a
@@ -124,25 +124,25 @@ $this->breadcrumbs = [
                 </div>
 
             </div>
-            <div class="b-rewies-product">
-                <div class="b-rewies-product__head">
-                    <div class="b-rewies-product__head--avatar">
+            <div class="b-reviews-product">
+                <div class="b-reviews-product__head">
+                    <div class="b-reviews-product__head--avatar">
                         <div class="head--avatar">
                             <div class="social_pic">
 
                             </div>
                         </div>
                     </div>
-                    <div class="b-rewies-product__head--info">
+                    <div class="b-reviews-product__head--info">
                         Елена
                     </div>
                 </div>
-                <div class="b-rewies-product__body">
-                    <div class="b-rewies-product__body--star">
-                        <div class="b-rewies-product__body--rating">
+                <div class="b-reviews-product__body">
+                    <div class="b-reviews-product__body--star">
+                        <div class="b-reviews-product__body--rating">
                         </div>
                     </div>
-                    <div class="b-rewies-product__body--text">
+                    <div class="b-reviews-product__body--text">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat finibus interdum. In
                         hac habitasse platea dictumst. Vestibulum tincidunt non velit nec faucibus. Quisque
                         ultricies urna consectetur erat pulvinar, nec feugiat sapien luctus. Vivamus vitae dolor a
