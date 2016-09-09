@@ -64,12 +64,21 @@ $this->widget(
         'dataProvider' => $model->search(),
         'filter' => $model,
         'columns' => [
-            'id',
-            'id_user',
-            'social_type',
-            'id_from_social',
-            'avatar_path',
+            [
+                'name' => 'avatar_path',
+                'type' => 'raw',
+                'value' => 'CHtml::image($data->avatar_path)',
+            ],
+            [
+                'name' => 'social_type',
+                'value' => '$data->getSocialAsString()',
+            ],
             'fio',
+            [
+                'name' => 'social_link',
+                'type' => 'raw',
+                'value' => 'CHtml::link($data->social_link,$data->social_link)',
+            ],
 //            'adres',
             [
                 'class' => 'yupe\widgets\CustomButtonColumn',

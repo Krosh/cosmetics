@@ -17,5 +17,8 @@
  * NOTE, this file must be saved in UTF-8 encoding.
  */
 return [
-
+    'Content' => 'Контент',
+    'megareview' => 'Модуль "Отзывы"',
+    'reviews' => 'Отзывы',
+    'megausers' => 'Пользователи',
 ];

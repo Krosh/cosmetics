@@ -82,11 +82,15 @@ class MegareviewModule extends yupe\components\WebModule
     public function getNavigation()
     {
         return [
-            ['label' => Yii::t('MegareviewModule.megareview', 'megareview')],
             [
                 'icon' => 'fa fa-fw fa-list-alt',
-                'label' => Yii::t('MegareviewModule.megareview', 'Index'),
-                'url' => ['/megareview/megareviewBackend/index']
+                'label' => Yii::t('MegareviewModule.megareview', 'reviews'),
+                'url' => ['/megareview/reviewBackend/index']
+            ],
+            [
+                'icon' => 'fa fa-fw fa-list-alt',
+                'label' => Yii::t('MegareviewModule.megareview', 'megausers'),
+                'url' => ['/megareview/megauserBackend/index']
             ],
         ];
     }

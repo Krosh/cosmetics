@@ -127,6 +127,8 @@ $form = $this->beginWidget(
                     ]
                 ]
             ]); ?>
+            <br>
+            <?= CHtml::link($model->audio_file, "/uploads/upload/audio/" . $model->audio_file); ?>
         </div>
     </div>
     <div class="row">

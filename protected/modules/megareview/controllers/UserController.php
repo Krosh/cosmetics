@@ -50,7 +50,8 @@ class UserController extends \yupe\components\controllers\FrontController
                             if (!$user->save())
                                 var_dump($user->getErrors());
 
-                            $megauser->avatar_path = $attributes["photo"];
+                            $megauser->avatar_path = $attributes["photo_medium"];
+                            $megauser->adres = $attributes["city"];
                             $megauser->id_from_social = $attributes["id"];
                             $megauser->social_link = $attributes["url"];
                             $megauser->id_user = $user->id;

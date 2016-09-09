@@ -28,15 +28,25 @@ class Review extends yupe\models\YModel
         return [self::$MODERATION_ON => "На модерации", self::$MODERATION_FAILED => "Не прошел модерацию", self::$MODERATION_SUCCESS => "Прошел модерацию"];
     }
 
+    private static $_targets = null;
+
+    public static function getAllTargets()
+    {
+        if (self::$_targets === null) {
+            $result = [];
+            $result[-1] = "Общий отзыв";
+            $products = Product::model()->findAll();
+            foreach ($products as $item) {
+                $result[$item->id] = $item->name;
+            }
+            self::$_targets = $result;
+        }
+        return self::$_targets;
+    }
+
     public function getTargets()
     {
-        $result = [];
-        $result[-1] = "Общий отзыв";
-        $products = Product::model()->findAll();
-        foreach ($products as $item) {
-            $result[$item->id] = $item->name;
-        }
-        return $result;
+        return self::getAllTargets();
     }
 
 
@@ -135,16 +145,35 @@ class Review extends yupe\models\YModel
     {
         return array(
             'id' => 'ID',
-            'id_mega_user' => 'Id Mega User',
-            'rating' => 'Rating',
-            'text' => 'Text',
-            'date_add' => 'Date Add',
-            'has_audio' => 'Has Audio',
-            'audio_file' => 'Audio File',
-            'has_video' => 'Has Video',
-            'video_file' => 'Video File',
-            'video_preview' => 'Video Preview',
+            'id_mega_user' => 'Пользователь (модуль "Отзывы")',
+            'rating' => 'Оценка',
+            'text' => 'Текст отзыва',
+            'date_add' => 'Дата добавления',
+            "review_target" => 'Цель отзыва',
+            'moderation_status' => 'Статус модерации',
+            'has_audio' => 'Имеется аудио',
+            'audio_file' => 'Аудиофайл',
+            'has_video' => 'Имеется видео',
+            'video_file' => 'Видеофайл',
+            'video_preview' => 'Путь к превью видео',
         );
+    }
+
+    public function getDateAsString()
+    {
+        $mas = explode("-", $this->date_add);
+        $months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+        return $months[($mas[1] - 1)] . " " . $mas[0];
+    }
+
+    public function getAudioPath()
+    {
+        return "/uploads" . $this->getUploadPath() . "/" . $this->audio_file;
+    }
+
+    public function getVideoPath()
+    {
+        return $this->video_file . "&amp;autoplay=1";
     }
 
     /**
@@ -166,6 +195,8 @@ class Review extends yupe\models\YModel
         $criteria = new CDbCriteria;
 
         $criteria->compare('id', $this->id);
+        $criteria->compare('moderation_status', $this->moderation_status);
+        $criteria->compare('review_target', $this->review_target);
         $criteria->compare('id_mega_user', $this->id_mega_user);
         $criteria->compare('rating', $this->rating, true);
         $criteria->compare('text', $this->text, true);
@@ -190,5 +221,13 @@ class Review extends yupe\models\YModel
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
+    }
+
+    public function beforeSave()
+    {
+        if ($this->isNewRecord) {
+            $this->date_add = date("Y-m-d");
+        }
+        return parent::beforeSave();
     }
 }

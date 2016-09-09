@@ -30,9 +30,9 @@ $form = $this->beginWidget(
 
 <?php echo $form->errorSummary($model); ?>
 
-    <div class="row">
+    <!--    <div class="row">
         <div class="col-sm-7">
-            <?php echo $form->textFieldGroup($model, 'id_user', [
+            <?php /*echo $form->textFieldGroup($model, 'id_user', [
                 'widgetOptions' => [
                     'htmlOptions' => [
                         'class' => 'popover-help',
@@ -40,13 +40,16 @@ $form = $this->beginWidget(
                         'data-content' => $model->getAttributeDescription('id_user')
                     ]
                 ]
-            ]); ?>
+            ]); */?>
         </div>
     </div>
+-->
+
     <div class="row">
         <div class="col-sm-7">
-            <?php echo $form->textFieldGroup($model, 'social_type', [
+            <?php echo $form->dropDownListGroup($model, 'social_type', [
                 'widgetOptions' => [
+                    'data' => Megauser::getSocials(),
                     'htmlOptions' => [
                         'class' => 'popover-help',
                         'data-original-title' => $model->getAttributeLabel('social_type'),

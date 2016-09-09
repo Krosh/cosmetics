@@ -64,8 +64,29 @@ $this->widget(
         'dataProvider' => $model->search(),
         'filter' => $model,
         'columns' => [
-            'id',
-            'id_mega_user',
+            [
+                'name' => 'id_mega_user',
+                'value' => '$data->megauser->fio',
+            ],
+            [
+                'name' => 'moderation_status',
+                'value' => function ($data) {
+                    if ($data->moderation_status == Review::$MODERATION_ON)
+                        $status = "primary";
+                    elseif ($data->moderation_status == Review::$MODERATION_SUCCESS)
+                        $status = "success"; else
+                        $status = "error";
+                    $result = '<span class="label label-' . $status . '">' . Review::getStatuses()[$data->moderation_status] . '</span>';
+                    return $result;
+                },
+                'type' => 'raw',
+                'filter' => Review::getStatuses(),
+            ],
+            [
+                'name' => 'review_target',
+                'value' => 'Review::getAllTargets()[$data->review_target]',
+                'filter' => Review::getAllTargets(),
+            ],
             'rating',
             'text',
             'date_add',

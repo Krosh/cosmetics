@@ -23,6 +23,17 @@ class Megauser extends yupe\models\YModel
         return '{{megareview_user}}';
     }
 
+    static public function getSocials()
+    {
+        return [0 => "На сайте ayaorganic.ru", 'vk.com'];
+    }
+
+    public function getSocialAsString()
+    {
+        $soc = self::getSocials();
+        return $soc[$this->social_type];
+    }
+
     /**
      * @return array validation rules for model attributes.
      */
@@ -58,12 +69,12 @@ class Megauser extends yupe\models\YModel
     {
         return array(
             'id' => 'ID',
-            'id_user' => 'Id User',
-            'social_type' => 'Social Type',
-            'social_link' => 'Social Link',
-            'avatar_path' => 'Avatar Path',
-            'fio' => 'Fio',
-            'adres' => 'Adres',
+            'id_user' => 'Пользователь из системы авторизации сайта',
+            'social_type' => 'Социальная сеть',
+            'social_link' => 'Ссылка на страницу',
+            'avatar_path' => 'Путь к аватару',
+            'fio' => 'ФИО',
+            'adres' => 'Адрес',
         );
     }
 
