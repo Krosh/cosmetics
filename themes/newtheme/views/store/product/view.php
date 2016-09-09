@@ -448,7 +448,7 @@ $reviews = Review::getByProduct($product->id);
 <script>
     $(document).ready(
         function () {
-            var a = 1;
+            var a = 0;
             if (a = 1) {
                 var url = window.location;
                 $(location).attr('href', url + "#tab4");
