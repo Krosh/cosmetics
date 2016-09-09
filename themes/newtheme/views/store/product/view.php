@@ -449,7 +449,7 @@ $reviews = Review::getByProduct($product->id);
     $(document).ready(
         function () {
             var a = 0;
-            if (a = 1) {
+            if (a == 1) {
                 var url = window.location;
                 $(location).attr('href', url + "#tab4");
                 setTimeout(function () {
