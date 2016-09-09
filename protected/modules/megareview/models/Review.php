@@ -61,6 +61,14 @@ class Review extends yupe\models\YModel
         return $result;
     }
 
+    public static function hasNonModerated($idProduct)
+    {
+        $criteria = new CDbCriteria();
+        $criteria->compare("review_target", $idProduct);
+        $criteria->compare("moderation_status", self::$MODERATION_ON);
+        return Review::model()->exists($criteria);
+    }
+
     public static function getRating($idProduct, $onlyApproved = true)
     {
         $criteria = new CDbCriteria();
