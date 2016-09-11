@@ -136,8 +136,8 @@ return [
                 'facebook' => array(
                     // register your app here: https://developers.facebook.com/apps/
                     'class' => 'FacebookOAuthService',
-                    'client_id' => '...',
-                    'client_secret' => '...',
+                    'client_id' => '1290477507653026',
+                    'client_secret' => 'e8775fa2d15a50ac5a986344b748ed8e',
                 ),
                 'linkedin' => array(
                     // register your app here: https://www.linkedin.com/secure/developer

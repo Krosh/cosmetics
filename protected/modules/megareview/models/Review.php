@@ -64,6 +64,8 @@ class Review extends yupe\models\YModel
     public static function hasNonModerated($idProduct)
     {
         $idUser = Yii::app()->user->getId();
+        if ($idUser <= 0)
+            return false;
         $megauser = Megauser::model()->find("id_user = " . $idUser);
         if ($megauser == null)
             return false;

@@ -14,8 +14,9 @@ class UserController extends \yupe\components\controllers\FrontController
 {
     public function actionLogin($service, $backUrl)
     {
+        $services = [1 => "vkontakte", "odnoklassniki", "mailru", "facebook"];
         $serviceName = Yii::app()->request->getQuery('service');
-        $serviceType = 1;
+        $serviceType = array_search($serviceName, $services);
         if (isset($serviceName)) {
             /** @var $eauth EAuthServiceBase */
             $eauth = Yii::app()->eauth->getIdentity($serviceName);
@@ -91,11 +92,12 @@ class UserController extends \yupe\components\controllers\FrontController
                 // Something went wrong, redirect to login page
                 $this->redirect(array('site/login'));
             } catch (EAuthException $e) {
+                var_dump($e->getMessage());
                 // save authentication error to session
                 Yii::app()->user->setFlash('error', 'EAuthException: ' . $e->getMessage());
 
                 // close popup window and redirect to cancelUrl
-                $eauth->redirect($eauth->getCancelUrl());
+//                $eauth->redirect($eauth->getCancelUrl());
             }
         }
 

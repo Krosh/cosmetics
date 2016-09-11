@@ -44,6 +44,7 @@ class FacebookOAuthService extends EOAuth2Service
             )
         ));
 
+        $this->attributes["photo_medium"] = "http://graph.facebook.com/" . $info->id . "/picture?type=large";
         $this->attributes['id'] = $info->id;
         $this->attributes['name'] = $info->name;
         $this->attributes['url'] = $info->link;
