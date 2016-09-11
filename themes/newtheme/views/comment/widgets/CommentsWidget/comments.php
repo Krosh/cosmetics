@@ -153,16 +153,31 @@ Yii::app()->clientScript
         <?php endif; ?>
 
     </div>
-    <div class="product-reviews__side"><!-- a href="javascript:void(0);" class="btn btn_primary btn_wide">Написать отзыв</a -->
-        <div class="product-reviews__stat">Средняя оценка
-            <div data-rate='4' class="rating">
-                <div class="rating__label">4.2</div>
-                <div class="rating__corner">
-                    <div class="rating__triangle"></div>
-                </div>
-            </div>
-            <div class="product-reviews__hint">2 оценки</div>
-        </div>
-    </div>
 <?php endif; ?>
-
+<script>
+    $(document).ready(
+        function () {
+            $("#comment-form").submit(
+                function () {
+                    var dateForm = $(this).serialize();
+                    $.ajax(
+                        {
+                            type: "POST",
+                            url: "/comment/add",
+                            data: dateForm
+                        }
+                    ).done(
+                        function(){
+                            $("#comment-form").trigger( 'reset' );
+                            $('#dialog-close').dialog('open');
+                            setTimeout(function () {
+                                $('#dialog-close').dialog('close');
+                            }, 3000)
+                        }
+                    );
+                return false;
+                }
+            )
+        }
+    )
+</script>
