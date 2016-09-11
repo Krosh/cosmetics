@@ -12,7 +12,7 @@
 
 class UserController extends \yupe\components\controllers\FrontController
 {
-    public function actionLogin($service, $backUrl)
+    public function actionLogin($service, $backUrl, $needShowDialogReview)
     {
         $services = [1 => "vkontakte", "odnoklassniki", "mailru", "facebook"];
         $serviceName = Yii::app()->request->getQuery('service');
@@ -75,6 +75,10 @@ class UserController extends \yupe\components\controllers\FrontController
                                 yupe\widgets\YFlashMessages::SUCCESS_MESSAGE,
                                 Yii::t('UserModule.user', 'You authorized successfully!')
                             );
+
+                            if ($needShowDialogReview)
+                                Yii::app()->user->setFlash("needShowDialogReview", 1);
+
                         }
 
 

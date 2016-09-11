@@ -43,6 +43,8 @@ class EAuthWidget extends CWidget
 
     public $backUrl = null;
 
+    public $needShowDialogReview = false;
+
     /**
      * @var boolean include the CSS file. Default is true.
      * If this is set false, you are responsible to explicitly include the necessary CSS file in your page.
@@ -105,7 +107,9 @@ class EAuthWidget extends CWidget
             'id' => $this->getId(),
             'services' => $this->services,
             'action' => $this->action,
+            'needShowDialogReview' => $this->needShowDialogReview,
         ));
+
     }
 
     /**
