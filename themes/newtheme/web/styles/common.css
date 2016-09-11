@@ -469,7 +469,7 @@ a {
 .breadcrumbs ul li:after {
     position: absolute;
     right: 10px;
-    top: calc(50% -6px);
+    top: calc(50% - 6px);
     display: block;
     width: 12px;
     height: 12px;
@@ -505,7 +505,8 @@ a {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none transition-property : background-color;
+    user-select: none
+    transition-property: background-color;
     transition-duration: 0.3s;
 }
 
@@ -899,7 +900,7 @@ a {
 .cart-mini__delete-btn {
     position: absolute;
     right: 0;
-    top: calc(50% -7px);
+    top: calc(50% - 7px);
     vertical-align: middle;
     display: block;
     width: 15px;
@@ -1079,7 +1080,7 @@ a {
 .dropdown-menu {
     position: absolute;
     left: -30px;
-    width: calc(100% +60px);
+    width: calc(100% + 60px);
     padding: 20px 20px 15px;
     z-index: 10;
     display: none;
@@ -1126,7 +1127,7 @@ a {
 .dropdown-menu:before {
     position: absolute;
     top: -20px;
-    left: calc(50% -5px);
+    left: calc(50% - 5px);
     border: 10px solid;
     border-color: transparent transparent #fff;
     content: ''
@@ -3521,7 +3522,7 @@ a {
 .promo-slider .slick__dot {
     position: absolute;
     bottom: 40px;
-    left: calc(50% -100px);
+    left: calc(50% - 100px);
     width: 200px;
     text-align: center
 }
@@ -3927,7 +3928,7 @@ span.required {
 .sorter a.asc:after, .sorter a.desc:after {
     position: absolute;
     right: -12px;
-    top: calc(50% -5px);
+    top: calc(50% - 5px);
     width: 12px;
     height: 12px;
     content: ""
@@ -4161,7 +4162,7 @@ span.required {
     padding-left: 6px;
     width: 12px;
     height: 12px;
-    top: calc(50% -5px);
+    top: calc(50% - 5px);
     background: url(../images/icon-arrow_down.png) center no-repeat;
     content: ''
 }
@@ -4896,6 +4897,7 @@ label.error, .errorMessage, .text-error {
     align-items: center;
     margin-top: 15px;
     align-content: center;
+    word-break: break-word;
 }
 
 .b-audio-feedback__description-audio {
@@ -5119,14 +5121,20 @@ label.error, .errorMessage, .text-error {
     position: relative;
     top: 65px;
     left: 70px;
-    background-size:contain;
-    background-position:50%;
-    background-repeat:no-repeat;
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
 
 }
 
 .b-reviews-product__head--info {
     margin-bottom: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
+.b-reviews-product__head--info a:hover {
+    color: #90c921;
 }
 
 .b-reviews-product--alert {
@@ -5265,5 +5273,21 @@ label.error, .errorMessage, .text-error {
 }
 
 .b-youtube__preview {
+    text-align: center;
+}
+
+.b-audio-feedback__name {
+    padding: 5px;
+    text-align: center;
+
+}
+
+.b-audio-feedback__city {
+    font-size: 14px;
+    text-align: center;
+}
+
+.b-audio-feedback__date {
+    font-size: 14px;
     text-align: center;
 }

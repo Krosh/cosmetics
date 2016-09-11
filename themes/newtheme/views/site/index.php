@@ -145,10 +145,12 @@
                     <div class="b-audio-feedback__info-author">
                         <div class="b-audio-feedback__name">
                             <?= $item->megauser->fio; ?>
-                            <br>
-                            <?= $item->megauser->adres; ?>
-                            <br>
-                            <?= $item->getDateAsString(); ?>
+                            <div class="b-audio-feedback__city">
+                                <?= $item->megauser->adres; ?>
+                            </div>
+                            <div class="b-audio-feedback__date">
+                                <?= $item->getDateAsString(); ?>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -175,8 +177,6 @@
             <?php endif; ?>
         </div>
     <?php endforeach; ?>
-
-
 </div>
 <div class="main__hit-slider grid" style="padding: 3px">
     <div class="b-audio-feedback__title">
