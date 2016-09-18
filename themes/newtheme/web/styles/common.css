@@ -1838,7 +1838,7 @@ a {
 }
 
 .fancybox-opened {
-    z-index: 8030
+    z-index: 8030;
 }
 
 .fancybox-opened .fancybox-skin {
@@ -4886,7 +4886,7 @@ label.error, .errorMessage, .text-error {
 }
 
 .b-audio-feedback__body {
-    width: 65%;
+    width: 70%;
 }
 
 .b-audio-feedback__info-author {
@@ -5290,4 +5290,40 @@ label.error, .errorMessage, .text-error {
 .b-audio-feedback__date {
     font-size: 14px;
     text-align: center;
+}
+
+.b-youtube__preview__pic {
+    margin: 0 auto;
+    height: 190px;
+    width: 400px;
+    border: 1px solid #90c921;
+    background-color: white;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+.yotube__btn {
+    display: block;
+    width: 84px;
+    height: 64px;
+    transform: scale(0.8);
+    transition: .4s;
+}
+
+.video-youtube {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    transition: .4s;
+}
+
+.video-youtube:hover {
+    background-color: rgba(9, 9, 9, 0.4);
+}
+
+.video-youtube:hover .yotube__btn {
+    transform: scale(1);
 }
