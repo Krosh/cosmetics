@@ -62,8 +62,9 @@ $this->breadcrumbs = [Yii::t('UserModule.user', 'Sign in')];
                 </div>
             </div>
         <?php } endif; ?>
-
-
+        <?php
+        $this->widget('ext.eauth.EAuthWidget', array('action' => '/loginFromSocial', "needShowDialogReview" => 1));
+        ?>
         <div class="fast-order__inputs">
             <div class="column grid-module-3">
                 <?= CHtml::submitButton(Yii::t('UserModule.user', 'Sign in'), [

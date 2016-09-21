@@ -58,63 +58,10 @@
     </div>
 </div>
 <div class="main__hit-slider grid">
-    <div class="b-reviews">
-        <div style="margin: 0 auto">
+        <div style="margin: 0 auto;">
             <?php $this->widget('application.modules.menu.widgets.MenuWidget', ['name' => 'servisy', 'layout' => 'main_logos']); ?>
         </div>
-        <!--   <div class="b-reviews__item">
-               <div class="b-reviews__item--logo">
-               Логотип
-               </div>
-               <div class="b-reviews__item--description">
-                   Описание
-               </div>
-           </div>
-           <div class="b-reviews__item">
-               <div class="b-reviews__item--logo">
-                   Логотип
-               </div>
-               <div class="b-reviews__item--description">
-                   Описание
-               </div>
-           </div>
-           <div class="b-reviews__item">
-               <div class="b-reviews__item--logo">
-               Логотип
-               </div>
-               <div class="b-reviews__item--description">
-                  Описание
-               </div>
-           </div>
-           <div class="b-reviews__item">
-               <div class="b-reviews__item--logo">
-                 логотип
-               </div>
-               <div class="b-reviews__item--description">
-                Описание
-               </div>
-           </div>
-           <div class="b-reviews__item">
-               <div class="b-reviews__item--logo">
-               логотип
-               </div>
-               <div class="b-reviews__item--description">
-                описание
-               </div>
-           </div>
-           <div class="b-reviews__item">
-               <div class="b-reviews__item--logo">
-                 логотип
-               </div>
-               <div class="b-reviews__item--description">
-                   описание
-               </div>
-           </div>-->
-    </div>
-    <!--
         <?php /*$this->widget('application.modules.menu.widgets.MenuWidget', ['name' => 'servisy', 'layout' => 'main_logos']); */ ?>
-
--->
 </div>
 <div class="main__hit-slider grid packs">
     <div class="h2">Наборы</div>

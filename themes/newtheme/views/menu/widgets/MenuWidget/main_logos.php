@@ -1,5 +1,6 @@
 <?php foreach ($this->params['items'] as $item): ?>
     <div class="b-reviews__item">
+        <div style="display: flex">
         <div style="text-align:center">
             <img src="<?= $this->getController()->mainAssets ?>/images/<?= ++$i; ?>.jpg">
         </div>
@@ -13,6 +14,7 @@
                     <?= str_replace("{menu}", "", $item["template"]) ?>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 <?php endforeach; ?>
