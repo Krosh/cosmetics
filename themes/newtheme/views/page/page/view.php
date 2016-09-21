@@ -41,7 +41,9 @@ $this->keywords = $model->keywords ? : Yii::app()->getModule('yupe')->siteKeyWor
                 ["slideshow_identifier" => $model->slug, "height" => 500]);
             ?>
             <div class="page__content">
+                <div class="wysiwyg">
                 <?= $model->body; ?>
+                    </div>
             </div>
         </div>
     </div>

@@ -39,6 +39,7 @@
     Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/unslider-dots.css');
     Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/rating.css');
     Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/jquery.rating.css');
+    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/jquery.fancybox.css');
     Yii::app()->getClientScript()->registerCssFile('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css');
 
     Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/camera.css');
@@ -103,31 +104,31 @@
 <body>
 <?php \yupe\components\TemplateEvent::fire(ShopThemeEvents::BODY_START); ?>
 <div class="main">
-<div class="main__header">
-    <div class="header grid">
-        <div class="header__left-column">
-            <a href="<?= Yii::app()->createUrl('/store') ?>" class="header__catalog-link">
-                Каталог<i class="fa fa-book fa-lg fa-fw"></i>
-            </a>
+    <div class="main__header">
+        <div class="header grid">
+            <div class="header__left-column">
+                <a href="<?= Yii::app()->createUrl('/store') ?>" class="header__catalog-link">
+                    Каталог<i class="fa fa-book fa-lg fa-fw"></i>
+                </a>
 
-            <div class="header__search-widget">
-                <?php $this->widget('application.modules.store.widgets.SearchProductWidget'); ?>
-            </div>
-        </div>
-        <div class="header__center-column">
-            <a href="<?= Yii::app()->createUrl(Yii::app()->hasModule('homepage') ? '/homepage/hp/index' : '/site/index') ?>"
-               class="header__logo-link">
-                <img src="<?= $this->mainAssets ?>/images/logo_final_small_centered.png" class="header-logo-image">
-            </a>
-        </div>
-        <div class="header__right-column">
-            <?php if (Yii::app()->hasModule('cart')): ?>
-                <div id="shopping-cart-widget">
-                    <?php $this->widget('application.modules.cart.widgets.ShoppingCartWidget'); ?>
+                <div class="header__search-widget">
+                    <?php $this->widget('application.modules.store.widgets.SearchProductWidget'); ?>
                 </div>
-            <?php endif; ?>
+            </div>
+            <div class="header__center-column">
+                <a href="<?= Yii::app()->createUrl(Yii::app()->hasModule('homepage') ? '/homepage/hp/index' : '/site/index') ?>"
+                   class="header__logo-link">
+                    <img src="<?= $this->mainAssets ?>/images/logo_final_small_centered.png" class="header-logo-image">
+                </a>
+            </div>
+            <div class="header__right-column">
+                <?php if (Yii::app()->hasModule('cart')): ?>
+                    <div id="shopping-cart-widget">
+                        <?php $this->widget('application.modules.cart.widgets.ShoppingCartWidget'); ?>
+                    </div>
+                <?php endif; ?>
 
-            <span class="span-clientmenu">
+                <span class="span-clientmenu">
                 <?php if (Yii::app()->getUser()->isGuest): ?>
                     <a href="<?= Yii::app()->createUrl('/user/account/login') ?>" class="btn_login-button">
                         <i class="fa fa-lock fa-lg fa-fw"></i><?= Yii::t('UserModule.user', 'Login'); ?>
@@ -174,229 +175,240 @@
             <span class="header__right-item" style="margin-top: 10px">
                  <i class="fa fa-envelope fa-fw" style="font-size: 1.2em"></i><a href="mailto:zakaz@ayaorganic.ru">zakaz@ayaorganic.ru</a>
             </span>
-        </div>
-
-
-    </div>
-</div>
-<div class="main__navbar" style="margin-top: 5px">
-    <div class="navbar">
-        <div class="navbar__wrapper grid">
-            <div class="navbar__menu">
-                <?php $this->widget('application.modules.menu.widgets.MenuWidget', ['name' => 'verhnee-menyu-s-kategoriyami']); ?>
-                <?php /*$this->widget('application.modules.store.widgets.CategoryWidget', ['depth' => 2]); */ ?>
             </div>
+
+
         </div>
     </div>
-    <?= $content ?>
-    <div class="main__footer">
-        <div class="bottom_social grid">
-            <h2 class="h2">АлтайЯ в социальных сетях</h2>
-
-            <div class="bottom_social-icons">
-                <a href="https://www.facebook.com/ayaorganic.ru"><i class="fa fa-facebook"></i></a>
-                <a href="http://vk.com/ayaorganic"><i class="fa fa-vk"></i></a>
-                <a href="#"><i class="fa fa-youtube-play"></i></a>
-                <a href="https://www.instagram.com/ayaorganic.ru/"><i class="fa fa-instagram"></i></a>
-                <a href="http://ok.ru/group/53041416044757"><i class="fa fa-odnoklassniki"></i></a>
-            </div>
-        </div>
-
-        <div class="footer">
-            <div class="grid">
-                <div class="footer__wrap">
-                    <div class="footer__group">
-                        <div class="footer__item footer__item_header">О продукции</div>
-                        <?php $this->widget('application.modules.menu.widgets.MenuWidget', ['name' => 'menyu-o-produkcii', 'layout' => 'footer']); ?>
-                    </div>
-                    <div class="footer__group">
-                        <div class="footer__item footer__item_header">О нас</div>
-                        <?php $this->widget('application.modules.menu.widgets.MenuWidget', ['name' => 'menyu-o-nas', 'layout' => 'footer']); ?>
-                    </div>
-                    <div class="footer__group">
-                        <a href="<?= $this->createUrl("/store") ?>">
-                            <div class="footer__item footer__item_header">Каталог</div>
-                        </a>
-                        <?php $this->widget('application.modules.store.widgets.CategoryWidget', [
-                            'view' => 'footer'
-                        ]); ?>
-                    </div>
-                    <div class="footer__group">
-                        <div class="footer__item footer__item_header">Сервисы</div>
-                        <?php $this->widget('application.modules.menu.widgets.MenuWidget', ['name' => 'servisy-s-korotkimi-nazvaniyami', 'layout' => 'footer']); ?>
-                    </div>
-                </div>
-                <div class="footer__copyright">
-                    <?= date("Y") ?>,&laquoАлтайЯ&raquo, все права защищены / <a
-                        href="<?= $this->createUrl("/safety.docx") ?>">Политика безопасности</a>
+    <div class="main__navbar" style="margin-top: 5px">
+        <div class="navbar">
+            <div class="navbar__wrapper grid">
+                <div class="navbar__menu">
+                    <?php $this->widget('application.modules.menu.widgets.MenuWidget', ['name' => 'verhnee-menyu-s-kategoriyami']); ?>
+                    <?php /*$this->widget('application.modules.store.widgets.CategoryWidget', ['depth' => 2]); */ ?>
                 </div>
             </div>
         </div>
+        <?= $content ?>
+        <div class="main__footer">
+            <div class="bottom_social grid">
+                <h2 class="h2">АлтайЯ в социальных сетях</h2>
+
+                <div class="bottom_social-icons">
+                    <a href="https://www.facebook.com/ayaorganic.ru"><i class="fa fa-facebook"></i></a>
+                    <a href="http://vk.com/ayaorganic"><i class="fa fa-vk"></i></a>
+                    <a href="#"><i class="fa fa-youtube-play"></i></a>
+                    <a href="https://www.instagram.com/ayaorganic.ru/"><i class="fa fa-instagram"></i></a>
+                    <a href="http://ok.ru/group/53041416044757"><i class="fa fa-odnoklassniki"></i></a>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="grid">
+                    <div class="footer__wrap">
+                        <div class="footer__group">
+                            <div class="footer__item footer__item_header">О продукции</div>
+                            <?php $this->widget('application.modules.menu.widgets.MenuWidget', ['name' => 'menyu-o-produkcii', 'layout' => 'footer']); ?>
+                        </div>
+                        <div class="footer__group">
+                            <div class="footer__item footer__item_header">О нас</div>
+                            <?php $this->widget('application.modules.menu.widgets.MenuWidget', ['name' => 'menyu-o-nas', 'layout' => 'footer']); ?>
+                        </div>
+                        <div class="footer__group">
+                            <a href="<?= $this->createUrl("/store") ?>">
+                                <div class="footer__item footer__item_header">Каталог</div>
+                            </a>
+                            <?php $this->widget('application.modules.store.widgets.CategoryWidget', [
+                                'view' => 'footer'
+                            ]); ?>
+                        </div>
+                        <div class="footer__group">
+                            <div class="footer__item footer__item_header">Сервисы</div>
+                            <?php $this->widget('application.modules.menu.widgets.MenuWidget', ['name' => 'servisy-s-korotkimi-nazvaniyami', 'layout' => 'footer']); ?>
+                        </div>
+                    </div>
+                    <div class="footer__copyright">
+                        <?= date("Y") ?>,&laquoАлтайЯ&raquo, все права защищены / <a
+                            href="<?= $this->createUrl("/safety.docx") ?>">Политика безопасности</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-<?php \yupe\components\TemplateEvent::fire(ShopThemeEvents::BODY_END); ?>
-<div class='notifications top-right' id="notifications"></div>
-<?php
-Yii::app()->clientScript->registerScript("setCatalogHeight",
-    '$(".catalog-filter").height($(".catalog-filter").parent().height())');
-?>
+    <?php \yupe\components\TemplateEvent::fire(ShopThemeEvents::BODY_END); ?>
+    <div class='notifications top-right' id="notifications"></div>
+    <?php
+    Yii::app()->clientScript->registerScript("setCatalogHeight",
+        '$(".catalog-filter").height($(".catalog-filter").parent().height())');
+    ?>
 
 
-<!— Yandex.Metrika counter —>
-<script type="text/javascript">
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function () {
-            try {
-                w.yaCounter37659580 = new Ya.Metrika({
-                    id: 37659580,
-                    clickmap: true,
-                    trackLinks: true,
-                    accurateTrackBounce: true,
-                    webvisor: true,
-                    trackHash: true
+    <!— Yandex.Metrika counter —>
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function () {
+                try {
+                    w.yaCounter37659580 = new Ya.Metrika({
+                        id: 37659580,
+                        clickmap: true,
+                        trackLinks: true,
+                        accurateTrackBounce: true,
+                        webvisor: true,
+                        trackHash: true
+                    });
+                } catch (e) {
+                }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () {
+                    n.parentNode.insertBefore(s, n);
+                };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else {
+                f();
+            }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/37659580" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
+    <!— /Yandex.Metrika counter —>
+    <!— /Yandex.Metrika counter —>
+
+    <script type="text/javascript"
+            src="http://api.venyoo.ru/wnew.js?wc=venyoo/default/science&widget_id=6657789764304896"></script>
+    <script>
+        $(document).ready(
+            function () {
+                $('.audio').mediaelementplayer({
+                    alwaysShowControls: true,
+                    features: ['playpause', 'volume', 'progress'],
+                    audioVolume: 'horizontal',
+                    audioWidth: 450,
+                    audioHeight: 70,
+                    iPadUseNativeControls: true,
+                    iPhoneUseNativeControls: true,
+                    AndroidUseNativeControls: true
                 });
-            } catch (e) {
             }
-        });
+        )
+    </script>
 
-        var n = d.getElementsByTagName("script")[0],
-            s = d.createElement("script"),
-            f = function () {
-                n.parentNode.insertBefore(s, n);
-            };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/watch.js";
-
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else {
-            f();
-        }
-    })(document, window, "yandex_metrika_callbacks");
-</script>
-<noscript>
-    <div><img src="https://mc.yandex.ru/watch/37659580" style="position:absolute; left:-9999px;" alt=""/></div>
-</noscript>
-<!— /Yandex.Metrika counter —>
-<!— /Yandex.Metrika counter —>
-
-<script type="text/javascript"
-        src="http://api.venyoo.ru/wnew.js?wc=venyoo/default/science&widget_id=6657789764304896"></script>
-<script>
-    $(document).ready(
-        function () {
-            $('.audio').mediaelementplayer({
-                alwaysShowControls: true,
-                features: ['playpause', 'volume', 'progress'],
-                audioVolume: 'horizontal',
-                audioWidth: 450,
-                audioHeight: 70,
-                iPadUseNativeControls: true,
-                iPhoneUseNativeControls: true,
-                AndroidUseNativeControls: true
-            });
-        }
-    )
-</script>
-
-<script>
-    $(document).ready(
-        function () {
-            var a = $(".product-gallery").height();
-            var b = $("#js-height-block").height();
-            if (a <= b) {
-                $(".b-next-read").show();
-                var c = a - 100;
-                $("#js-height-block").addClass("js-height-block-min-height");
-            }
-            else {
-                $(".b-next-read").hide();
-            }
-            ;
-            $("#btn-next-read").click(
-                function () {
-                    $("#js-height-block").toggleClass("js-height-block-max-height");
+    <script>
+        $(document).ready(
+            function () {
+                var a = $(".product-gallery").height();
+                var b = $("#js-height-block").height();
+                if (a <= b) {
+                    $(".b-next-read").show();
+                    var c = a - 100;
+                    $("#js-height-block").addClass("js-height-block-min-height");
                 }
-            )
+                else {
+                    $(".b-next-read").hide();
+                }
+                ;
+                $("#btn-next-read").click(
+                    function () {
+                        $("#js-height-block").toggleClass("js-height-block-max-height");
+                    }
+                )
 
-        }
-    )
-</script>
-<script>
-    $(function () {
-        $("#dialog-confirm").dialog({
-            modal: true,
-            autoOpen: false,
-            resizable: false,
-            height: "auto",
-            width: 500,
-        });
-    });
-    $(function () {
-        $("#dialog-close").dialog({
-            modal: true,
-            autoOpen: false,
-            resizable: false,
-            height: "auto",
-            width: 400,
-        });
-    });
-</script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $(".fancybox").fancybox();
-    });
-</script>
-<script type="text/javascript">
-    $(function () {
-
-
-        $('#js-modal-rating').rating({
-            fx: 'half',
-            image: '/stars.png',
-            loader: '/ajax-loader.gif',
-            callback: function (responce) {
-                this.vote_success.fadeOut(2000);
             }
+        )
+    </script>
+    <script>
+        $(function () {
+            $("#dialog-confirm").dialog({
+                modal: true,
+                autoOpen: false,
+                resizable: false,
+                height: "auto",
+                width: 500,
+            });
         });
-    })
-</script>
-
-<script type="text/javascript">
-    $(function () {
-        $('.rating-reviews').ratingReviews({
-            fx: 'half',
-            image: '/stars.png',
-            loader: '/ajax-loader.gif',
-            callback: function (responce) {
-                this.vote_success.fadeOut(2000);
-            }
+        $(function () {
+            $("#dialog-close").dialog({
+                modal: true,
+                autoOpen: false,
+                resizable: false,
+                height: "auto",
+                width: 400,
+            });
         });
-    })
-</script>
-<script>
-    $(document).ready(function () {
-        $(".video-youtube").click(function () {
-            $.fancybox({
-                'padding': 0,
-                'autoScale': false,
-                'transitionIn': 'none',
-                'transitionOut': 'none',
-                'title': this.title,
-                'width': 640,
-                'height': 385,
-                'href': this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
-                'type': 'swf',
-                'swf': {
-                    'wmode': 'transparent',
-                    'allowfullscreen': 'true'
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".fancybox").fancybox({
+                helpers: {
+                    overlay: {
+                        locked: false
+                    }
                 }
             });
-            return false;
         });
-    });
-</script>
+    </script>
+    <script type="text/javascript">
+        $(function () {
+
+
+            $('#js-modal-rating').rating({
+                fx: 'half',
+                image: '/stars.png',
+                loader: '/ajax-loader.gif',
+                callback: function (responce) {
+                    this.vote_success.fadeOut(2000);
+                }
+            });
+        })
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('.rating-reviews').ratingReviews({
+                fx: 'half',
+                image: '/stars.png',
+                loader: '/ajax-loader.gif',
+                callback: function (responce) {
+                    this.vote_success.fadeOut(2000);
+                }
+            });
+        })
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".video-youtube").click(function () {
+                $.fancybox({
+                    'padding': 0,
+                    'autoScale': false,
+                    'transitionIn': 'none',
+                    'transitionOut': 'none',
+                    'title': this.title,
+                    'width': 640,
+                    'height': 385,
+                    'href': this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
+                    'helpers': {
+                        overlay: {
+                            locked: false
+                        }
+                    },
+                    'type': 'swf',
+                    'swf': {
+                        'wmode': 'transparent',
+                        'allowfullscreen': 'true'
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
 
 
 </body>

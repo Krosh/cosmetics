@@ -24,6 +24,23 @@
                         $url = $item->getImageUrl(200, 200, false);
                         ?>
                         <img src="<?= $url ?>"/>
+
+                        <div class="b-quick-view-main--hit">
+                            <div class="b-quick-view-main__btn--hit">
+                                <div class="b-quick-view-main__link--hit">
+                                    <a class="fancybox b-quick-link--hit" rel="group-<?= CHtml::encode($item->getName()); ?>"
+                                       href="<?= StoreImage::product($item) ?>">Быстрый просмотр <img
+                                            src="<?= $this->mainAssets ?>/images/eye.png" class="b-quick-link__pic--hit" alt=""> </a>
+                                    <?php foreach ($item->getImages() as $key => $image): ?>
+                                        <a href="<?= $image->getImageUrl(); ?>"
+                                           rel="group-<?= CHtml::encode($item->getName()); ?>" class="fancybox"> </a>
+                                    <?php endforeach; ?>
+            </a>
+    </div>
+</div>
+    </div>
+
+
                     </div>
                     <div class="main__logo_topseller_item-title ">
                         <?= $item->title; ?>
@@ -109,6 +126,7 @@
         $criteria->scopes = ["published"];
         ?>
         <?php foreach ($products as $item): ?>
+        <div>
             <a href="<?= Yii::app()->createUrl('/store/product/view', ['name' => CHtml::encode($item->slug)]); ?>">
                 <div class="main__logos_item">
                     <div class="main__logo">
@@ -124,14 +142,29 @@
                          data-cart-add-url="<?= Yii::app()->createUrl('/cart/cart/add'); ?>">
                         <?= Yii::t('StoreModule.store', 'Into cart') ?>
                     </div>
-                </div>
+                    <div class="b-quick-view-main">
+                        <div class="b-quick-view-main__btn">
+                            <div class="b-quick-view-main__link">
+                                <a class="fancybox b-quick-link" rel="group-<?= CHtml::encode($item->getName()); ?>"
+                                   href="<?= StoreImage::product($item) ?>">Быстрый просмотр <img
+                                        src="<?= $this->mainAssets ?>/images/eye.png" class="b-quick-link__pic" alt=""></a>
+                                <?php foreach ($item->getImages() as $key => $image): ?>
+                                    <a href="<?= $image->getImageUrl(); ?>"
+                                       rel="group-<?= CHtml::encode($item->getName()); ?>" class="fancybox"> </a>
+                                <?php endforeach; ?>
             </a>
-        <?php endforeach; ?>
+         </div>
     </div>
+</div>
+    </div>
+    </a>
+    </div>
+<?php endforeach; ?>
+</div>
 </div>
 <div class="main__hit-slider grid" style="padding: 3px">
     <div class="b-audio-feedback__title">
-        «Отзывы о косметике «АлтайЯ»
+        Отзывы о косметике «АлтайЯ»
     </div>
 </div>
 <div class="main__hit-slider grid" style="padding: 0 10px">
@@ -145,9 +178,6 @@
                     <div class="b-audio-feedback__info-author">
                         <div class="b-audio-feedback__name">
                             <?= $item->megauser->fio; ?>
-                            <div class="b-audio-feedback__city">
-                                <?= $item->megauser->adres; ?>
-                            </div>
                             <div class="b-audio-feedback__date">
                                 <?= $item->getDateAsString(); ?>
                             </div>
@@ -157,16 +187,17 @@
                 <div class="b-audio-feedback__body">
                     <div class="b-audio-feedback__description-audio">
                         <?= $item->text; ?>
+                        <br>
+                        <?php if ($item->has_audio): ?>
+                            <div class="audio-player" style="margin-top: 3px">
+                                <audio class="audio" preload="true" src="<?= $item->getAudioPath(); ?>">
+                                </audio>
+                            </div>
+                        <?php endif; ?>
                     </div>
                     <br>
                 </div>
             </div>
-            <?php if ($item->has_audio): ?>
-                <div class="audio-player" style="width: 90%">
-                    <audio class="audio" preload="true" src="<?= $item->getAudioPath(); ?>">
-                    </audio>
-                </div>
-            <?php endif; ?>
             <?php if ($item->has_video): ?>
                 <div class="b-youtube">
                     <div class="b-youtube__preview">
@@ -184,7 +215,7 @@
 </div>
 <div class="main__hit-slider grid" style="padding: 3px">
     <div class="b-audio-feedback__title">
-        <a href="#">«Все аудио- и видео-отзывы» </a>
+        <a href="#">Все аудио- и видео-отзывы </a>
     </div>
 </div>
 <div class="main__hit-slider grid">

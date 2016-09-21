@@ -59,7 +59,11 @@ $this->breadcrumbs = [
                         <img src="<?= $model->getImageUrl(); ?>"
                              style="max-width: 300px;width: 100%;float: left;margin: 20px" alt="">
                     <?php endif; ?>
-                    <div class="b-news-text"> <?= $model->full_text; ?> </div>
+                    <div class="b-news-text">
+                        <div class="wysiwyg">
+                            <?= $model->full_text; ?>
+                        </div>
+                    </div>
                 </div>
             </div>
             <hr style="margin: 10px 0">
