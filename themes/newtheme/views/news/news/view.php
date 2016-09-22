@@ -52,7 +52,7 @@ $this->breadcrumbs = [
             </div>
             <div class="page__content">
                 <div class="main__title grid">
-                    <h1 class="h2"><?= CHtml::encode($model->title); ?></h1>
+                    <h1 class="h2"><?= $model->date; ?>  <?= CHtml::encode($model->title); ?></h1>
                 </div>
                 <div class="main__catalog grid fast-order__inputs">
                     <?php if ($model->image): ?>
