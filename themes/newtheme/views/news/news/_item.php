@@ -3,7 +3,10 @@
 ?>
 <div class="b-news">
     <div
-        class="b-news__title"> <?= CHtml::link(CHtml::encode($data->title), $data->getUrl(), ['class' => 'cart-item__link']); ?>
+        class="b-news__title">
+
+        <?= $data->date; ?>
+        <?= CHtml::link(CHtml::encode($data->title), $data->getUrl(), ['class' => 'cart-item__link']); ?>
     </div>
     <div class="b-news__content">
         <div class="b-news__head">

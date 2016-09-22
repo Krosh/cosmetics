@@ -12,22 +12,17 @@ $basePrice = (float)$data->getBasePrice();
                 <img src="<?= StoreImage::product($data, 150, 180, false) ?>" class="product-vertical__img"/>
                 <div class="b-quick-view">
                     <div class="b-quick-view__btn">
-                        <a rel="group-<?= CHtml::encode($data->getName()); ?>" href="<?= StoreImage::product($data) ?>" class="b-quick-link fancybox"> Быстрый
+                        <a rel="group-<?= CHtml::encode($data->getName()); ?>" href="<?= StoreImage::product($data) ?>"
+                           class="b-quick-link fancybox"> Быстрый
                             просмотр <img
                                 src="<?= $this->mainAssets ?>/images/eye.png" class="b-quick-link__pic" alt=""></a>
                         <?php foreach ($data->getImages() as $key => $image): ?>
-                            <a href="<?= $image->getImageUrl(); ?>" rel="group-<?= CHtml::encode($data->getName()); ?>" class="fancybox"> </a>
+                            <a href="<?= $image->getImageUrl(); ?>" rel="group-<?= CHtml::encode($data->getName()); ?>"
+                               class="fancybox"> </a>
                         <?php endforeach; ?>
                     </div>
                 </div>
             </div>
-            <?php if ($data->isSpecial()): ?>
-                <div class="product-gallery__label">
-                    <div class="product-label product-label_hit">
-                        <div class="product-label__text">Хит</div>
-                    </div>
-                </div>
-            <?php endif; ?>
         </a>
         <div class="product-vertical__content"><a href="<?= $productUrl; ?>"
                                                   class="product-vertical__title"><?= CHtml::encode($data->getName()); ?></a>
