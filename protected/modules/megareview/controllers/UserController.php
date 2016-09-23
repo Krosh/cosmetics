@@ -24,7 +24,7 @@ class UserController extends \yupe\components\controllers\FrontController
         }
 
         $needShowDialogReview = Yii::app()->getRequest()->getParam("needShowDialogReview", false);
-        if (!$backUrl) {
+        if (!$needShowDialogReview) {
             $needShowDialogReview = Yii::app()->session["needShowDialogReview"];
         } else {
             Yii::app()->session["needShowDialogReview"] = $needShowDialogReview;
