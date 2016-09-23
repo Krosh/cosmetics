@@ -43,7 +43,7 @@ class UserController extends \yupe\components\controllers\FrontController
                 $megauser = new Megauser();
 
                 // Надо зарегистрировать нового пользователя
-                $fio = explode(" ", $instagramUser->fullName);
+                $fio = explode(" ", $instagramUser->full_name);
 
                 $user = new User();
                 $user->access_level = 0;
