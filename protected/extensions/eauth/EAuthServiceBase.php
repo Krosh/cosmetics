@@ -294,7 +294,10 @@ abstract class EAuthServiceBase extends CComponent implements IAuthService
                 'Result: ' . $result,
                 CLogger::LEVEL_ERROR, 'application.extensions.eauth'
             );
-            throw new EAuthException(Yii::t('eauth', 'Invalid response http code: {code}.', array('{code}' => $headers['http_code'])), $headers['http_code']);
+            echo "<br><br>";
+            echo $this->getState("redirect_uri") . "<br>";
+            echo $this->getState("redirect_uri2") . "<br>";
+            throw new EAuthException(var_export($headers) . $result . Yii::t('eauth', 'Invalid response http code: {code}.', array('{code}' => $headers['http_code'])), $headers['http_code']);
         }
 
         curl_close($ch);
@@ -347,10 +350,16 @@ abstract class EAuthServiceBase extends CComponent implements IAuthService
             }
         }
 
+        if (isset($options['post'])) {
+            curl_setopt($ch, CURLOPT_POST, 1);
+        }
+
         if (isset($options['data'])) {
             curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $options['data']);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($options['data']));
+            var_dump($options['data']);
         }
+
 
         curl_setopt($ch, CURLOPT_URL, $url);
         return $ch;

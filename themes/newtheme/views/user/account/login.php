@@ -30,17 +30,18 @@ $this->breadcrumbs = [Yii::t('UserModule.user', 'Sign in')];
             <?= $form->error($model, 'password') ?>
         </div>
 
-        <?php if ($this->getModule()->sessionLifeTime > 0): { ?>
+        <?php if ($this->getModule()->sessionLifeTime > 0): ?>
             <div class="fast-order__inputs">
                 <?= $form->checkBox($model, 'remember_me'); ?>
                 <?= $form->labelEx($model, 'remember_me'); ?>
             </div>
-        <?php } endif; ?>
+        <?php endif; ?>
 
-        <?php if (Yii::app()->getUser()->getState('badLoginCount', 0) >= 3 && CCaptcha::checkRequirements('gd')): { ?>
+        <?php if (Yii::app()->getUser()->getState('badLoginCount', 0) >= 3 && CCaptcha::checkRequirements('gd')): ?>
             <div class="fast-order__inputs">
                 <div class="column grid-module-3">
-                    <?= $form->textField($model, 'verifyCode', [
+                    <?=
+                    $form->textField($model, 'verifyCode', [
                         'class' => 'input input_big',
                         'placeholder' => Yii::t('UserModule.user', 'Please enter the text from the image')
                     ]); ?>
@@ -61,19 +62,27 @@ $this->breadcrumbs = [Yii::t('UserModule.user', 'Sign in')];
                     ); ?>
                 </div>
             </div>
-        <?php } endif; ?>
+        <?php endif; ?>
         <?php
-        $this->widget('ext.eauth.EAuthWidget', array('action' => '/loginFromSocial', "needShowDialogReview" => 1));
+        try {
+            $this->widget('ext.eauth.EAuthWidget', array('action' => '/loginFromSocial', "needShowDialogReview" => 1));
+
+        } catch (Exception $e) {
+            CVarDumper::dump($e, 5, true);
+        }
+
         ?>
         <div class="fast-order__inputs">
             <div class="column grid-module-3">
-                <?= CHtml::submitButton(Yii::t('UserModule.user', 'Sign in'), [
+                <?=
+                CHtml::submitButton(Yii::t('UserModule.user', 'Sign in'), [
                     'id' => 'login-btn',
                     'class' => 'btn btn_big btn_wide btn_white'
                 ]) ?>
             </div>
             <div class="column grid-module-3 pull-right">
-                <?= CHtml::link(Yii::t('UserModule.user', 'Sign up'), Yii::app()->createUrl('/user/account/registration'), [
+                <?=
+                CHtml::link(Yii::t('UserModule.user', 'Sign up'), Yii::app()->createUrl('/user/account/registration'), [
                     'class' => 'btn btn_big btn_wide btn_white'
                 ]) ?>
             </div>

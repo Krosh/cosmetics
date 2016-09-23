@@ -19,6 +19,7 @@ return [
     'component' => [],
     'rules' => [
         '/loginFromSocial' => 'megareview/user/login',
+        '/loginFromInstagram' => 'megareview/user/instagram',
         '/testLogin' => 'megareview/user/test',
         '/review/add' => 'megareview/review/add',
     ],

@@ -60,7 +60,6 @@
         "zhuravljov/yii2-debug": "1.4",
         "phpmailer/phpmailer": "5.2.*",
         "yiiext/taggable-behavior": "1.5.*",
-        "nodge/yii-eauth": "dev-master",
         "imagine/imagine": "0.6.*",
         "symfony/event-dispatcher": "2.*",
         "twig/twig": "1.*",
@@ -70,10 +69,11 @@
         "chemezov/yii-seo": "1.0.*",
         "yiiext/migrate-command": "dev-master",
         "samdark/sitemap": "2.0.*",
-        "mesilov/bitrix24-php-sdk": "v0.2.0"
+        "mesilov/bitrix24-php-sdk": "v0.2.0",
+        "cosenary/instagram": "^2.3"
     },
     "repositories": {
-        
+
         "taggable": {
             "type": "package",
             "package": {

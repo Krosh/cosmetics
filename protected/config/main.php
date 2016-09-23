@@ -88,6 +88,15 @@ return [
         'loid' => array(
             'class' => 'ext.lightopenid.loid',
         ),
+        'instagram' => array(
+            'class' => 'ext.yiinstagram.InstagramEngine',
+            'config' => array(
+                'client_id' => '5f8613bb411b4feb80480bc70e8df3be',
+                'client_secret' => 'f66c84a622c54e94a2799fbbda60b021',
+                'grant_type' => 'authorization_code',
+                'redirect_uri' => 'http://ayaorganic-test.p-host.in/loginFromInstagram',
+            )
+        ),
         'eauth' => array(
             'class' => 'ext.eauth.EAuth',
             'popup' => true, // Use the popup window instead of redirecting.

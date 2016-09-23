@@ -12,5 +12,14 @@
             echo '</li>';
         }
         ?>
+        <?php
+        echo '<li class="auth-service ' . 5 . '">';
+        $html = '<span class="auth-icon ' . 5 . '"><i></i></span>';
+        $html .= '<span class="auth-title">' . "Instagram" . '</span>';
+        $html = CHtml::link($html, array("/loginFromInstagram?backUrl=" . $backUrl . "&needShowDialogReview=" . $needShowDialogReview), array(
+            'class' => 'auth-link ' . 5,
+        ));
+        echo $html;
+        echo '</li>';?>
     </ul>
 </div>

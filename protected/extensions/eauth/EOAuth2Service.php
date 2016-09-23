@@ -109,6 +109,8 @@ abstract class EOAuth2Service extends EAuthServiceBase implements IAuthService
                 $server = Yii::app()->request->getHostInfo();
                 $path = Yii::app()->request->getUrl();
                 $redirect_uri = $server . $path;
+//                echo $redirect_uri;
+//                Yii::app()->end();
             }
             $url = $this->getCodeUrl($redirect_uri);
             Yii::app()->request->redirect($url);
