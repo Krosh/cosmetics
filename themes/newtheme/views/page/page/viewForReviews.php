@@ -76,14 +76,10 @@ $this->keywords = $model->keywords ?: Yii::app()->getModule('yupe')->siteKeyWord
                         <?php endif; ?>
                         <?php if ($item->has_video): ?>
                             <div class="b-youtube">
-                                <div class="b-youtube__preview">
-                                    <div class="b-youtube__preview__pic" style="background-image: url('/yotube.jpg')">
-                                        <a class="video-youtube" title="Отзыв"
-                                           href="<?= $item->getVideoPath(); ?>">
-                                            <img src="/btn-youtube.png" alt="" class="yotube__btn">
-                                        </a>
-                                    </div>
-                                </div>
+                                <a class="video-youtube" title="Отзыв"
+                                   href="<?= $item->getVideoPath(); ?>">
+                                    <?= $item->getVideoPath(); ?>
+                                </a>
                             </div>
                         <?php endif; ?>
                     </div>

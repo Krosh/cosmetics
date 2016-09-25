@@ -304,20 +304,9 @@
     <script>
         $(document).ready(
             function () {
-                var a = $(".product-gallery").height();
-                var b = $("#js-height-block").height();
-                if (a <= b) {
-                    $(".b-next-read").show();
-                    var c = a - 100;
-                    $("#js-height-block").addClass("js-height-block-min-height");
-                }
-                else {
-                    $(".b-next-read").hide();
-                }
-                ;
                 $("#btn-next-read").click(
                     function () {
-                        $("#js-height-block").toggleClass("js-height-block-max-height");
+                        $(".full-product-description").toggleClass("js-full-product-description-active");
                     }
                 )
 

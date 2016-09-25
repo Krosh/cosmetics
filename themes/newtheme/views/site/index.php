@@ -28,9 +28,11 @@
                     <div class="b-quick-view-main--hit">
                         <div class="b-quick-view-main__btn--hit">
                             <div class="b-quick-view-main__link--hit">
-                                <a class="fancybox b-quick-link--hit" rel="group-<?= CHtml::encode($item->getName()); ?>"
+                                <a class="fancybox b-quick-link--hit"
+                                   rel="group-<?= CHtml::encode($item->getName()); ?>"
                                    href="<?= StoreImage::product($item) ?>">Быстрый просмотр <img
-                                        src="<?= $this->mainAssets ?>/images/eye.png" class="b-quick-link__pic--hit" alt=""> </a>
+                                        src="<?= $this->mainAssets ?>/images/eye.png" class="b-quick-link__pic--hit"
+                                        alt=""> </a>
                                 <?php foreach ($item->getImages() as $key => $image): ?>
                                     <a href="<?= $image->getImageUrl(); ?>"
                                        rel="group-<?= CHtml::encode($item->getName()); ?>" class="fancybox"> </a>
@@ -43,7 +45,7 @@
 
     </div>
     <div class="main__logo_topseller_item-title ">
-        <?= $item->title; ?>
+        <a href="<?= Yii::app()->createUrl('/store/product/view', ['name' => CHtml::encode($item->slug)]); ?>">  <?= $item->title; ?> </a>
     </div>
     <div class="product-price"><?= $item->getResultPrice() ?><span
             class="ruble"> <?= Yii::t("StoreModule.store", Yii::app()->getModule('store')->currency); ?></span>
@@ -141,22 +143,18 @@
                                 </audio>
                             </div>
                         <?php endif; ?>
+                        <?php if ($item->has_video): ?>
+                            <div class="b-youtube">
+                            <a class="video-youtube" title="Отзыв"
+                               href="<?= $item->getVideoPath(); ?>">
+                                <?= $item->getVideoPath(); ?>
+                            </a>
+                            </div>
+                        <?php endif; ?>
                     </div>
                     <br>
                 </div>
             </div>
-            <?php if ($item->has_video): ?>
-                <div class="b-youtube">
-                    <div class="b-youtube__preview">
-                        <div class="b-youtube__preview__pic" style="background-image: url('/yotube.jpg')">
-                            <a class="video-youtube" title="Отзыв"
-                               href="<?= $item->getVideoPath(); ?>">
-                                <img src="/btn-youtube.png" alt="" class="yotube__btn">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            <?php endif; ?>
         </div>
     <?php endforeach; ?>
 </div>

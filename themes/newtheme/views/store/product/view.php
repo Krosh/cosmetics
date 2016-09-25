@@ -117,20 +117,20 @@ $reviews = Review::getByProduct($product->id);
                         <?php if ($deystvie != null): ?>
                             <div class="entry__attribute">
                                 <div class="wysiwyg">
-                                    ДЕЙСТВИЕ: <?= $deystvie; ?>
+                                    ДЕЙСТВИЕ:
+                                    <br>
+                                    <div class="preview-product-description">
+                                        <?= $deystvie; ?>
+                                    </div>
+                                </div>
+                                <div class="full-product-description">
+                                    <?= $deystvie; ?>
                                 </div>
                             </div>
                         <?php endif; ?>
-                        <!-- <div class="entry__wysiwyg">
-                    <div class="wysiwyg">
-                        <? /*= $product->description; */ ?>
-                    </div>
-                </div>-->
                 </div>
-
             </div>
             <div class="b-next-read">
-                <div class="b-next-read-shadow"></div>
                 <button type="button" id="btn-next-read">Читать далее</button>
             </div>
 
@@ -293,9 +293,10 @@ $reviews = Review::getByProduct($product->id);
                 <?php $primenenie = $product->attribute(Attribute::model()->findByAttributes(['name' => "primenenie"])); ?>
                 <?php if ($primenenie != null): ?>
                     <div class="entry__attribute">
+
+                        <div class="h3 tabs__title" style="text-align: center">ПРИМЕНЕНИЕ:</div>
+                        <br>
                         <div class="wysiwyg">
-                            <div class="h3 tabs__title" style="text-align: center">ПРИМЕНЕНИЕ:</div>
-                            <br>
                             <?= $primenenie; ?>
                         </div>
                     </div>
@@ -305,9 +306,9 @@ $reviews = Review::getByProduct($product->id);
                 <?php $hraneniya = $product->attribute(Attribute::model()->findByAttributes(['name' => "usloviya-hraneniya"])); ?>
                 <?php if ($hraneniya != null): ?>
                     <div class="entry__attribute">
+                        <div class="h3 tabs__title" style="text-align: center">ХРАНЕНИЕ:</div>
+                        <br>
                         <div class="wysiwyg">
-                            <div class="h3 tabs__title" style="text-align: center">ХРАНЕНИЕ:</div>
-                            <br>
                             <?= $hraneniya; ?>
                         </div>
                     </div>

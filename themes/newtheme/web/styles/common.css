@@ -2003,7 +2003,7 @@ a {
 }
 
 .main__recently-viewed-slider {
-    padding: 10px 0 20px;
+    padding: 10px 20px 20px;
     background: #fff;
     overflow: hidden;
 }
@@ -4680,18 +4680,7 @@ label.error, .errorMessage, .text-error {
 }
 
 .b-next-read {
-    display: none;
-}
 
-.b-next-read-shadow {
-    height: 10px;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&1+0,0+100;White+to+Transparent */
-    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=0); /* IE6-9 */
-    position: relative;
-    top: -10px;
 }
 
 #btn-next-read {
@@ -5027,11 +5016,6 @@ label.error, .errorMessage, .text-error {
     margin-bottom: 10px;
 }
 
-.b-youtube {
-    width: 90%;
-    margin: 0 auto;
-}
-
 .b-youtube__preview {
     text-align: center;
 }
@@ -5050,6 +5034,10 @@ label.error, .errorMessage, .text-error {
 .b-audio-feedback__date {
     font-size: 14px;
     text-align: center;
+}
+
+.b-youtube {
+    text-align: left;
 }
 
 .b-youtube__preview__pic {
@@ -5072,20 +5060,7 @@ label.error, .errorMessage, .text-error {
 }
 
 .video-youtube {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    transition: .4s;
-}
-
-.video-youtube:hover {
-    background-color: rgba(9, 9, 9, 0.4);
-}
-
-.video-youtube:hover .yotube__btn {
-    transform: scale(1);
+    color: #90c921;
 }
 
 .b-quick-view-main {
@@ -5160,4 +5135,22 @@ label.error, .errorMessage, .text-error {
 .rating-count {
     margin-top: 5px;
     padding-left: 5px;
+}
+
+#tab1 {
+    max-height: 430px;
+}
+
+.full-product-description {
+    max-height: 1px;
+    visibility: hidden;
+    overflow: hidden;
+    transition: .4s;
+}
+
+.js-full-product-description-active {
+    max-height: 1500px;
+    visibility: visible;
+    overflow: visible;
+    margin-bottom: 10px;
 }

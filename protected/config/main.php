@@ -121,15 +121,6 @@ return [
                     'client_id' => '...',
                     'client_secret' => '...',
                 ),
-                'odnoklassniki' => array(
-                    // register your app here: http://dev.odnoklassniki.ru/wiki/pages/viewpage.action?pageId=13992188
-                    // ... or here: http://www.odnoklassniki.ru/dk?st.cmd=appsInfoMyDevList&st._aid=Apps_Info_MyDev
-                    'class' => 'OdnoklassnikiOAuthService',
-                    'client_id' => '...',
-                    'client_public' => '...',
-                    'client_secret' => '...',
-                    'title' => 'Ok.ru',
-                ),
             ),
         ),
 
