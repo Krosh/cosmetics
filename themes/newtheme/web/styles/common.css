@@ -5154,3 +5154,10 @@ label.error, .errorMessage, .text-error {
     overflow: visible;
     margin-bottom: 10px;
 }
+
+.social_form {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
