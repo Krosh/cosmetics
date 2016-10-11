@@ -1,10 +1,14 @@
 <?php
 $currency = Yii::app()->getModule('store')->currency;
 ?>
-<div class="header__item header-cart js-cart" id="cart-widget" data-cart-widget-url="<?= Yii::app()->createUrl('/cart/cart/widget'); ?>">
+<div class="header__item header-cart js-cart" id="cart-widget"
+     data-cart-widget-url="<?= Yii::app()->createUrl('/cart/cart/widget'); ?>">
     <div class="header-cart__text-wrap">
-        <div class="header-cart__label">  <i class="fa fa-shopping-cart fa-lg fa-fw"></i><?= CHtml::link(Yii::t('CartModule.cart', 'Cart'), ['/cart/cart/index']); ?>
-            <a href="javascript:void(0);" data-toggle="#cart-mini" class="header-cart__cart-toggle" id="cart-toggle-link"></a>
+        <div class="header-cart__label"><i
+                class="fa fa-shopping-cart fa-lg fa-fw"></i><?= CHtml::link(Yii::t('CartModule.cart', 'Cart'), ['/cart/cart/index']); ?>
+            <a href="javascript:void(0);" data-toggle="#cart-mini" class="header-cart__cart-toggle"
+               id="cart-toggle-link"></a>
+
             <div class="cart-mini" id="cart-mini" style="display: none">
                 <?php if (Yii::app()->cart->isEmpty()): ?>
                     <p><?= Yii::t('CartModule.cart', 'There are no products in cart'); ?></p>
@@ -17,7 +21,8 @@ $currency = Yii::app()->getModule('store')->currency;
                             </div>
                             <div class="cart-mini__info">
                                 <div class="cart-mini__title">
-                                    <?= CHtml::link($product->title, ['/store/product/view', 'name' => $product->slug],
+                                    <?=
+                                    CHtml::link($product->title, ['/store/product/view', 'name' => $product->slug],
                                         ['class' => 'cart-mini__link']) ?>
                                 </div>
                                 <div class="cart-mini__base-price">
@@ -31,7 +36,8 @@ $currency = Yii::app()->getModule('store')->currency;
                                     </div>
                                 </div>
                             </div>
-                            <div class="cart-mini__delete-btn js-cart__delete mini-cart-delete-product" data-position-id="<?= $product->getId(); ?>">
+                            <div class="cart-mini__delete-btn js-cart__delete mini-cart-delete-product"
+                                 data-position-id="<?= $product->getId(); ?>">
                                 <i class="fa fa-trash-o"></i>
                             </div>
                         </div>
@@ -45,6 +51,12 @@ $currency = Yii::app()->getModule('store')->currency;
             </div>
         </div>
         <div class="header-cart__cost">
+            <div class="header-cart__cost-title">Товаров в корзине:</div>
+            <div class="header-cart__cost-price">
+                <span class="js-cart__subtotal"><?= count(Yii::app()->cart->getPositions()); ?></span>
+            </div>
+            <br>
+
             <div class="header-cart__cost-title"><?= Yii::t('CartModule.cart', 'Sum'); ?>:</div>
             <div class="header-cart__cost-price">
                 <span class="js-cart__subtotal"><?= Yii::app()->cart->getCost(); ?></span>
