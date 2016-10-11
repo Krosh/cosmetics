@@ -407,9 +407,13 @@ $reviews = Review::getByProduct($product->id);
             </form>
         </div>
     <?php else: ?>
+        <div class="social_form">
+        <div>
         <?php
         $this->widget('ext.eauth.EAuthWidget', array('action' => '/loginFromSocial', "needShowDialogReview" => 1));
         ?>
+        </div>
+        </div>
     <?php endif; ?>
 
 </div>

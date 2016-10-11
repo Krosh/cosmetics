@@ -115,12 +115,6 @@ return [
                     'client_id' => '5601990',
                     'client_secret' => 'OlHymkffrd94cbs6OEcd',
                 ),
-                'mailru' => array(
-                    // register your app here: http://api.mail.ru/sites/my/add
-                    'class' => 'MailruOAuthService',
-                    'client_id' => '...',
-                    'client_secret' => '...',
-                ),
             ),
         ),
 
