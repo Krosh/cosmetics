@@ -4321,7 +4321,6 @@ label.error, .errorMessage, .text-error {
     font-size: 18px;
     color: black;
     float: right;
-    margin-right: 20px;
     margin-top: 15px;
 
 }
@@ -4684,11 +4683,11 @@ label.error, .errorMessage, .text-error {
 }
 
 #btn-next-read {
-    background-color: #90c921;
-    padding: 3px 5px;
-    text-align: center;
-    border: 1px solid #90c921;
-    transition: .5s;
+    border: none;
+    background-color: white;
+    color: #90c921;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 #btn-next-read:hover {
@@ -5160,4 +5159,13 @@ label.error, .errorMessage, .text-error {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.entry__share__info {
+    padding-left: 5px;
+}
+
+.link-product_title {
+    position: relative;
+    z-index: 999;
 }
