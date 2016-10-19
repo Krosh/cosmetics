@@ -86,8 +86,13 @@ class UserController extends \yupe\components\controllers\FrontController
                 if ($needShowDialogReview)
                     Yii::app()->user->setFlash("needShowDialogReview", 1);
             }
-            var_dump($backUrl);
-            $this->redirect($backUrl);
+            if ($backUrl != "/login") {
+                $this->redirect($backUrl);
+            } else {
+                $module = Yii::app()->getModule('user');
+                $this->redirect($module->loginSuccess);
+            }
+
         } else {
             $instagram->openAuthorizationUrl();
         }
@@ -167,7 +172,12 @@ class UserController extends \yupe\components\controllers\FrontController
                         //var_dump($identity->id, $identity->name, Yii::app()->user->id);exit;
 
                         // special redirect with closing popup window
-                        $eauth->redirect($backUrl);
+                        if ($backUrl != "/login") {
+                            $eauth->redirect($backUrl);
+                        } else {
+                            $module = Yii::app()->getModule('user');
+                            $eauth->redirect($module->loginSuccess);
+                        }
                     } else {
                         // close popup window and redirect to cancelUrl
                         $eauth->cancel();

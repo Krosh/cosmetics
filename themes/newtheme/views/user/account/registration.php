@@ -9,6 +9,9 @@ $this->breadcrumbs = [Yii::t('UserModule.user', 'Sign up')];
 <div class="main__title grid">
     <h1 class="h2"><?= Yii::t('UserModule.user', 'Sign up') ?></h1>
 </div>
+
+<?php $this->widget('yupe\widgets\YFlashMessages'); ?>
+
 <div class="main__cart-box grid">
     <div class="grid-module-6">
         <?php $form = $this->beginWidget('CActiveForm', [
@@ -42,7 +45,8 @@ $this->breadcrumbs = [Yii::t('UserModule.user', 'Sign up')];
         <?php if ($module->showCaptcha && CCaptcha::checkRequirements()): { ?>
             <div class="fast-order__inputs">
                 <div class="column grid-module-3">
-                    <?= $form->textField($model, 'verifyCode', [
+                    <?=
+                    $form->textField($model, 'verifyCode', [
                         'class' => 'input input_big',
                         'placeholder' => Yii::t('UserModule.user', 'Please enter the text from the image')
                     ]); ?>
@@ -67,7 +71,8 @@ $this->breadcrumbs = [Yii::t('UserModule.user', 'Sign up')];
 
         <div class="fast-order__inputs">
             <div class="column grid-module-3">
-                <?= CHtml::submitButton(Yii::t('UserModule.user', 'Sign up'), [
+                <?=
+                CHtml::submitButton(Yii::t('UserModule.user', 'Sign up'), [
                     'class' => 'btn btn_big btn_wide btn_white'
                 ]) ?>
             </div>

@@ -6,11 +6,14 @@ $this->title = [Yii::t('UserModule.user', 'Sign in'), Yii::app()->getModule('yup
 $this->breadcrumbs = [Yii::t('UserModule.user', 'Sign in')];
 ?>
 
+
 <div class="main__title grid">
     <h1 class="h2"><?= Yii::t('UserModule.user', 'Sign in') ?></h1>
 </div>
 <div class="main__cart-box grid">
     <div class="grid-module-6">
+        <?php $this->widget('yupe\widgets\YFlashMessages'); ?>
+
         <?php $form = $this->beginWidget('CActiveForm', [
             'id' => 'login-form',
             'enableClientValidation' => true
