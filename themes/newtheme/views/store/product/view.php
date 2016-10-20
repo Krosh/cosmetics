@@ -452,7 +452,7 @@ $reviews = Review::getByProduct($product->id);
                     $('#dialog-close').dialog('open');
                     setTimeout(function () {
                         $('#dialog-close').dialog('close');
-                    }, 3000)
+                    }, 20000)
                 }
             );
             return false
