@@ -27,22 +27,6 @@
             'defaultKeywords' => $this->yupe->siteKeyWords,
         ]
     );
-
-    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/slick.css');
-    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/libs/select2/select2.css');
-    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/mediaelementplayer.css');
-    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/jquery-ui.structure.css');
-    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/jquery-ui.theme.css');
-    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/jquery-ui.css');
-    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/unslider.css');
-    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/unslider-dots.css');
-    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/rating.css');
-    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/jquery.rating.css');
-    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/jquery.fancybox.css');
-    Yii::app()->getClientScript()->registerCssFile('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css');
-    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/camera.css');
-    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/jquery.mmenu.all.css');
-    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/mobile-style.css');
     Yii::app()->getClientScript()->registerCoreScript('jquery');
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/index.js', CClientScript::POS_END);
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/unslider-min.js', CClientScript::POS_END);
@@ -66,8 +50,11 @@
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/rating.min.js', CClientScript::POS_END);
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/jquery.rating-2.0.js', CClientScript::POS_END);
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/jquery.rating.js', CClientScript::POS_END);
-    Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/jquery.mmenu.all.min.js', CClientScript::POS_END);
     ?>
+    <link rel="stylesheet" href="/themes/mobile/web/styles/bootstrap.css">
+    <link rel="stylesheet" href="/themes/mobile/web/styles/font-awesome.css">
+    <link rel="stylesheet" href="/themes/mobile/web/styles/slidebars.min.css">
+    <link rel="stylesheet" href="/themes/mobile/web/styles/mobile-style.css">
     <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-touch-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-touch-icon-72x72.png">
@@ -88,9 +75,11 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-TileImage" content="/favicon/mstile-144x144.png">
     <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff">
-
     <meta name='yandex-verification' content='50404e448d6a8a56'/>
+
     <script type="text/javascript">
         var yupeTokenName = '<?= Yii::app()->getRequest()->csrfTokenName;?>';
         var yupeToken = '<?= Yii::app()->getRequest()->getCsrfToken();?>';
@@ -103,33 +92,180 @@
 
 <body>
 <?php \yupe\components\TemplateEvent::fire(ShopThemeEvents::BODY_START); ?>
-<div id="page">
+<div class="wrapper" canvas="container">
     <div class="header">
-        <a href="#menu"><span></span></a>
-    </div>
-    <div class="content">
-        <div class="row"></div>
-        <div class="col-xs-12">
-            123
+        <div class="header-menu">
+            <div class="row">
+                <div class="col-xs-3" style="padding: 0">
+                    <div class="b-mmenu-btn">
+                        <button class="btn-mmenu js-toggle-mmenu-overlay">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                </div>
+                <div class="col-xs-7" style="padding: 0">
+                    <div class="b-personal-area b-personal-area_current-color">
+                        <a href="/profile" class="b-personal-area__link b-personal-area_current-color__link">
+                            Личный Кабинет
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <nav id="menu">
-        <ul>
-            <li><a href="/login">Личный кабинет</a></li>
-            <li><a href="/card">Корзина</a></li>
-            <li><a href="<?= Yii::app()->createUrl('/store') ?>"> Каталог </a></li>
-            <li>  <?php if (Yii::app()->hasModule('cart')): ?>
-                    <?php $this->widget('application.modules.cart.widgets.ShoppingCartWidget'); ?>
-                <?php endif; ?></li>
-            <?php $this->widget('application.modules.menu.widgets.MenuWidget', ['name' => 'verhnee-menyu-s-kategoriyami']); ?>
-            <?php /*$this->widget('application.modules.store.widgets.CategoryWidget', ['depth' => 2]); */ ?>
-        </ul>
-    </nav>
+    <div class="main">
+        <div class="row">
+            <hr>
+            <div class="logo-wrap">
+                <div class="col-xs-4">
+                    <div class="b-logo" style="background-image: url('/themes/mobile/web/images/logo_final.png')">
+
+                    </div>
+                </div>
+                <div class="col-xs-8" style="padding: 0">
+                    <div class="b-logo-info">
+                        <div>
+                            <i class="fa fa-phone fa-lg fa-fw"></i> 8-919-998-998-5
+                        </div>
+                        <div>
+                            <i class="fa fa-envelope fa-fw"></i> zakaz@ayaorganic.ru
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <hr>
+                <div class="content">
+                    <?= $content ?>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<div off-canvas="mmenu-overlay left overlay">
+    <div class="b-mmenu-header">
+        <div class="row">
+            <div class="col-xs-7" style="padding: 0">
+                <div class="b-mmenu-header__name">
+                    Меню
+                </div>
+            </div>
+            <div class="col-xs-5" style="padding: 0">
+                <div class="b-mmenu-header__close">
+                    <button class="btn-mmenu-close js-toggle-mmenu-overlay">
+                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="b-mmenu-content">
+        <ul class="list-b-mmenu-content">
+            <li><a class="cart__link" href="/cart">Корзина <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+            </li>
+            <li><a href="/">Главная</a></li>
+            <li><a href="/store">Каталог</a></li>
+            <?php $this->widget('application.modules.store.widgets.CategoryWidget', [
+                'view' => 'footer'
+            ]); ?>
+        </ul>
+    </div>
+    <div class="b-mmenu-footer">
+        <ul class="list-b-mmenu-footer">
+            <?php $this->widget('application.modules.menu.widgets.MenuWidget', ['name' => 'servisy-s-korotkimi-nazvaniyami', 'layout' => 'footer']); ?>
+        </ul>
+    </div>
+</div>
+<script src="/themes/mobile/web/js/slidebars.min.js"></script>
+<script src="/themes/mobile/web/js/mobile-script.js"></script>
+<script>
+    $(function () {
+        $("#dialog-confirm").dialog({
+            modal: true,
+            autoOpen: false,
+            resizable: false,
+            height: "auto",
+            width: 500,
+        });
+    });
+    $(function () {
+        $("#dialog-close").dialog({
+            modal: true,
+            autoOpen: false,
+            resizable: false,
+            height: "auto",
+            width: 400,
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".fancybox").fancybox({
+            helpers: {
+                overlay: {
+                    locked: false
+                }
+            }
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+
+
+        $('#js-modal-rating').rating({
+            fx: 'half',
+            image: '/stars.png',
+            loader: '/ajax-loader.gif',
+            callback: function (responce) {
+                this.vote_success.fadeOut(2000);
+            }
+        });
+    })
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        $('.rating-reviews').ratingReviews({
+            fx: 'half',
+            image: '/stars.png',
+            loader: '/ajax-loader.gif',
+            callback: function (responce) {
+                this.vote_success.fadeOut(2000);
+            }
+        });
+    })
+</script>
 <script>
     $(document).ready(function () {
-        $('nav#menu').mmenu();
-    })
+        $(".video-youtube").click(function () {
+            $.fancybox({
+                'padding': 0,
+                'autoScale': false,
+                'transitionIn': 'none',
+                'transitionOut': 'none',
+                'title': this.title,
+                'width': 640,
+                'height': 385,
+                'href': this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
+                'helpers': {
+                    overlay: {
+                        locked: false
+                    }
+                },
+                'type': 'swf',
+                'swf': {
+                    'wmode': 'transparent',
+                    'allowfullscreen': 'true'
+                }
+            });
+            return false;
+        });
+    });
 </script>
 </body>
 </html>
