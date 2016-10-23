@@ -231,7 +231,7 @@ $reviews = Review::getByProduct($product->id);
                     <input type="hidden" name="val" value="<?= Review::getRating($product->id); ?>"/>
                 </div>
                 <div class="rating-count">
-                    Оценки (7)
+                    Оценки (<?= count($reviews); ?>)
                 </div>
             </div>
             <div class="entry__share">
