@@ -15,7 +15,6 @@ $this->breadcrumbs = [
     Yii::t("CartModule.cart", 'Cart'),
 ];
 ?>
-
     <div class="main__title grid cart__empty" <?php if (!Yii::app()->cart->isEmpty()) echo "style = 'display:none'"; ?>>
         <h1 class="h2"><?= Yii::t("CartModule.cart", "Cart is empty"); ?></h1>
         <?= Yii::t("CartModule.cart", "There are no products in cart"); ?>
@@ -29,14 +28,6 @@ $this->breadcrumbs = [
 
         <div class="main__cart-box grid">
             <div class="order-box js-cart">
-                <div class="order-box__header order-box__header_black">
-                    <div class="cart-list-header">
-                        <div class="cart-list__column cart-list__column_info">Наименование</div>
-                        <div class="cart-list__column"><?= Yii::t("CartModule.cart", "Price"); ?></div>
-                        <div class="cart-list__column"><?= Yii::t("CartModule.cart", "Amount"); ?></div>
-                        <div class="cart-list__column"><?= Yii::t("CartModule.cart", "Sum"); ?></div>
-                    </div>
-                </div>
                 <div class="cart-list">
                     <?php foreach ($positions as $position): ?>
                         <div class="cart-list__item">
@@ -112,7 +103,7 @@ $this->breadcrumbs = [
                             ); ?></span>
                     </div>
                     <div class="cart-box__order-button">
-                        <a class="btn btn_big btn_primary"href = "<?=$this->createUrl("/cart/delivery");?>"  >Оформить заказ</a>
+                        <a class="btn_cart btn btn_big btn_primary" href = "<?=$this->createUrl("/cart/delivery");?>"  >Оформить заказ</a>
                     </div>
                     <div class="orded-box__mini-text">Нажимая кнопку «Оформить заказ», я принимаю условия <a href = "Polzovatelskoe_soglashenie.docx">Пользовательского соглашения</a></div>
                 </div>

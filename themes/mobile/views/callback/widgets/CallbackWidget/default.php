@@ -45,7 +45,7 @@
 </div>
 
 <div class="fast-order__inputs" style="text-align: center">
-    <button type="submit" class="btn btn_big btn_primary btn_callback" id="callback-send">
+    <button type="submit" class="btn_cart btn btn_big btn_primary btn_callback" id="callback-send">
         Заказать звонок
     </button>
 </div>

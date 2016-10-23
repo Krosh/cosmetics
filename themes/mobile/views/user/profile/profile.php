@@ -11,11 +11,6 @@ $this->title = [Yii::t('UserModule.user', 'User profile'), Yii::app()->getModule
 $this->breadcrumbs = ["Личный кабинет"];
 ?>
 <div class="main__cart-box grid">
-    <div class="col grid-module-3">
-        <div class="catalog-filter">
-            <?php $this->widget('application.modules.store.widgets.CategoryWidget', ['view' => 'category-sidebar-widget', 'depth' => 2, 'htmlOptions' => ['class' => 'side-menu']]); ?>
-        </div>
-    </div>
     <div class="col grid-module-9 profile-grid">
         <div class="main__breadcrumbs grid">
             <div class="breadcrumbs">

@@ -119,8 +119,7 @@
     </div>
     <div class="main">
         <div class="row">
-            <hr>
-            <div class="logo-wrap">
+      <!--      <div class="logo-wrap">
                 <div class="col-xs-4">
                     <div class="b-logo" style="background-image: url('/themes/mobile/web/images/logo_final.png')">
 
@@ -136,9 +135,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <div class="col-xs-12">
-                <hr>
                 <div class="content">
                     <?= $content ?>
                 </div>

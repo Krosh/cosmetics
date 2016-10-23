@@ -193,7 +193,7 @@ ul {
 }
 
 .content {
-    padding-top: 20px;
+    padding-top: 5px;
 }
 
 .content h1 {
@@ -298,6 +298,7 @@ ul {
     text-transform: uppercase;
     background-color: #87CC03;
     transition: .4s;
+    width: 100%;
 
 }
 
@@ -404,5 +405,33 @@ ul {
 
 .b-news__description__next-read a {
     color: black;
+}
 
+.input {
+    display: block !important;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.cart-item {
+    padding: 5px;
+    border: 2px solid #9dc21d;
+    margin: 20px;
+    text-align: center;
+}
+
+.cart-item__title{
+    text-align: center;
+}
+
+.cart-item__title a{
+    font-size: 20px;
+    line-height: 1.2;
+    color: black;
+}
+.cart-delete-product {
+    font-size: 25px;
+}
+.cart-box__subtotal {
+    text-align: center;
+    font-size: 20px;
 }
