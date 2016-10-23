@@ -68,7 +68,7 @@ $this->breadcrumbs = [Yii::t('UserModule.user', 'Sign up')];
         <div class="fast-order__inputs">
             <div class="column grid-module-3">
                 <?= CHtml::submitButton(Yii::t('UserModule.user', 'Sign up'), [
-                    'class' => 'btn btn_big btn_wide btn_white'
+                    'class' => 'btn_cart btn btn_big btn_wide btn_white'
                 ]) ?>
             </div>
         </div>

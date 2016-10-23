@@ -8,14 +8,6 @@ $this->title = Yii::t('OrderModule.order', 'Personal account');
 </div>
 <div class="main__order-box grid">
     <div class="order-box">
-        <div class="order-box__header order-box__header_black">
-            <div class="cart-list-header">
-                <div class="cart-list__column_info"><?= Yii::t("OrderModule.order", "Date");?></div>
-                <div class="cart-list__column_info"><?= Yii::t("OrderModule.order", "Order #");?></div>
-                <div class="cart-list__column_info">Итого (руб.)</div>
-                <div class="cart-list__column"><?= Yii::t("OrderModule.order", "Status");?></div>
-            </div>
-        </div>
         <div class="cart-list">
             <?php foreach ((array)$orders as $order): ?>
                 <div class="cart-list__item">

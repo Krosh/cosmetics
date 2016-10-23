@@ -349,7 +349,7 @@ $this->breadcrumbs = [
                         <div class="coupon">
                             <span class="label" title="<?= $coupon->name; ?>">
                                 <?= $coupon->name; ?>
-                                <button type="button" class="btn btn_primary close"
+                                <button type="button" class="btn_cart btn btn_primary close"
                                         data-dismiss="alert">&times;</button>
                                 <?= CHtml::hiddenField(
                                     "Order[couponCodes][{$coupon->code}]",
@@ -394,7 +394,7 @@ $this->breadcrumbs = [
         </div>
         </div>
         <div class="cart-box__order-button">
-            <button type="submit" class="btn btn_big btn_primary"><?= Yii::t(
+            <button type="submit" class="btn_cart btn btn_big btn_primary"><?= Yii::t(
                     "CartModule.cart",
                     "Create order and proceed to payment"
                 ); ?></button>
