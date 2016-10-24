@@ -48,6 +48,14 @@ $reviews = Review::getByProduct($product->id);
                             </div>
                         </div>
                     <?php endif; ?>
+                    <?php $hraneniya = $product->attribute(Attribute::model()->findByAttributes(['name' => "novinka"])); ?>
+                    <?php if ($hraneniya != null): ?>
+                        <div class="product-gallery__label">
+                            <div class="product-label product-label_hit">
+                                <div class="product-label__text">NEW</div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
                 <div class="product-gallery__nav">
                     <a href="<?= StoreImage::product($product); ?>" rel="group" data-product-thumbnail

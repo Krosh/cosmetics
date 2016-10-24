@@ -21,14 +21,6 @@ $this->keywords = $post->tags ?: Yii::app()->getModule('yupe')->siteKeyWords;
 </style>
 <div class="main__catalog grid">
     <div class="cols">
-        <div class="col grid-module-3">
-            <div class="catalog-filter">
-                <?php $this->widget(
-                    'application.modules.blog.widgets.LastPostsWidget',
-                    ['cacheTime' => $this->yupe->coreCacheTime, "limit" => 7, 'view' => 'sidemenu']
-                ); ?>
-            </div>
-        </div>
         <div class="col grid-module-9">
             <div class="main__breadcrumbs grid">
                 <div class="breadcrumbs">

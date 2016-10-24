@@ -18,6 +18,14 @@ $basePrice = (float)$data->getBasePrice();
                     </div>
                 </div>
             <?php endif; ?>
+            <?php $hraneniya = $data->attribute(Attribute::model()->findByAttributes(['name' => "novinka"])); ?>
+            <?php if ($hraneniya != null): ?>
+                <div class="product-gallery__label">
+                    <div class="product-label product-label_hit">
+                        <div class="product-label__text">NEW</div>
+                    </div>
+                </div>
+            <?php endif; ?>
         </a>
         <div class="product-vertical__content"><a href="<?= $productUrl; ?>"
                                                   class="product-vertical__title"><?= CHtml::encode($data->getName()); ?></a>

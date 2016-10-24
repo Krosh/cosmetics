@@ -81,6 +81,9 @@
     <?php foreach ($reviews as $item): ?>
         <div class="b-audio-feedback">
             <div>
+                <?= $item->megauser->fio; ?>
+            </div>
+            <div>
                 <div class="b-audio-feedback__body">
                     <div class="b-audio-feedback__description-audio">
                         <?= $item->text; ?>
@@ -93,7 +96,7 @@
 </div>
 <div class="main__hit-slider grid" style="padding: 3px">
     <div class="b-audio-feedback__title">
-        <a href="#">Все аудио- и видео-отзывы </a>
+        <a href="#">Все отзывы </a>
     </div>
 </div>
 <div class="main__hit-slider grid">
