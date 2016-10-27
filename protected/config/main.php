@@ -91,10 +91,10 @@ return [
         'instagram' => array(
             'class' => 'ext.yiinstagram.InstagramEngine',
             'config' => array(
-                'client_id' => '5f8613bb411b4feb80480bc70e8df3be',
-                'client_secret' => 'f66c84a622c54e94a2799fbbda60b021',
+                'client_id' => '63df85e4a97a46a882005cbb9e1f12f5',
+                'client_secret' => '3d421e362e0e45438923ddb3ccb07eac',
                 'grant_type' => 'authorization_code',
-                'redirect_uri' => 'http://ayaorganic-test.p-host.in/loginFromInstagram',
+                'redirect_uri' => 'http://ayaorganic.ru/loginFromInstagram',
             )
         ),
         'eauth' => array(
@@ -106,14 +106,14 @@ return [
                 'facebook' => array(
                     // register your app here: https://developers.facebook.com/apps/
                     'class' => 'FacebookOAuthService',
-                    'client_id' => '1290477507653026',
-                    'client_secret' => 'e8775fa2d15a50ac5a986344b748ed8e',
+                    'client_id' => '1803173463260183',
+                    'client_secret' => '1d6da8a65473515a600e507a29f0ec31',
                 ),
                 'vkontakte' => array(
                     // register your app here: https://vk.com/editapp?act=create&site=1
                     'class' => 'VKontakteOAuthService',
-                    'client_id' => '5601990',
-                    'client_secret' => 'OlHymkffrd94cbs6OEcd',
+                    'client_id' => '5662928',
+                    'client_secret' => 'uUnujqyVUsnNPjY68nKZ',
                 ),
             ),
         ),
