@@ -154,3 +154,6 @@
 .rateit-hover {
     height: 32px!important;
 }
+.rateit-range {
+    cursor: pointer;
+}
