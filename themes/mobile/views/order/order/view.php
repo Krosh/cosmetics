@@ -27,7 +27,7 @@ $this->title = [Yii::t('OrderModule.order', 'Order #{n}', [$model->id]), Yii::ap
                                     </div>
                                 </div>
                             </label>
-                            <div class="payment-form rich-radio__input">
+                            <div class="payment-form rich-radio__input" style="visibility: hidden">
                                 <?= $payment->getPaymentForm($model) ;?>
                             </div>
                         </div>
@@ -36,7 +36,7 @@ $this->title = [Yii::t('OrderModule.order', 'Order #{n}', [$model->id]), Yii::ap
             </div>
 
             <div class="order-box__bottom order-box__bottom_left">
-                <button type="submit" class="btn btn_big btn_primary" id="start-payment">
+                <button type="submit" class="btn_cart btn btn_big btn_primary" id="start-payment">
                     Оплатить
                     <span class="fa fa-fw fa-play"></span>
                 </button>
@@ -79,7 +79,7 @@ $this->title = [Yii::t('OrderModule.order', 'Order #{n}', [$model->id]), Yii::ap
                         <div class="detail-view__text"><?= CHtml::encode($model->payment->name); ?></div>
                     </div>
                 </div>
-                <?php if (!empty($model->isPaid())):?>
+                <?php if ($model->isPaid()):?>
                     <div class="detail-view">
                         <div class="detail-view__item">
                             <div class="detail-view__text corporateColor">Заказ уже оплачен</div>
@@ -102,14 +102,6 @@ $this->title = [Yii::t('OrderModule.order', 'Order #{n}', [$model->id]), Yii::ap
         <h2 class="h2"><?= Yii::t("OrderModule.order", "Order details"); ?></h2>
     </div>
     <div class="order-box">
-        <div class="order-box__header order-box__header_black">
-            <div class="cart-list-header">
-                <div class="cart-list__column cart-list__column_info">Наименование</div>
-                <div class="cart-list__column">Цена</div>
-                <div class="cart-list__column">Количество</div>
-                <div class="cart-list__column">Сумма</div>
-            </div>
-        </div>
         <div class="cart-list">
             <?php foreach ((array)$model->products as $position): ?>
                 <div class="cart-list__item js-cart__item">
@@ -130,7 +122,7 @@ $this->title = [Yii::t('OrderModule.order', 'Order #{n}', [$model->id]), Yii::ap
                 <div class="product-price"><?= number_format($model->getDeliveryPrice(),0,'.',' ');?><span class="ruble"> <?= Yii::t("OrderModule.order", Yii::app()->getModule('store')->currency); ?></span></div>
             </div>
             <?php
-                $couponDiscount = $model->getCouponDiscount($model->getCoupons());
+            $couponDiscount = $model->getCouponDiscount($model->getCoupons());
             ?>
             <?php if ($couponDiscount > 0):?>
                 <div class="order-box__subtotal">Скидка по промокоду:

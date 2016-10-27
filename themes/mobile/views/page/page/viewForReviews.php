@@ -17,13 +17,8 @@ $this->keywords = $model->keywords ?: Yii::app()->getModule('yupe')->siteKeyWord
     }
 
 </style>
-<div class="main__catalog grid">
+<div class="main__catalog grid" style="min-height: 460px">
     <div class="cols">
-        <div class="col grid-module-3">
-            <div class="catalog-filter">
-                <?php $this->widget('application.modules.menu.widgets.MenuWidget', ['name' => 'servisy', 'layout' => 'sidebar']); ?>
-            </div>
-        </div>
         <div class="col grid-module-9">
             <div class="main__breadcrumbs grid">
                 <div class="breadcrumbs">
@@ -47,17 +42,11 @@ $this->keywords = $model->keywords ?: Yii::app()->getModule('yupe')->siteKeyWord
                 ?>
                 <?php foreach ($reviews as $item): ?>
                     <div class="b-audio-feedback">
-                        <div style="display: flex">
+                        <div>
                             <div class="b-audio-feedback__head">
                                 <div class="b-audio-feedback__info-author">
                                     <div class="b-audio-feedback__name">
                                         <?= $item->megauser->fio; ?>
-                                        <div class="b-audio-feedback__city">
-                                            <?= $item->megauser->adres; ?>
-                                        </div>
-                                        <div class="b-audio-feedback__date">
-                                            <?= $item->getDateAsString(); ?>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -68,20 +57,6 @@ $this->keywords = $model->keywords ?: Yii::app()->getModule('yupe')->siteKeyWord
                                 <br>
                             </div>
                         </div>
-                        <?php if ($item->has_audio): ?>
-                            <div class="audio-player" style="width: 90%">
-                                <audio class="audio" preload="true" src="<?= $item->getAudioPath(); ?>">
-                                </audio>
-                            </div>
-                        <?php endif; ?>
-                        <?php if ($item->has_video): ?>
-                            <div class="b-youtube">
-                                <a class="video-youtube" title="Отзыв"
-                                   href="<?= $item->getVideoPath(); ?>">
-                                    <?= $item->getVideoPath(); ?>
-                                </a>
-                            </div>
-                        <?php endif; ?>
                     </div>
                 <?php endforeach; ?>
             </div>

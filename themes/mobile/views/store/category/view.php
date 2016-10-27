@@ -17,12 +17,6 @@ $this->breadcrumbs = array_merge(
 ?>
 <div class="main__catalog grid">
     <div class="cols">
-        <div class="col grid-module-3">
-            <div class="catalog-filter">
-                <?php $this->widget('application.modules.store.widgets.CategoryWidget', ['view' => 'category-sidebar-widget', 'depth' => 2, 'htmlOptions' => ['class' => 'side-menu']]); ?>
-            </div>
-        </div>
-
         <div class="col grid-module-9">
             <div class="entry__title">
                 <h1 class="h1"><?= Yii::t('StoreModule.store', 'Products in category "{category}"', ['{category}' => CHtml::encode($category->name)]); ?></h1>

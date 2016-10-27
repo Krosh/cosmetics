@@ -77,7 +77,7 @@ $this->breadcrumbs = [Yii::t('UserModule.user', 'Sign in')];
                 <?=
                 CHtml::submitButton(Yii::t('UserModule.user', 'Sign in'), [
                     'id' => 'login-btn',
-                    'class' => 'btn btn_big btn_wide btn_white'
+                    'class' => 'btn_cart btn btn_big btn_wide btn_white'
                 ]) ?>
             </div>
             <div class="column grid-module-3 pull-right">

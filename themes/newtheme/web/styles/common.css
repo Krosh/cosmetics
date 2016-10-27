@@ -5167,5 +5167,5 @@ label.error, .errorMessage, .text-error {
 
 .link-product_title {
     position: relative;
-    z-index: 999;
+    z-index: 50;
 }

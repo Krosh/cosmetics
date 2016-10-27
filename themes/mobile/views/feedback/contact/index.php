@@ -10,11 +10,6 @@ Yii::import('application.modules.install.InstallModule');
 
 <div class="main__catalog grid">
     <div class="cols">
-        <div class="col grid-module-3">
-            <div class="catalog-filter">
-                <?php $this->widget('application.modules.menu.widgets.MenuWidget', ['name' => 'servisy', 'layout' => 'sidebar']); ?>
-            </div>
-        </div>
         <div class="col grid-module-9">
             <div class="main__breadcrumbs grid">
                 <div class="breadcrumbs">
@@ -40,32 +35,6 @@ Yii::import('application.modules.install.InstallModule');
                 ]); ?>
                 <div class="grid-module-5 float-grid-element">
                     <div class="callback__left-column">
-                        <img src="<?= $this->mainAssets ?>/images/feedback.jpg" class="callback__top_logo">
-                        <div class="callback__slogan">
-                            Доверь свою красоты природе!
-                        </div>
-                        <div class="callback__text">
-                            Хотите поделиться информацией?<br>
-                            Оставить свой отзыв или задать вопрос?
-                        </div>
-
-                        <!--  <p class="alert alert-info fast-order__inputs">
-                            <?/*= Yii::t('FeedbackModule.feedback', 'Fields with'); */?> <span
-                                class="required">*</span> <?/*= Yii::t('FeedbackModule.feedback', 'are required.'); */?>
-                        </p>
--->
-                        <!--                        --><?/*= $form->errorSummary($model); */?>
-
-                      <!--  <?php /*if ($model->type): */?>
-                            <div class='row'>
-                                <div class="col-sm-6">
-                                    <?/*= $form->dropDownList($model, 'type', [
-                                        'data' => $module->getTypes(),
-                                    ]); */?>
-                                </div>
-                            </div>
-                        --><?php /*endif; */?>
-
                         <?= CHtml::hiddenField("FeedBackForm[theme]","Отзыв с сайта"); ?>
 
                         <div class="fast-order__inputs">
@@ -97,47 +66,15 @@ Yii::import('application.modules.install.InstallModule');
                         <?= $form->textArea($model, 'text', ['class' => 'input input_big', 'rows' => 3]); ?>
                         <?= $form->error($model, 'text') ?>
                     </div>
-
-                    <!--                        <?php /*if ($module->showCaptcha && !Yii::app()->getUser()->isAuthenticated()): */?>
-                            <?php /*if (CCaptcha::checkRequirements()): */?>
-                                <div class="fast-order__inputs">
-                                    <div class="column grid-module-3">
-                                        <?/*= $form->textField($model, 'verifyCode', [
-                                            'class' => 'input input_big',
-                                            'placeholder' => Yii::t('FeedbackModule.feedback', 'Insert symbols you see on image')
-                                        ]); */?>
-                                    </div>
-                                    <div class="column grid-module-3 pull-right">
-                                        <?php /*$this->widget(
-                                            'CCaptcha',
-                                            [
-                                                'showRefreshButton' => true,
-                                                'imageOptions' => [
-                                                    'width' => '150',
-                                                ],
-                                                'buttonOptions' => [
-                                                    'class' => 'btn btn_big btn_white pull-right',
-                                                ],
-                                                'buttonLabel' => '<i class="fa fa-fw fa-repeat"></i>',
-                                            ]
-                                        ); */?>
-                                    </div>
-                                </div>
-                            <?php /*endif; */?>
-                        --><?php/* endif; */ ?>
-
                     <div class="fast-order__inputs" style="text-align: center">
                         <?= CHtml::submitButton(Yii::t('FeedbackModule.feedback', 'Send message'), [
                             'id' => 'login-btn',
-                            'class' => 'btn btn_big btn_primary btn_callback',
+                            'class' => 'btn_cart btn btn_big btn_primary btn_callback',
                         ]) ?>
                     </div>
                     <?php $this->endWidget(); ?>
                     <?php $this->widget('application.modules.callback.widgets.CallbackWidget'); ?>
-
                 </div>
-
-
             </div>
         </div>
     </div>
