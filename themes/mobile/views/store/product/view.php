@@ -41,14 +41,14 @@ $reviews = Review::getByProduct($product->id);
         <div class="product-description__img-block grid-module-5">
             <div class="product-gallery js-product-gallery">
                 <form action="<?= Yii::app()->createUrl('cart/cart/add'); ?>" method="post">
-                <div class="product-gallery__body">
-                    <div data-product-image class="product-gallery__img-wrap">
-                        <img src="<?= StoreImage::product($product); ?>" class="product-gallery__main-img">
+                    <div class="product-gallery__body">
+                        <div data-product-image class="product-gallery__img-wrap">
+                            <img src="<?= StoreImage::product($product); ?>" class="product-gallery__main-img">
+                        </div>
                     </div>
-                </div>
                     <div class="product__rating">
 
-                            Рейтинг: <?= Review::getRating($product->id); ?>
+                        Рейтинг: <?= Review::getRating($product->id); ?>
                         <div class="rating-count">
                             Оценки (<?= count($reviews); ?>)
                         </div>
@@ -104,17 +104,14 @@ $reviews = Review::getByProduct($product->id);
                     </div>
 
 
-
-
-
-                <div class="product-gallery__nav">
-                    <img src="<?= $product->getImageUrl(); ?>" alt=""
-                         class="product-gallery__nav-img">
-                    <?php foreach ($product->getImages() as $key => $image): ?>
-                        <img src="<?= $image->getImageUrl(); ?>" alt=""
+                    <div class="product-gallery__nav">
+                        <img src="<?= $product->getImageUrl(); ?>" alt=""
                              class="product-gallery__nav-img">
-                    <?php endforeach; ?>
-                </div>
+                        <?php foreach ($product->getImages() as $key => $image): ?>
+                            <img src="<?= $image->getImageUrl(); ?>" alt=""
+                                 class="product-gallery__nav-img">
+                        <?php endforeach; ?>
+                    </div>
             </div>
         </div>
         <div class="product-description__entry grid-module-4">
@@ -139,42 +136,42 @@ $reviews = Review::getByProduct($product->id);
                             <?= $slogan; ?>
                         </div>
                     <?php endif; ?>
-                        <?php $tip_kozhi = $product->attribute(Attribute::model()->findByAttributes(['name' => "tip-kozhi"])); ?>
-                        <?php if ($tip_kozhi != null): ?>
-                            <div class="entry__attribute">
-                                <div class="wysiwyg">
-                                    ТИП КОЖИ: <?= $tip_kozhi; ?>
-                                </div>
+                    <?php $tip_kozhi = $product->attribute(Attribute::model()->findByAttributes(['name' => "tip-kozhi"])); ?>
+                    <?php if ($tip_kozhi != null): ?>
+                        <div class="entry__attribute">
+                            <div class="wysiwyg">
+                                ТИП КОЖИ: <?= $tip_kozhi; ?>
                             </div>
-                        <?php endif; ?>
-                        <?php $tekstura = $product->attribute(Attribute::model()->findByAttributes(['name' => "tekstura"])); ?>
-                        <?php if ($tekstura != null): ?>
-                            <div class="entry__attribute">
-                                <div class="wysiwyg">
-                                    ТЕКСТУРА: <?= $tekstura; ?>
-                                </div>
+                        </div>
+                    <?php endif; ?>
+                    <?php $tekstura = $product->attribute(Attribute::model()->findByAttributes(['name' => "tekstura"])); ?>
+                    <?php if ($tekstura != null): ?>
+                        <div class="entry__attribute">
+                            <div class="wysiwyg">
+                                ТЕКСТУРА: <?= $tekstura; ?>
                             </div>
-                        <?php endif; ?>
-                        <?php $deystvie = $product->attribute(Attribute::model()->findByAttributes(['name' => "deystvie"])); ?>
-                        <?php if ($deystvie != null): ?>
-                            <?php
-                            $end = strpos($deystvie, '</p>');
-                            $firstPart = substr($deystvie, 0, $end + 4);
-                            $secondPart = substr($deystvie, $end + 4);
-                            ?>
-                            <div class="entry__attribute">
-                                <div class="wysiwyg">
-                                    ДЕЙСТВИЕ:
-                                    <br>
+                        </div>
+                    <?php endif; ?>
+                    <?php $deystvie = $product->attribute(Attribute::model()->findByAttributes(['name' => "deystvie"])); ?>
+                    <?php if ($deystvie != null): ?>
+                        <?php
+                        $end = strpos($deystvie, '</p>');
+                        $firstPart = substr($deystvie, 0, $end + 4);
+                        $secondPart = substr($deystvie, $end + 4);
+                        ?>
+                        <div class="entry__attribute">
+                            <div class="wysiwyg">
+                                ДЕЙСТВИЕ:
+                                <br>
 
-                                    <div class="preview-product-description">
-                                        <?= $firstPart; ?>
-                                        <br>
-                                        <?= $secondPart; ?>
-                                    </div>
+                                <div class="preview-product-description">
+                                    <?= $firstPart; ?>
+                                    <br>
+                                    <?= $secondPart; ?>
                                 </div>
                             </div>
-                        <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -308,6 +305,7 @@ $reviews = Review::getByProduct($product->id);
                         ); ?>
                         <div class="b-modal-reviews__body">
                             <label for="modal__rating">Ваша оценка: </label>
+
                             <div class="rating__info">От 1 до 5</div>
                             <input type="text" id="modal__rating" value="4" name="modal__rating">
                             <br>
@@ -316,8 +314,9 @@ $reviews = Review::getByProduct($product->id);
                                    hidden>
                             <label for="b-modal-reviews__text">Ваш комментарий: </label>
                             <br>
-                    <textarea class="b-modal-reviews__textarea" name="b-modal-reviews__text" id="b-modal-reviews__text">
-                    </textarea>
+                            <textarea class="b-modal-reviews__textarea" name="b-modal-reviews__text"
+                                      id="b-modal-reviews__text">
+                            </textarea>
                         </div>
                         <div class="b-modal-reviews__btns">
                             <button class="btn_cart btn" type="submit"> Отправить</button>
@@ -467,26 +466,26 @@ $reviews = Review::getByProduct($product->id);
     $("#b-modal__form").submit(
         function () {
 
-        if($("#modal__rating").val() > 0 && $("#modal__rating").val() <= 5 )  {
+            if ($("#modal__rating").val() > 0 && $("#modal__rating").val() <= 5) {
 
-            $.ajax(
-                {
-                    type: "POST",
-                    url: "/review/add",
-                    data: $("#b-modal__form").serialize()
-                }
-            ).done(
-                function () {
-                    $("#b-modal__form").trigger("reset");
-                    $(".b-confirm-reviews").hide();
-                }
-            );
-            return false
-        }
+                $.ajax(
+                    {
+                        type: "POST",
+                        url: "/review/add",
+                        data: $("#b-modal__form").serialize()
+                    }
+                ).done(
+                    function () {
+                        $("#b-modal__form").trigger("reset");
+                        $(".b-confirm-reviews").hide();
+                    }
+                );
+                return false
+            }
             else {
-            $(".rating__info").css("color","red");
-            return false
-        }
+                $(".rating__info").css("color", "red");
+                return false
+            }
 
 
         }

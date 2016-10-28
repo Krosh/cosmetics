@@ -4,23 +4,23 @@ $(document).ready(function () {
             var controller = new slidebars();
             // Initialize Slidebars
             controller.init();
-            $( '.js-open-mmenu-overlay' ).on( 'click', function ( event ) {
+            $('.js-open-mmenu-overlay').on('click', function (event) {
                 event.preventDefault();
                 event.stopPropagation();
-                controller.open( 'mmenu-overlay' );
-            } );
+                controller.open('mmenu-overlay');
+            });
 
-            $( '.js-toggle-mmenu-overlay' ).on( 'click', function ( event ) {
+            $('.js-toggle-mmenu-overlay').on('click', function (event) {
                 event.preventDefault();
                 event.stopPropagation();
-                controller.toggle( 'mmenu-overlay' );
-            } );
+                controller.toggle('mmenu-overlay');
+            });
 
-            $( '.js-close-mmenu-overlay' ).on( 'click', function ( event ) {
+            $('.js-close-mmenu-overlay').on('click', function (event) {
                 event.preventDefault();
                 event.stopPropagation();
-                controller.close( 'mmenu-overlay' );
-            } );
+                controller.close('mmenu-overlay');
+            });
         })(jQuery);
     }
 )

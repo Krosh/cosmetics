@@ -7,7 +7,7 @@
 
 $mainAssets = Yii::app()->getTheme()->getAssetsUrl();
 
-Yii::app()->getClientScript()->registerScriptFile($mainAssets.'/js/store.js');
+Yii::app()->getClientScript()->registerScriptFile($mainAssets . '/js/store.js');
 
 $this->title = Yii::t('CartModule.cart', 'Cart');
 $this->breadcrumbs = [
@@ -36,7 +36,7 @@ $this->breadcrumbs = [
                                 '/store/product/view',
                                 ['name' => $position->slug]
                             ); ?>
-                            <?= CHtml::hiddenField('OrderProduct['.$positionId.'][product_id]', $position->id); ?>
+                            <?= CHtml::hiddenField('OrderProduct[' . $positionId . '][product_id]', $position->id); ?>
                             <input type="hidden" class="position-id" value="<?= $positionId; ?>"/>
 
                             <div class="cart-item js-cart__item">
@@ -47,32 +47,36 @@ $this->breadcrumbs = [
                                     </div>
                                     <div class="cart-item__content grid-module-4">
                                         <?php if ($position->getProductModel()->getCategoryId()): ?>
-                                            <div class="cart-item__category"><?= $position->getProductModel(
-                                                )->category->name ?></div>
+                                            <div class="cart-item__category"><?=
+                                                $position->getProductModel()->category->name ?></div>
                                         <?php endif; ?>
                                         <div class="cart-item__title">
-                                            <a href="<?= $productUrl; ?>" class="cart-item__link"><?= CHtml::encode(
+                                            <a href="<?= $productUrl; ?>" class="cart-item__link"><?=
+                                                CHtml::encode(
                                                     $position->name
                                                 ); ?></a>
                                         </div>
                                         <?php foreach ($position->selectedVariants as $variant): ?>
-                                            <h6><?= $variant->attribute->title; ?>: <?= $variant->getOptionValue(); ?></h6>
+                                            <h6><?= $variant->attribute->title; ?>
+                                                : <?= $variant->getOptionValue(); ?></h6>
                                             <?= CHtml::hiddenField('OrderProduct[' . $positionId . '][variant_ids][]', $variant->id); ?>
                                         <?php endforeach; ?>
                                     </div>
                                 </div>
                                 <div class="cart-item__price">
                                     <span class="position-price"><?= $position->getPrice(); ?></span>
-                                    <span class="ruble"> <?= Yii::t("CartModule.cart", Yii::app()->getModule('store')->currency); ?></span>
+                                    <span
+                                        class="ruble"> <?= Yii::t("CartModule.cart", Yii::app()->getModule('store')->currency); ?></span>
                                 </div>
                                 <div class="cart-item__quantity">
                                 <span data-min-value='1' data-max-value='99' class="spinput js-spinput">
                                     <span class="spinput__minus js-spinput__minus cart-quantity-decrease"
                                           data-target="#cart_<?= $positionId; ?>"></span>
-                                    <?= CHtml::textField(
-                                        'OrderProduct['.$positionId.'][quantity]',
+                                    <?=
+                                    CHtml::textField(
+                                        'OrderProduct[' . $positionId . '][quantity]',
                                         $position->getQuantity(),
-                                        ['id' => 'cart_'.$positionId, 'class' => 'spinput__value position-count']
+                                        ['id' => 'cart_' . $positionId, 'class' => 'spinput__value position-count']
                                     ); ?>
                                     <span class="spinput__plus js-spinput__plus cart-quantity-increase"
                                           data-target="#cart_<?= $positionId; ?>"></span>
@@ -80,7 +84,8 @@ $this->breadcrumbs = [
                                 </div>
                                 <div class="cart-item__summ">
                                     <span class="position-sum-price"><?= $position->getSumPrice(); ?></span>
-                                    <span class="ruble"> <?= Yii::t("CartModule.cart", Yii::app()->getModule('store')->currency); ?></span>
+                                    <span
+                                        class="ruble"> <?= Yii::t("CartModule.cart", Yii::app()->getModule('store')->currency); ?></span>
 
                                     <div class="cart-item__action">
                                         <a class="js-cart__delete cart-delete-product"
@@ -97,15 +102,18 @@ $this->breadcrumbs = [
                     <div class="cart-box__subtotal">
                         Итого: &nbsp;<span id="cart-total-product-count"><?= Yii::app()->cart->getCount(); ?></span>&nbsp;
                         товар(а)
-                        на сумму &nbsp;<span id="cart-full-cost-with-shipping">0</span><span class="ruble"> <?= Yii::t(
+                        на сумму &nbsp;<span id="cart-full-cost-with-shipping">0</span><span class="ruble"> <?=
+                            Yii::t(
                                 "CartModule.cart",
                                 "RUB"
                             ); ?></span>
                     </div>
                     <div class="cart-box__order-button">
-                        <a class="btn_cart btn btn_big btn_primary" href = "<?=$this->createUrl("/cart/delivery");?>"  >Оформить заказ</a>
+                        <a class="btn_cart btn btn_big btn_primary" href="<?= $this->createUrl("/cart/delivery"); ?>">Оформить
+                            заказ</a>
                     </div>
-                    <div class="orded-box__mini-text">Нажимая кнопку «Оформить заказ», я принимаю условия <a href = "Polzovatelskoe_soglashenie.docx">Пользовательского соглашения</a></div>
+                    <div class="orded-box__mini-text">Нажимая кнопку «Оформить заказ», я принимаю условия <a
+                            href="Polzovatelskoe_soglashenie.docx">Пользовательского соглашения</a></div>
                 </div>
             </div>
         </div>

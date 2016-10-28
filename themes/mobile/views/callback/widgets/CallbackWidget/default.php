@@ -19,18 +19,18 @@
 <?= $form->errorSummary($model); ?>
 
 <div class="column grid-module-5">
-<div class="fast-order__inputs">
-    <?= $form->labelEx($model, 'name'); ?>
-    <?= $form->textField($model, 'name', ['class' => 'input input_big']); ?>
-    <?= $form->error($model, 'name') ?>
-</div>
+    <div class="fast-order__inputs">
+        <?= $form->labelEx($model, 'name'); ?>
+        <?= $form->textField($model, 'name', ['class' => 'input input_big']); ?>
+        <?= $form->error($model, 'name') ?>
+    </div>
 </div>
 
 <div class="column grid-module-1" style="height: 50px">
 
 </div>
 <div class="column grid-module-2">
-<div class="fast-order__inputs">
+    <div class="fast-order__inputs">
         <?= $form->labelEx($model, 'phone'); ?>
         <?php $this->widget('CMaskedTextField', [
             'model' => $model,

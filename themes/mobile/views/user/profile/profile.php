@@ -2,7 +2,7 @@
 /**
  * @var CActiveForm $form
  */
-$orders =  Order::model()->findAllByAttributes(
+$orders = Order::model()->findAllByAttributes(
     ['user_id' => Yii::app()->getUser()->getId()],
     ['order' => 'date DESC']
 );
@@ -20,7 +20,7 @@ $this->breadcrumbs = ["Личный кабинет"];
                         'links' => $this->breadcrumbs,
                         'tagName' => 'ul',
                         'separator' => '',
-                        'homeLink' => '<li><a href="'.$this->createUrl("/").'">' . Yii::t('Yii.zii', 'Home') . '</a>',
+                        'homeLink' => '<li><a href="' . $this->createUrl("/") . '">' . Yii::t('Yii.zii', 'Home') . '</a>',
                         'activeLinkTemplate' => '<li><a href="{url}">{label}</a>',
                         'inactiveLinkTemplate' => '<li><a>{label}</a>',
                         'htmlOptions' => []
@@ -62,7 +62,8 @@ $this->breadcrumbs = ["Личный кабинет"];
 
         <div class="fast-order__inputs grid-module-6">
             <div class="column grid-module-4">
-                <?= $form->textField($user, 'email', [
+                <?=
+                $form->textField($user, 'email', [
                     'disabled' => true,
                     'class' => Yii::app()->getUser()->profile->getIsVerifyEmail() ? 'input input_big success' : 'input input_big',
                 ]); ?>
@@ -77,14 +78,16 @@ $this->breadcrumbs = ["Личный кабинет"];
                 <?php } endif ?>
             </div>
             <div class="column grid-module-2 pull-right">
-                <?= CHtml::link(Yii::t('UserModule.user', 'Change email'), ['/user/profile/email'],
+                <?=
+                CHtml::link(Yii::t('UserModule.user', 'Change email'), ['/user/profile/email'],
                     ['class' => 'btn btn_big btn_wide btn_white']) ?>
             </div>
         </div>
 
         <div class="fast-order__inputs">
             <?= $form->labelEx($model, 'gender'); ?>
-            <?= $form->dropDownList($model, 'gender', User::model()->getGendersList(), [
+            <?=
+            $form->dropDownList($model, 'gender', User::model()->getGendersList(), [
                 'data-original-title' => $model->getAttributeLabel('gender'),
                 'data-content' => User::model()->getAttributeDescription('gender'),
                 'class' => 'input input_big'
@@ -111,7 +114,8 @@ $this->breadcrumbs = ["Личный кабинет"];
 
         <div class="fast-order__inputs">
             <?= $form->labelEx($model, 'about'); ?>
-            <?= $form->textArea($model, 'about', [
+            <?=
+            $form->textArea($model, 'about', [
                 'rows' => 7,
                 'class' => 'input input_big'
             ]); ?>
@@ -129,17 +133,19 @@ $this->breadcrumbs = ["Личный кабинет"];
 
         <div class="fast-order__inputs">
             <div class="column grid-module-3">
-                <?= CHtml::submitButton(Yii::t('UserModule.user', 'Save profile'), [
+                <?=
+                CHtml::submitButton(Yii::t('UserModule.user', 'Save profile'), [
                     'class' => 'btn btn_big btn_wide btn_white'
                 ]) ?>
             </div>
             <div class="column grid-module-3 pull-right">
-                <?= CHtml::link(Yii::t('UserModule.user', 'Change password'), ['/user/profile/password'], [
+                <?=
+                CHtml::link(Yii::t('UserModule.user', 'Change password'), ['/user/profile/password'], [
                     'class' => 'btn btn_big btn_wide btn_white'
                 ]) ?>
             </div>
         </div>
         <?php $this->endWidget(); ?>
-        <?php $this->renderPartial("/profile/orders",["orders" => $orders])?>
+        <?php $this->renderPartial("/profile/orders", ["orders" => $orders]) ?>
     </div>
 </div>

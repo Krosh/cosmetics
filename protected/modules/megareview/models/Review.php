@@ -84,9 +84,9 @@ class Review extends yupe\models\YModel
         if ($onlyApproved) {
             $criteria->compare("moderation_status", self::$MODERATION_SUCCESS);
         }
-        $criteria->select = "COUNT(id) as id, AVG(rating) as rating";
+        $criteria->select = "AVG(rating) as rating";
         $review = Review::model()->find($criteria);
-        return ["rating" => $review->rating, "count" => $review->id];
+        return $review->rating;
     }
 
 

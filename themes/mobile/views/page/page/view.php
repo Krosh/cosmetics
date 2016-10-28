@@ -32,8 +32,8 @@ $this->keywords = $model->keywords ? : Yii::app()->getModule('yupe')->siteKeyWor
             </div>
             <div class="page__content">
                 <div class="wysiwyg">
-                <?= $model->body; ?>
-                    </div>
+                    <?= $model->body; ?>
+                </div>
             </div>
         </div>
     </div>

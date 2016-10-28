@@ -19,7 +19,7 @@
             <div class="b-news__description__next-read">
                 <div class="next-read" style="text-align: center"><a href="<?= $data->getUrl(); ?>"> (Читать далее)</a>
                 </div>
-            </span>
+                </span>
             </div>
         </div>
     </div>

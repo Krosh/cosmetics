@@ -127,38 +127,38 @@
                 <div class="content">
                     <?= $content ?>
                 </div>
-             <div class="footer">
-                 <div class="row">
-                     <div class="col-xs-12">
-                      <div class="footer__content">
-                          <div class="b-social">
-                              <div class="b-social__title">
-                                  АлтайЯ в социальных сетях
-                              </div>
-                              <div class="b-social__pic">
-                                <ul class="list-social__pic">
-                                    <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href=""><i class="fa fa-vk"></i></a></li>
-                                    <li><a href=""><i class="fa fa-youtube-play"></i> </a></li>
-                                    <li><a href=""><i class="fa fa-instagram"></i> </a></li>
-                                    <li><a href=""><i class="fa fa fa-odnoklassniki"></i> </a></li>
+                <div class="footer">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="footer__content">
+                                <div class="b-social">
+                                    <div class="b-social__title">
+                                        АлтайЯ в социальных сетях
+                                    </div>
+                                    <div class="b-social__pic">
+                                        <ul class="list-social__pic">
+                                            <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href=""><i class="fa fa-vk"></i></a></li>
+                                            <li><a href=""><i class="fa fa-youtube-play"></i> </a></li>
+                                            <li><a href=""><i class="fa fa-instagram"></i> </a></li>
+                                            <li><a href=""><i class="fa fa fa-odnoklassniki"></i> </a></li>
 
-                                </ul>
-                              </div>
-                              <div class="b-social__title">
-                                  Контакты
-                              </div>
-                              <div class="b-social__info">
-                                  8-919-998-998-5
-                              </div>
-                              <div class="b-social__info">
-                                  Адрес электронной почты zakaz@ayaorganic.ru
-                              </div>
-                          </div>
-                      </div>
-                     </div>
-                 </div>
-             </div>
+                                        </ul>
+                                    </div>
+                                    <div class="b-social__title">
+                                        Контакты
+                                    </div>
+                                    <div class="b-social__info">
+                                        8-919-998-998-5
+                                    </div>
+                                    <div class="b-social__info">
+                                        Адрес электронной почты zakaz@ayaorganic.ru
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

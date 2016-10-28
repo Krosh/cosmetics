@@ -11,8 +11,8 @@
 
 $this->title = [$post->title, Yii::app()->getModule('yupe')->siteName];
 $this->breadcrumbs = [$post->title];
-$this->description = $post->description ?: Yii::app()->getModule('yupe')->siteDescription;
-$this->keywords = $post->tags ?: Yii::app()->getModule('yupe')->siteKeyWords;
+$this->description = $post->description ? : Yii::app()->getModule('yupe')->siteDescription;
+$this->keywords = $post->tags ? : Yii::app()->getModule('yupe')->siteKeyWords;
 ?>
 <style>
     .mejs-controls .mejs-time-rail .mejs-time-total {

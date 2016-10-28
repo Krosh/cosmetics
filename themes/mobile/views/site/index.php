@@ -49,23 +49,23 @@
         $criteria->scopes = ["published"];
         ?>
         <?php foreach ($products as $item): ?>
-        <div class="main__logos_item">
-            <a href="<?= Yii::app()->createUrl('/store/product/view', ['name' => CHtml::encode($item->slug)]); ?>">
-                        <div class="main__logo">
-                            <img src="<?= StoreImage::product($item, 150, 150, false) ?>"/>
-                        </div>
-                        <div class="main__logo_item-title main__pack-title">
-                            <?= $item->title; ?>
-                        </div>
-                        <div class="product-price"><?= $item->getResultPrice() ?><span
-                                class="ruble"> <?= Yii::t("StoreModule.store", Yii::app()->getModule('store')->currency); ?></span>
-                        </div>
-                        <div class="btn btn_cart quick-add-product-to-cart" data-product-id="<?= $item->id; ?>"
-                             data-cart-add-url="<?= Yii::app()->createUrl('/cart/cart/add'); ?>">
-                            <?= Yii::t('StoreModule.store', 'Into cart') ?>
-                        </div>
+            <div class="main__logos_item">
+                <a href="<?= Yii::app()->createUrl('/store/product/view', ['name' => CHtml::encode($item->slug)]); ?>">
+                    <div class="main__logo">
+                        <img src="<?= StoreImage::product($item, 150, 150, false) ?>"/>
+                    </div>
+                    <div class="main__logo_item-title main__pack-title">
+                        <?= $item->title; ?>
+                    </div>
+                    <div class="product-price"><?= $item->getResultPrice() ?><span
+                            class="ruble"> <?= Yii::t("StoreModule.store", Yii::app()->getModule('store')->currency); ?></span>
+                    </div>
+                    <div class="btn btn_cart quick-add-product-to-cart" data-product-id="<?= $item->id; ?>"
+                         data-cart-add-url="<?= Yii::app()->createUrl('/cart/cart/add'); ?>">
+                        <?= Yii::t('StoreModule.store', 'Into cart') ?>
+                    </div>
 
-                    </div> </a>
+            </div> </a>
         <?php endforeach; ?>
     </div>
 </div>

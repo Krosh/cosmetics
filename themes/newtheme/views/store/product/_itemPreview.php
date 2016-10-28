@@ -10,6 +10,7 @@ $basePrice = (float)$data->getBasePrice();
         <a href="<?= $productUrl; ?>">
             <div class="product-vertical__thumbnail">
                 <img src="<?= StoreImage::product($data, 150, 180, false) ?>" class="product-vertical__img"/>
+
                 <div class="b-quick-view">
                     <div class="b-quick-view__btn">
                         <a rel="group-<?= CHtml::encode($data->getName()); ?>" href="<?= StoreImage::product($data) ?>"
@@ -39,8 +40,10 @@ $basePrice = (float)$data->getBasePrice();
                 </div>
             <?php endif; ?>
         </a>
+
         <div class="product-vertical__content"><a href="<?= $productUrl; ?>"
                                                   class="product-vertical__title"><?= CHtml::encode($data->getName()); ?></a>
+
             <div class="product-vertical__price">
                 <div class="product-price"><?= $data->getResultPrice() ?><span
                         class="ruble"> <?= Yii::t("StoreModule.store", Yii::app()->getModule('store')->currency); ?></span>

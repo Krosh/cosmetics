@@ -19,7 +19,7 @@ Yii::import('application.modules.install.InstallModule');
                             'links' => $this->breadcrumbs,
                             'tagName' => 'ul',
                             'separator' => '',
-                            'homeLink' => '<li><a href="'.$this->createUrl("/").'">' . Yii::t('Yii.zii', 'Home') . '</a>',
+                            'homeLink' => '<li><a href="' . $this->createUrl("/") . '">' . Yii::t('Yii.zii', 'Home') . '</a>',
                             'activeLinkTemplate' => '<li><a href="{url}">{label}</a>',
                             'inactiveLinkTemplate' => '<li><a>{label}</a>',
                             'htmlOptions' => []
@@ -35,7 +35,7 @@ Yii::import('application.modules.install.InstallModule');
                 ]); ?>
                 <div class="grid-module-5 float-grid-element">
                     <div class="callback__left-column">
-                        <?= CHtml::hiddenField("FeedBackForm[theme]","Отзыв с сайта"); ?>
+                        <?= CHtml::hiddenField("FeedBackForm[theme]", "Отзыв с сайта"); ?>
 
                         <div class="fast-order__inputs">
                             <?= $form->labelEx($model, 'name'); ?>
@@ -57,7 +57,6 @@ Yii::import('application.modules.install.InstallModule');
                         </div>
 
 
-
                     </div>
                 </div>
                 <div class="grid-module-8 float-grid-element">
@@ -67,7 +66,8 @@ Yii::import('application.modules.install.InstallModule');
                         <?= $form->error($model, 'text') ?>
                     </div>
                     <div class="fast-order__inputs" style="text-align: center">
-                        <?= CHtml::submitButton(Yii::t('FeedbackModule.feedback', 'Send message'), [
+                        <?=
+                        CHtml::submitButton(Yii::t('FeedbackModule.feedback', 'Send message'), [
                             'id' => 'login-btn',
                             'class' => 'btn_cart btn btn_big btn_primary btn_callback',
                         ]) ?>

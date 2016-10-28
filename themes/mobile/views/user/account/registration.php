@@ -42,7 +42,8 @@ $this->breadcrumbs = [Yii::t('UserModule.user', 'Sign up')];
         <?php if ($module->showCaptcha && CCaptcha::checkRequirements()): { ?>
             <div class="fast-order__inputs">
                 <div class="column grid-module-3">
-                    <?= $form->textField($model, 'verifyCode', [
+                    <?=
+                    $form->textField($model, 'verifyCode', [
                         'class' => 'input input_big',
                         'placeholder' => Yii::t('UserModule.user', 'Please enter the text from the image')
                     ]); ?>
@@ -67,7 +68,8 @@ $this->breadcrumbs = [Yii::t('UserModule.user', 'Sign up')];
 
         <div class="fast-order__inputs">
             <div class="column grid-module-3">
-                <?= CHtml::submitButton(Yii::t('UserModule.user', 'Sign up'), [
+                <?=
+                CHtml::submitButton(Yii::t('UserModule.user', 'Sign up'), [
                     'class' => 'btn_cart btn btn_big btn_wide btn_white'
                 ]) ?>
             </div>

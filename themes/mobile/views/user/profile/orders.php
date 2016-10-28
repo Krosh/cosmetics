@@ -14,14 +14,15 @@ $this->title = Yii::t('OrderModule.order', 'Personal account');
                     <div class="cart-item">
                         <div class="cart-list__column_info"><?= date('d.m.Y в H:i', strtotime($order->date)); ?></div>
                         <div class="cart-list__column_info">
-                            <?= CHtml::link(
+                            <?=
+                            CHtml::link(
                                 Yii::t('OrderModule.order', 'Order #{n}', [$order->id]),
                                 ['/order/order/view', 'url' => $order->url],
                                 ['class' => 'cart-item__link']
                             ) . ($order->paid ? ' - ' . $order->getPaidStatus() : ''); ?>
                         </div>
                         <div class="cart-list__column_info">
-                            <?= $order->getProductsCost();  ?>
+                            <?= $order->getProductsCost(); ?>
                         </div>
                         <div class="cart-item__quantity"><?= $order->status->getTitle(); ?></div>
                     </div>
