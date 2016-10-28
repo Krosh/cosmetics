@@ -40,6 +40,7 @@
     Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/rating.css');
     Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/jquery.rating.css');
     Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/jquery.fancybox.css');
+    Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/rateit.css');
     Yii::app()->getClientScript()->registerCssFile('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css');
 
     Yii::app()->getClientScript()->registerCssFile($this->mainAssets . '/styles/camera.css');
@@ -67,6 +68,7 @@
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/rating.min.js', CClientScript::POS_END);
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/jquery.rating-2.0.js', CClientScript::POS_END);
     Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/jquery.rating.js', CClientScript::POS_END);
+    Yii::app()->getClientScript()->registerScriptFile($this->mainAssets . '/js/jquery.rateit.js', CClientScript::POS_END);
     ?>
     <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-touch-icon-60x60.png">

@@ -387,7 +387,7 @@ $reviews = Review::getByProduct($product->id);
         </div>
     </div>
 </div>
-<div id="dialog-confirm" title="Отзыв о <?= CHtml::encode($product->name); ?>">
+<div class="js-dialog-confirm" id="dialog-confirm" title="Отзыв о <?= CHtml::encode($product->name); ?>">
     <?php if (Yii::app()->user->getId() > 0): ?>
         <div class="b-modal-reviews">
             <div class="b-modal-reviews__head">
@@ -396,8 +396,7 @@ $reviews = Review::getByProduct($product->id);
                 </div>
                 <div class="b-modal-reviews__rating">
                     <div style="display: inline-block">
-                        <div id="js-modal-rating">
-                            <input type="hidden" name="val" value="4"/>
+                        <div class="rateit">
                         </div>
                     </div>
                 </div>
@@ -448,6 +447,8 @@ $reviews = Review::getByProduct($product->id);
 <script>
     $("#b-modal__form").submit(
         function () {
+            var stars = $('.rateit').rateit('value');
+            $("#modal__rating").val(stars-1);
             $.ajax(
                 {
                     type: "POST",
@@ -456,6 +457,7 @@ $reviews = Review::getByProduct($product->id);
                 }
             ).done(
                 function () {
+                    $("#b-modal__form").trigger("reset");
                     $('#dialog-confirm').dialog('close');
                     $('#dialog-close').dialog('open');
                     setTimeout(function () {
