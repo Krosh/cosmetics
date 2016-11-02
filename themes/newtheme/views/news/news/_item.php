@@ -22,9 +22,9 @@
                 </div>
                 <span style="padding-bottom: 5px;border-bottom: 1px solid #90c921">
                 <span class="news-reviews"> <img src="<?= $this->mainAssets ?>/images/news-customer-reviews.png"
-                                                 alt=""> Отзывов: 124  </span>
+                                                 alt=""> Комментариев: <?= $data->getCommentCount(); ?>  </span>
                 <span class="news-view"> <img src="<?= $this->mainAssets ?>/images/news-eye.png"
-                                              alt="">Просмотров: 1254 </span>
+                                              alt="">Просмотров: <?= $data->views_count; ?> </span>
             </span>
             </div>
         </div>

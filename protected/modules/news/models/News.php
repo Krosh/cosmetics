@@ -24,6 +24,7 @@
  * @property string $full_text
  * @property integer $user_id
  * @property integer $status
+ * @property integer $views_count
  * @property integer $is_protected
  * @property string  $link
  * @property string  $image
@@ -96,16 +97,16 @@ class News extends yupe\models\YModel
 
         return [
             'imageUpload' => [
-                'class'         => 'yupe\components\behaviors\ImageUploadBehavior',
+                'class' => 'yupe\components\behaviors\ImageUploadBehavior',
                 'attributeName' => 'image',
-                'minSize'       => $module->minSize,
-                'maxSize'       => $module->maxSize,
-                'types'         => $module->allowedExtensions,
-                'uploadPath'    => $module->uploadPath,
+                'minSize' => $module->minSize,
+                'maxSize' => $module->maxSize,
+                'types' => $module->allowedExtensions,
+                'uploadPath' => $module->uploadPath,
             ],
-            'seo'         => [
-                'class'  => 'vendor.chemezov.yii-seo.behaviors.SeoActiveRecordBehavior',
-                'route'  => '/news/news/view',
+            'seo' => [
+                'class' => 'vendor.chemezov.yii-seo.behaviors.SeoActiveRecordBehavior',
+                'route' => '/news/news/view',
                 'params' => [
                     'slug' => function ($data) {
                         return $data->slug;
@@ -122,7 +123,7 @@ class News extends yupe\models\YModel
     {
         return [
             'category' => [self::BELONGS_TO, 'Category', 'category_id'],
-            'user'     => [self::BELONGS_TO, 'User', 'user_id'],
+            'user' => [self::BELONGS_TO, 'User', 'user_id'],
         ];
     }
 
@@ -131,17 +132,17 @@ class News extends yupe\models\YModel
         return [
             'published' => [
                 'condition' => 't.status = :status',
-                'params'    => [':status' => self::STATUS_PUBLISHED],
+                'params' => [':status' => self::STATUS_PUBLISHED],
             ],
             'protected' => [
                 'condition' => 't.is_protected = :is_protected',
-                'params'    => [':is_protected' => self::PROTECTED_YES],
+                'params' => [':is_protected' => self::PROTECTED_YES],
             ],
-            'public'    => [
+            'public' => [
                 'condition' => 't.is_protected = :is_protected',
-                'params'    => [':is_protected' => self::PROTECTED_NO],
+                'params' => [':is_protected' => self::PROTECTED_NO],
             ],
-            'recent'    => [
+            'recent' => [
                 'order' => 'create_time DESC',
                 'limit' => 5,
             ]
@@ -165,7 +166,7 @@ class News extends yupe\models\YModel
         $this->getDbCriteria()->mergeWith(
             [
                 'condition' => 'lang = :lang',
-                'params'    => [':lang' => $lang],
+                'params' => [':lang' => $lang],
             ]
         );
 
@@ -177,7 +178,7 @@ class News extends yupe\models\YModel
         $this->getDbCriteria()->mergeWith(
             [
                 'condition' => 'category_id = :category_id',
-                'params'    => [':category_id' => $category_id],
+                'params' => [':category_id' => $category_id],
             ]
         );
 
@@ -190,23 +191,23 @@ class News extends yupe\models\YModel
     public function attributeLabels()
     {
         return [
-            'id'            => Yii::t('NewsModule.news', 'Id'),
-            'category_id'   => Yii::t('NewsModule.news', 'Category'),
+            'id' => Yii::t('NewsModule.news', 'Id'),
+            'category_id' => Yii::t('NewsModule.news', 'Category'),
             'create_time' => Yii::t('NewsModule.news', 'Created at'),
-            'update_time'   => Yii::t('NewsModule.news', 'Updated at'),
-            'date'          => Yii::t('NewsModule.news', 'Date'),
-            'title'         => Yii::t('NewsModule.news', 'Title'),
-            'slug'         => Yii::t('NewsModule.news', 'Alias'),
-            'image'         => Yii::t('NewsModule.news', 'Image'),
-            'link'          => Yii::t('NewsModule.news', 'Link'),
-            'lang'          => Yii::t('NewsModule.news', 'Language'),
-            'short_text'    => Yii::t('NewsModule.news', 'Short text'),
-            'full_text'     => Yii::t('NewsModule.news', 'Full text'),
-            'user_id'       => Yii::t('NewsModule.news', 'Author'),
-            'status'        => Yii::t('NewsModule.news', 'Status'),
-            'is_protected'  => Yii::t('NewsModule.news', 'Access only for authorized'),
-            'keywords'      => Yii::t('NewsModule.news', 'Keywords (SEO)'),
-            'description'   => Yii::t('NewsModule.news', 'Description (SEO)'),
+            'update_time' => Yii::t('NewsModule.news', 'Updated at'),
+            'date' => Yii::t('NewsModule.news', 'Date'),
+            'title' => Yii::t('NewsModule.news', 'Title'),
+            'slug' => Yii::t('NewsModule.news', 'Alias'),
+            'image' => Yii::t('NewsModule.news', 'Image'),
+            'link' => Yii::t('NewsModule.news', 'Link'),
+            'lang' => Yii::t('NewsModule.news', 'Language'),
+            'short_text' => Yii::t('NewsModule.news', 'Short text'),
+            'full_text' => Yii::t('NewsModule.news', 'Full text'),
+            'user_id' => Yii::t('NewsModule.news', 'Author'),
+            'status' => Yii::t('NewsModule.news', 'Status'),
+            'is_protected' => Yii::t('NewsModule.news', 'Access only for authorized'),
+            'keywords' => Yii::t('NewsModule.news', 'Keywords (SEO)'),
+            'description' => Yii::t('NewsModule.news', 'Description (SEO)'),
         ];
     }
 
@@ -273,15 +274,15 @@ class News extends yupe\models\YModel
 
         return new CActiveDataProvider(get_class($this), [
             'criteria' => $criteria,
-            'sort'     => ['defaultOrder' => 'date DESC'],
+            'sort' => ['defaultOrder' => 'date DESC'],
         ]);
     }
 
     public function getStatusList()
     {
         return [
-            self::STATUS_DRAFT      => Yii::t('NewsModule.news', 'Draft'),
-            self::STATUS_PUBLISHED  => Yii::t('NewsModule.news', 'Published'),
+            self::STATUS_DRAFT => Yii::t('NewsModule.news', 'Draft'),
+            self::STATUS_PUBLISHED => Yii::t('NewsModule.news', 'Published'),
             self::STATUS_MODERATION => Yii::t('NewsModule.news', 'On moderation'),
         ];
     }
@@ -296,7 +297,7 @@ class News extends yupe\models\YModel
     public function getProtectedStatusList()
     {
         return [
-            self::PROTECTED_NO  => Yii::t('NewsModule.news', 'no'),
+            self::PROTECTED_NO => Yii::t('NewsModule.news', 'no'),
             self::PROTECTED_YES => Yii::t('NewsModule.news', 'yes'),
         ];
     }
@@ -316,6 +317,16 @@ class News extends yupe\models\YModel
     public function getFlag()
     {
         return yupe\helpers\YText::langToflag($this->lang);
+    }
+
+    public function getCommentCount()
+    {
+        $comments = Yii::app()->commentManager->getCommentsForModel(
+            get_class($this),
+            $this->id,
+            1
+        );
+        return count($comments);
     }
 
     /**

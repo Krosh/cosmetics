@@ -86,7 +86,7 @@ class Review extends yupe\models\YModel
         }
         $criteria->select = "AVG(rating) as rating";
         $review = Review::model()->find($criteria);
-        return $review->rating;
+        return ($review->rating > 0 ? $review->rating : 4);
     }
 
 

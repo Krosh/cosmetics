@@ -34,6 +34,9 @@ class NewsController extends \yupe\components\controllers\FrontController
             $this->redirect([Yii::app()->getModule('user')->accountActivationSuccess]);
         }
 
+        $model->views_count++;
+        $model->save();
+
         $this->render('view', ['model' => $model]);
     }
 

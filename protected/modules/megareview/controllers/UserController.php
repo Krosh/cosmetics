@@ -137,6 +137,7 @@ class UserController extends \yupe\components\controllers\FrontController
                             if (!$user->save())
                                 var_dump($user->getErrors());
 
+                            var_dump($attributes);
                             $megauser->avatar_path = $attributes["photo_medium"];
                             $megauser->adres = $attributes["city"];
                             $megauser->id_from_social = $attributes["id"];
