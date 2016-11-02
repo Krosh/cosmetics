@@ -160,7 +160,7 @@
 </div>
 <div class="main__hit-slider grid" style="padding: 3px">
     <div class="b-audio-feedback__title">
-        <a href="#">Все аудио- и видео-отзывы </a>
+        <a href="/pages/otzyvy">Все аудио- и видео-отзывы </a>
     </div>
 </div>
 <div class="main__hit-slider grid">
