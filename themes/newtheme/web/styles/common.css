@@ -469,7 +469,7 @@ a {
 .breadcrumbs ul li:after {
     position: absolute;
     right: 10px;
-    top: calc(50% -6px);
+    top: calc(50% - 6px);
     display: block;
     width: 12px;
     height: 12px;
@@ -1079,7 +1079,7 @@ a {
 .dropdown-menu {
     position: absolute;
     left: -30px;
-    width: calc(100% +60px);
+    width: calc(100% + 60px);
     padding: 20px 20px 15px;
     z-index: 10;
     display: none;
@@ -1126,7 +1126,7 @@ a {
 .dropdown-menu:before {
     position: absolute;
     top: -20px;
-    left: calc(50% -5px);
+    left: calc(50% - 5px);
     border: 10px solid;
     border-color: transparent transparent #fff;
     content: ''
@@ -3282,7 +3282,7 @@ a {
 .promo-slider .slick__dot {
     position: absolute;
     bottom: 40px;
-    left: calc(50% -100px);
+    left: calc(50% - 100px);
     width: 200px;
     text-align: center
 }
@@ -3688,7 +3688,7 @@ span.required {
 .sorter a.asc:after, .sorter a.desc:after {
     position: absolute;
     right: -12px;
-    top: calc(50% -5px);
+    top: calc(50% - 5px);
     width: 12px;
     height: 12px;
     content: ""
@@ -3922,7 +3922,7 @@ span.required {
     padding-left: 6px;
     width: 12px;
     height: 12px;
-    top: calc(50% -5px);
+    top: calc(50% - 5px);
     background: url(../images/icon-arrow_down.png) center no-repeat;
     content: ''
 }
