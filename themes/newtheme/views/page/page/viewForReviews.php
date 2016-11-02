@@ -75,7 +75,7 @@ $this->keywords = $model->keywords ?: Yii::app()->getModule('yupe')->siteKeyWord
                             </div>
                         <?php endif; ?>
                         <?php if ($item->has_video): ?>
-                            <div class="b-youtube">
+                            <div class="b-youtube" style="text-align: center">
                                 <a class="video-youtube" title="Отзыв"
                                    href="<?= $item->getVideoPath(); ?>">
                                     <?= $item->getVideoPath(); ?>
