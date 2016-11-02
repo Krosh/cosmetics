@@ -52,9 +52,6 @@ $this->keywords = $model->keywords ?: Yii::app()->getModule('yupe')->siteKeyWord
                                 <div class="b-audio-feedback__info-author">
                                     <div class="b-audio-feedback__name">
                                         <?= $item->megauser->fio; ?>
-                                        <div class="b-audio-feedback__city">
-                                            <?= $item->megauser->adres; ?>
-                                        </div>
                                         <div class="b-audio-feedback__date">
                                             <?= $item->getDateAsString(); ?>
                                         </div>
