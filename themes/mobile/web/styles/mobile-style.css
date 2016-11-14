@@ -581,3 +581,11 @@ ul {
 #btn-reviews {
     margin-top: 30px;
 }
+.product-label__text {
+    padding: 5px;
+    color: white;
+    background-color: #af86ba;
+    display: inline-block;
+    margin: 5px;
+    border-radius: 50%;
+}

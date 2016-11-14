@@ -46,8 +46,22 @@ $reviews = Review::getByProduct($product->id);
                             <img src="<?= StoreImage::product($product); ?>" class="product-gallery__main-img">
                         </div>
                     </div>
+                    <?php if ($product->isSpecial()): ?>
+                        <div class="product-gallery__label">
+                            <div class="product-label product-label_hit big-label">
+                                <div class="product-label__text">Хит</div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <?php $hraneniya = $product->attribute(Attribute::model()->findByAttributes(['name' => "novinka"])); ?>
+                    <?php if ($hraneniya != null): ?>
+                        <div class="product-gallery__label">
+                            <div class="product-label product-label_hit">
+                                <div class="product-label__text">NEW</div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                     <div class="product__rating">
-
                         Рейтинг: <?= Review::getRating($product->id); ?>
                         <div class="rating-count">
                             Оценки (<?= count($reviews); ?>)

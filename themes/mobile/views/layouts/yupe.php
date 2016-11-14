@@ -137,11 +137,11 @@
                                     </div>
                                     <div class="b-social__pic">
                                         <ul class="list-social__pic">
-                                            <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                                            <li><a href=""><i class="fa fa-vk"></i></a></li>
-                                            <li><a href=""><i class="fa fa-youtube-play"></i> </a></li>
-                                            <li><a href=""><i class="fa fa-instagram"></i> </a></li>
-                                            <li><a href=""><i class="fa fa fa-odnoklassniki"></i> </a></li>
+                                            <li><a href="https://www.facebook.com/ayaorganic.ru"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="http://vk.com/ayaorganic"><i class="fa fa-vk"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-youtube-play"></i> </a></li>
+                                            <li><a href="https://www.instagram.com/ayaorganic.ru/"><i class="fa fa-instagram"></i> </a></li>
+                                            <li><a href="http://ok.ru/group/53041416044757"><i class="fa fa fa-odnoklassniki"></i> </a></li>
 
                                         </ul>
                                     </div>

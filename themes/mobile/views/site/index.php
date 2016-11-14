@@ -96,7 +96,7 @@
 </div>
 <div class="main__hit-slider grid" style="padding: 3px">
     <div class="b-audio-feedback__title">
-        <a href="#">Все отзывы </a>
+        <a href="/pages/otzyvy">Все отзывы </a>
     </div>
 </div>
 <div class="main__hit-slider grid">
